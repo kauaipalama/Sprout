@@ -10,9 +10,10 @@ import Foundation
 import CoreData
 
 extension PlantRecord {
-    convenience init(ph: Float, conductivity: Float, volume: Float, water_feedNotes: String, plantHealth: Int16, plantHealthNotes: String, plantImage: Data, context: NSManagedObjectContext = CoreDataStack.context) {
+    @discardableResult convenience init(date: Date = Date(), ph: Float = 0, conductivity: Float = 0, volume: Float = 0, water_feedNotes: String? = nil, plantHealth: Int16 = 0, plantHealthNotes: String? = nil, plantImage: Data? = nil, context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
+        self.date = date
         self.ph = ph
         self.conductivity = conductivity
         self.volume = volume

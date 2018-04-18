@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="PlantRecord" representedClassName="PlantRecord" syncable="YES" codeGenerationType="class">
         <attribute name="conductivity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="ph" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="plantHealth" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="plantHealthNotes" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,7 +16,7 @@
         <relationship name="plantRecords" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlantRecord" inverseName="plantType" inverseEntity="PlantRecord" syncable="YES"/>
     </entity>
     <elements>
+        <element name="PlantRecord" positionX="-54" positionY="0" width="128" height="180"/>
         <element name="PlantType" positionX="-315" positionY="-12" width="128" height="73"/>
-        <element name="PlantRecord" positionX="-54" positionY="0" width="128" height="163"/>
     </elements>
 </model>

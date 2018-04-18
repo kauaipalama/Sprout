@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 extension PlantType {
-    convenience init(type: String, context: NSManagedObjectContext = CoreDataStack.context){
+    @discardableResult convenience init(type: String, context: NSManagedObjectContext = CoreDataStack.context){
         
         self.init(context: context)
         self.type = type

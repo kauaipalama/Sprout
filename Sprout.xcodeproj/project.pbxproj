@@ -13,6 +13,8 @@
 		B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2242087AB1500423A70 /* PlantType+Convenience.swift */; };
 		B40EA2272087AB2200423A70 /* PlantRecord+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2262087AB2200423A70 /* PlantRecord+Convenience.swift */; };
 		B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2282087AB8A00423A70 /* CoreDataStack.swift */; };
+		B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */; };
+		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
 		B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA20472084F2A000707DF6 /* AppDelegate.swift */; };
 		B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA204B2084F2A000707DF6 /* Main.storyboard */; };
 		B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */; };
@@ -27,6 +29,8 @@
 		B40EA2242087AB1500423A70 /* PlantType+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantType+Convenience.swift"; sourceTree = "<group>"; };
 		B40EA2262087AB2200423A70 /* PlantRecord+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlantRecord+Convenience.swift"; sourceTree = "<group>"; };
 		B40EA2282087AB8A00423A70 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeController.swift; sourceTree = "<group>"; };
+		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
 		B4AA20442084F2A000707DF6 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AA20472084F2A000707DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AA204C2084F2A000707DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +67,15 @@
 			path = "View Controllers";
 			sourceTree = "<group>";
 		};
+		B40EA22A2087B7A200423A70 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */,
+				B40EA22F2087B80700423A70 /* PlantRecordController.swift */,
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
 		B4AA203B2084F2A000707DF6 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				B4AA205C2084F5CE00707DF6 /* CoreData */,
+				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
 				B40EA21C2086A93C00423A70 /* Views */,
 				B4AA205E2084F5E900707DF6 /* UI */,
@@ -195,7 +209,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */,
+				B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */,
 				B40EA2272087AB2200423A70 /* PlantRecord+Convenience.swift in Sources */,
+				B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */,
 				B40EA2212086A96500423A70 /* CalendarViewController.swift in Sources */,
 				B40EA21F2086A95A00423A70 /* CalendarCollectionViewCell.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17D102" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="PlantRecord" representedClassName="PlantRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="conductivity" optional="YES" attributeType="Float" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ph" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="plantHealth" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="plantHealthNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plantImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="water_feedNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="plantType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantType" inverseName="plantRecords" inverseEntity="PlantType" syncable="YES"/>
+    </entity>
+    <entity name="PlantType" representedClassName="PlantType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="plantRecords" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="PlantRecord" inverseName="plantType" inverseEntity="PlantRecord" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="PlantType" positionX="-315" positionY="-12" width="128" height="73"/>
+        <element name="PlantRecord" positionX="-54" positionY="0" width="128" height="163"/>
+    </elements>
+</model>

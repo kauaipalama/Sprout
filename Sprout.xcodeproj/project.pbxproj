@@ -15,6 +15,8 @@
 		B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2282087AB8A00423A70 /* CoreDataStack.swift */; };
 		B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */; };
 		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
+		B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */; };
+		B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */; };
 		B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA20472084F2A000707DF6 /* AppDelegate.swift */; };
 		B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA204B2084F2A000707DF6 /* Main.storyboard */; };
 		B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */; };
@@ -31,6 +33,8 @@
 		B40EA2282087AB8A00423A70 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeController.swift; sourceTree = "<group>"; };
 		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
+		B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeTableViewController.swift; sourceTree = "<group>"; };
+		B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeDetailViewController.swift; sourceTree = "<group>"; };
 		B4AA20442084F2A000707DF6 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AA20472084F2A000707DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AA204C2084F2A000707DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +66,8 @@
 		B40EA21D2086A94400423A70 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */,
+				B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */,
 				B40EA2202086A96500423A70 /* CalendarViewController.swift */,
 			);
 			path = "View Controllers";
@@ -215,7 +221,9 @@
 				B40EA2212086A96500423A70 /* CalendarViewController.swift in Sources */,
 				B40EA21F2086A95A00423A70 /* CalendarCollectionViewCell.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,
+				B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
+				B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */,
 				B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,7 +11,8 @@ import UIKit
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     
-    //Properties
+    // MARK: - Properties
+    
     var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var currentMonthIndex = 0
     var currentYear = 0
@@ -21,11 +22,13 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var todaysDate = 0
     var firstWeekDayOfMonth = 0
     
-    //Outlets
+    // MARK: - Outlets
+    
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     
-    //Life-Cycle Function
+    // MARK: - LifeCycle Function
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         currentMonthIndex = Calendar.current.component(.month, from: Date())
@@ -42,14 +45,16 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 
     }
     
-    //First Week Day Helper Function
+    // MARK: - Helper Functions
+    
     func getFirstWeekDay() -> Int {
         print("getFirstWeekDay: \(currentYear) \(currentMonthIndex)")
         let day = ("\(currentYear)-\(currentMonthIndex)-01".date?.firstDayOfTheMonth.weekday)!
         return day == 7 ? 1 : day
     }
     
-    //Actions
+    // MARK: - Actions
+    
     @IBAction func nextButtonTapped(_ sender: Any) {
         currentMonthIndex += 1
         if currentMonthIndex > 12 {
@@ -79,7 +84,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         print("detailButtonTapped")
     }
     
-    //CollectionViewFlowLayout
+    // MARK: - CollectionViewFlowLayout
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = collectionView.frame.width/7 - 8
         let height: CGFloat = 40
@@ -94,7 +100,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return 8.0
     }
     
-    //CollectionViewDataSource
+    // MARK: - CollectionViewDataSource
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return numberOfDaysInMonth[currentMonthIndex-1] + firstWeekDayOfMonth - 1
     }
@@ -120,7 +127,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return cell
     }
     
-    //For Highlighting Cells
+    //Implement For Highlighting Cells
 //    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
 //        <#code#>
 //    }
@@ -149,6 +156,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
 }
 
 //Extentions
+
 extension Date {
     var weekday: Int {
         return Calendar.current.component(.weekday, from: self)

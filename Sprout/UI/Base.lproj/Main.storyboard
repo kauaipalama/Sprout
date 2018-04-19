@@ -15,22 +15,23 @@
         <!--Sprout-->
         <scene sceneID="rn4-YJ-exR">
             <objects>
-                <tableViewController id="ROo-Qx-RZT" sceneMemberID="viewController">
+                <tableViewController id="ROo-Qx-RZT" customClass="PlantTypeTableViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="dSA-sS-iDE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Izv-MZ-t0M">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="plantTypeCell" id="Izv-MZ-t0M">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Izv-MZ-t0M" id="AyN-0r-jGj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <color key="tintColor" red="0.97648364310000002" green="0.97644716499999995" blue="0.97647196049999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.97648364310000002" green="0.97644716499999995" blue="0.97647196049999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <segue destination="iSt-4U-uef" kind="show" id="GaR-nf-Hvd"/>
+                                    <segue destination="iSt-4U-uef" kind="show" identifier="toWater_FeedVC" id="GaR-nf-Hvd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -39,7 +40,13 @@
                             <outlet property="delegate" destination="ROo-Qx-RZT" id="Rg3-sa-xML"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Sprout" id="C1p-Fx-FfZ"/>
+                    <navigationItem key="navigationItem" title="Sprout" id="C1p-Fx-FfZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="MFI-V7-5WS">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="ROo-Qx-RZT" id="l9a-CC-5gI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iem-af-9Tw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +146,7 @@
                                                 <state key="normal" title="2"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGY-oL-tFj">
-                                                <rect key="frame" x="129" y="0.0" width="64" height="65"/>
+                                                <rect key="frame" x="129" y="0.0" width="64" height="64.5"/>
                                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="iGY-oL-tFj" secondAttribute="height" multiplier="1:1" id="zaB-KN-mf1"/>
@@ -289,6 +296,7 @@
                                     </textView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="5Hj-gR-UVi" firstAttribute="top" secondItem="fxF-JN-Ibs" secondAttribute="bottom" constant="12" id="jtJ-MX-v9V"/>
                                     <constraint firstItem="fxF-JN-Ibs" firstAttribute="width" secondItem="AbS-bH-Iwd" secondAttribute="width" multiplier="0.75" constant="40.25" id="tYq-Bc-oAe"/>
                                 </constraints>
                             </stackView>
@@ -296,8 +304,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AbS-bH-Iwd" firstAttribute="centerY" secondItem="AUL-H6-ky0" secondAttribute="centerY" multiplier="1.05" id="4it-RS-h8a"/>
+                            <constraint firstItem="5Hj-gR-UVi" firstAttribute="width" secondItem="AUL-H6-ky0" secondAttribute="width" multiplier="0.85" id="Chr-ac-8Tf"/>
                             <constraint firstItem="AbS-bH-Iwd" firstAttribute="height" secondItem="AUL-H6-ky0" secondAttribute="height" multiplier="0.75" id="Kos-ue-WzY"/>
                             <constraint firstItem="AbS-bH-Iwd" firstAttribute="width" secondItem="AUL-H6-ky0" secondAttribute="width" id="bPc-Pu-1db"/>
+                            <constraint firstItem="5Hj-gR-UVi" firstAttribute="centerX" secondItem="WmE-vd-BeW" secondAttribute="centerX" id="cv3-wS-Cdw"/>
                             <constraint firstItem="AbS-bH-Iwd" firstAttribute="centerX" secondItem="AUL-H6-ky0" secondAttribute="centerX" id="tal-yb-fZL"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WmE-vd-BeW"/>

@@ -13,6 +13,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     
     // MARK: - Properties
     
+    var plantType: PlantType?
+    
     var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var currentMonthIndex = 0
     var currentYear = 0

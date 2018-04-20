@@ -100,7 +100,7 @@ class PlantTypeTableViewController: UITableViewController {
      // MARK: - Navigation
     
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toWater_FeedVC",
+        if segue.identifier == "toPlantTypeDetailVC",
             let indexPath = tableView.indexPathForSelectedRow {
             let plantType = PlantTypeController.shared.plantTypes[indexPath.row]
             let plantTypeDetailVC = segue.destination as? PlantTypeDetailViewController

@@ -11,27 +11,25 @@ import UIKit
 class PlantTypeDetailViewController: UIViewController {
     
     var plantType: PlantType?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
-
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toWater_feedVC" {
+            let plantType = self.plantType
+            let water_FeedVC = segue.destination as? Water_FeedViewController
+            water_FeedVC?.plantType = plantType
+        } else if segue.identifier == "toPlantHealthVC" {
+            let plantType = self.plantType
+            let plantHealthVC = segue.destination as? PlantHealthViewController
+            plantHealthVC?.plantType = plantType
+        } else if segue.identifier == "toCalendarVC" {
+            let plantType = self.plantType
+            let calendarVC = segue.destination as? CalendarViewController
+            calendarVC?.plantType = plantType
+        }
     }
-    */
-
 }

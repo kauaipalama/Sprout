@@ -17,6 +17,10 @@
 		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
 		B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */; };
 		B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */; };
+		B456D6412089A4A200489F23 /* Water_FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6402089A4A200489F23 /* Water_FeedViewController.swift */; };
+		B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6422089A4B000489F23 /* PlantHealthViewController.swift */; };
+		B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6442089A67900489F23 /* PlantRecordViewController.swift */; };
+		B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6462089A70500489F23 /* PhotoDetailViewController.swift */; };
 		B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA20472084F2A000707DF6 /* AppDelegate.swift */; };
 		B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA204B2084F2A000707DF6 /* Main.storyboard */; };
 		B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */; };
@@ -35,6 +39,10 @@
 		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
 		B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeTableViewController.swift; sourceTree = "<group>"; };
 		B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeDetailViewController.swift; sourceTree = "<group>"; };
+		B456D6402089A4A200489F23 /* Water_FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_FeedViewController.swift; sourceTree = "<group>"; };
+		B456D6422089A4B000489F23 /* PlantHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantHealthViewController.swift; sourceTree = "<group>"; };
+		B456D6442089A67900489F23 /* PlantRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordViewController.swift; sourceTree = "<group>"; };
+		B456D6462089A70500489F23 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		B4AA20442084F2A000707DF6 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AA20472084F2A000707DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4AA204C2084F2A000707DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,7 +76,11 @@
 			children = (
 				B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */,
 				B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */,
+				B456D6402089A4A200489F23 /* Water_FeedViewController.swift */,
+				B456D6422089A4B000489F23 /* PlantHealthViewController.swift */,
+				B456D6462089A70500489F23 /* PhotoDetailViewController.swift */,
 				B40EA2202086A96500423A70 /* CalendarViewController.swift */,
+				B456D6442089A67900489F23 /* PlantRecordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -101,11 +113,11 @@
 		B4AA20462084F2A000707DF6 /* Sprout */ = {
 			isa = PBXGroup;
 			children = (
+				B4AA205E2084F5E900707DF6 /* UI */,
 				B4AA205C2084F5CE00707DF6 /* CoreData */,
 				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
 				B40EA21C2086A93C00423A70 /* Views */,
-				B4AA205E2084F5E900707DF6 /* UI */,
 				B4AA205D2084F5E000707DF6 /* Resources */,
 			);
 			path = Sprout;
@@ -217,13 +229,17 @@
 				B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */,
 				B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */,
 				B40EA2272087AB2200423A70 /* PlantRecord+Convenience.swift in Sources */,
+				B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */,
 				B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */,
 				B40EA2212086A96500423A70 /* CalendarViewController.swift in Sources */,
+				B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */,
+				B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */,
 				B40EA21F2086A95A00423A70 /* CalendarCollectionViewCell.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,
 				B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
 				B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */,
+				B456D6412089A4A200489F23 /* Water_FeedViewController.swift in Sources */,
 				B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

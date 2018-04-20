@@ -31,7 +31,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.97648364310000002" green="0.97644716499999995" blue="0.97647196049999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
-                                    <segue destination="iSt-4U-uef" kind="show" identifier="toWater_FeedVC" id="GaR-nf-Hvd"/>
+                                    <segue destination="iSt-4U-uef" kind="show" identifier="toPlantTypeDetailVC" id="GaR-nf-Hvd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -52,10 +52,10 @@
             </objects>
             <point key="canvasLocation" x="-368" y="-119"/>
         </scene>
-        <!--View Controller-->
+        <!--Plant Type Detail View Controller-->
         <scene sceneID="66H-PK-YiI">
             <objects>
-                <viewController id="iSt-4U-uef" sceneMemberID="viewController">
+                <viewController id="iSt-4U-uef" customClass="PlantTypeDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CIe-wn-jBR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -71,7 +71,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="LxJ-7Z-ttF" kind="show" id="8Vu-jO-dbt"/>
+                                            <action selector="water_feedButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="7wG-Md-W9H"/>
+                                            <segue destination="LxJ-7Z-ttF" kind="show" identifier="toWater_feedVC" id="8Vu-jO-dbt"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru3-Gx-E4r">
@@ -82,7 +83,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="h2D-cN-NyS" kind="show" id="32y-rR-NcP"/>
+                                            <action selector="plantHealthButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="PB1-7m-KKW"/>
+                                            <segue destination="h2D-cN-NyS" kind="show" identifier="toPlantHealthVC" id="32y-rR-NcP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6Y-KF-B4o">
@@ -93,7 +95,8 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="wYC-Dj-2EJ" kind="show" id="8Xs-ss-br2"/>
+                                            <action selector="calendarButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="bho-EN-DTp"/>
+                                            <segue destination="wYC-Dj-2EJ" kind="show" identifier="toCalendarVC" id="8Xs-ss-br2"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -110,10 +113,11 @@
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rua-bD-wcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zTg-Hm-ixt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="469.60000000000002" y="-119.1904047976012"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="hco-pq-KVe">
             <objects>
                 <viewController id="h2D-cN-NyS" sceneMemberID="viewController">
@@ -146,7 +150,7 @@
                                                 <state key="normal" title="2"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iGY-oL-tFj">
-                                                <rect key="frame" x="129" y="0.0" width="64" height="64.5"/>
+                                                <rect key="frame" x="129" y="0.0" width="64" height="65"/>
                                                 <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="iGY-oL-tFj" secondAttribute="height" multiplier="1:1" id="zaB-KN-mf1"/>
@@ -193,13 +197,10 @@
                                     <constraint firstAttribute="height" constant="79" id="wHy-3R-sHa"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxM-EY-jfz">
-                                <rect key="frame" x="282.5" y="574" width="54" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxM-EY-jfz">
+                                <rect key="frame" x="96" y="573" width="54" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Camera"/>
-                                <connections>
-                                    <segue destination="oVC-FD-UNp" kind="show" id="1BL-hq-gkG"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -218,6 +219,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Bsz-yg-6nE"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="PWU-oc-qEI">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="YWj-4R-ZZ7"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uac-24-flL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -252,7 +256,7 @@
             </objects>
             <point key="canvasLocation" x="2260" y="-99.400299850074973"/>
         </scene>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="MEX-3s-toY">
             <objects>
                 <viewController id="LxJ-7Z-ttF" sceneMemberID="viewController">
@@ -312,6 +316,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WmE-vd-BeW"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="7hz-Wb-PII">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="uRC-PH-VSx"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4m-rI-vCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -14,11 +14,9 @@ class PhotoDetailViewController: UIViewController {
     var plantPhoto: UIImage?
     
     @IBOutlet weak var plantPhotoDetail: UIImageView!
-    
-    
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        plantPhotoDetail.image = plantPhoto
     }
 }

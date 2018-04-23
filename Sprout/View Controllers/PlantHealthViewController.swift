@@ -25,6 +25,7 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     var plantType: PlantType?
     var plantHealth: Int16? = 0
     var imageData: Data?
+    var plantPhoto: UIImage?
     
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -142,10 +143,21 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.imageData = UIImagePNGRepresentation(image)
+            self.plantPhoto = image
             delegate?.photoSelectViewControllerSelected(image)
             thumbnailImageView.image = image
             
         }
     }
     
+    // MARK: - Segue to PhotoDetail
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoDetail" {
+            let plantPhoto = self.plantPhoto
+            let photoDetailVC = segue.destination as? PhotoDetailViewController
+            photoDetailVC?.plantPhoto = plantPhoto
+        }
+        
+    }
 }

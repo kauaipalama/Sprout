@@ -9,10 +9,16 @@
 import UIKit
 
 class PhotoDetailViewController: UIViewController {
+    
+    //Properties
+    var plantPhoto: UIImage?
+    
+    @IBOutlet weak var plantPhotoDetail: UIImageView!
+    
+    
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 }

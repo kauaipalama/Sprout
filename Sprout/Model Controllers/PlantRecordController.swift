@@ -27,12 +27,13 @@ class PlantRecordController {
     }
     
     //CRUD Functions
-    func createBlankPlantRecord(){
-        PlantRecord()
+    func createBlankPlantRecord() -> PlantRecord{
+        let plantRecord = PlantRecord(date: Date())
         PlantTypeController.shared.saveToPersistantStore()
+        return plantRecord
     }
     
-    func updatePlantRecordWater_Feed(with ph: Float, conductivity: Float, volume: Float, water_feedNotes: String, plantRecord: PlantRecord){
+    func updatePlantRecordWater_Feed(ph: Float, conductivity: Float, volume: Float, water_feedNotes: String, plantRecord: PlantRecord){
         plantRecord.ph = ph
         plantRecord.conductivity = conductivity
         plantRecord.volume = volume
@@ -40,9 +41,10 @@ class PlantRecordController {
         PlantTypeController.shared.saveToPersistantStore()
     }
     
-    func updatePlantRecordHealth(with plantHealth: Int16, plantHealthNotes: String, plantImage: Data, plantRecord: PlantRecord){
+    func updatePlantRecordHealth(plantHealth: Int16, plantHealthNotes: String, plantImage: Data, plantRecord: PlantRecord){
         plantRecord.plantHealth = plantHealth
         plantRecord.plantHealthNotes = plantHealthNotes
         plantRecord.plantImage = plantImage
+        PlantTypeController.shared.saveToPersistantStore()
     }
 }

@@ -43,48 +43,54 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     }
     
     @IBAction func oneButtonTapped(_ sender: Any) {
+        print("one button tapped")
         plantHealth = 1
-        oneButton.isHighlighted = true
-        twoButton.isHighlighted = false
-        threeButton.isHighlighted = false
-        fourButton.isHighlighted = false
-        fiveButton.isHighlighted = false
+        oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        twoButton.backgroundColor = UIColor.lightGray
+        threeButton.backgroundColor = UIColor.lightGray
+        fourButton.backgroundColor = UIColor.lightGray
+        fiveButton.backgroundColor = UIColor.lightGray
+        
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
+        print("two button tapped")
         plantHealth = 2
-        oneButton.isHighlighted = false
-        twoButton.isHighlighted = true
-        threeButton.isHighlighted = false
-        fourButton.isHighlighted = false
-        fiveButton.isHighlighted = false
+        oneButton.backgroundColor = UIColor.lightGray
+        twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+        threeButton.backgroundColor = UIColor.lightGray
+        fourButton.backgroundColor = UIColor.lightGray
+        fiveButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func threeButtonTapped(_ sender: Any) {
+        print("three button tapped")
         plantHealth = 3
-        oneButton.isHighlighted = false
-        twoButton.isHighlighted = false
-        threeButton.isHighlighted = true
-        fourButton.isHighlighted = false
-        fiveButton.isHighlighted = false
+        oneButton.backgroundColor = UIColor.lightGray
+        twoButton.backgroundColor = UIColor.lightGray
+        threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+        fourButton.backgroundColor = UIColor.lightGray
+        fiveButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func fourButtonTapped(_ sender: Any) {
+        print("four button tapped")
         plantHealth = 4
-        oneButton.isHighlighted = false
-        twoButton.isHighlighted = false
-        threeButton.isHighlighted = false
-        fourButton.isHighlighted = true
-        fiveButton.isHighlighted = false
+        oneButton.backgroundColor = UIColor.lightGray
+        twoButton.backgroundColor = UIColor.lightGray
+        threeButton.backgroundColor = UIColor.lightGray
+        fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
+        fiveButton.backgroundColor = UIColor.lightGray
     }
     
     @IBAction func fiveButtonTapped(_ sender: Any) {
+        print("five button tapped")
         plantHealth = 5
-        oneButton.isHighlighted = false
-        twoButton.isHighlighted = false
-        threeButton.isHighlighted = false
-        fourButton.isHighlighted = false
-        fiveButton.isHighlighted = true
+        oneButton.backgroundColor = UIColor.lightGray
+        twoButton.backgroundColor = UIColor.lightGray
+        threeButton.backgroundColor = UIColor.lightGray
+        fourButton.backgroundColor = UIColor.lightGray
+        fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
     }
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
@@ -112,6 +118,7 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         
         present(alert, animated: true, completion: nil)
     }
+    
     
     // MARK: - Outlets
     @IBOutlet weak var oneButton: UIButton!

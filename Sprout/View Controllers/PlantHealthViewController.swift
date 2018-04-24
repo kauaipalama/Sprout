@@ -5,6 +5,10 @@
 //  Created by Kainoa Palama on 4/19/18.
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
+//TODO:
+//Fetch record for updateViews
+//Keyboard observer to shift keyboard up
+//Update button to show highlighted
 
 import UIKit
 
@@ -14,12 +18,6 @@ protocol PlantHealthDetailControllerDelegate: class {
 
 class PlantHealthViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    //TODO:
-    //When plantHealth buttont tapped - Highlight selected button and grey out background of other buttons. Also set plantHealth value.
-    //When camera button is tapped segue to in app camera
-    //When no picture exists have placeholder for thumbnail
-    //Implement save function
-    
     // MARK: - Properties
     weak var delegate: PlantHealthDetailControllerDelegate?
     var plantType: PlantType?
@@ -27,20 +25,72 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     var imageData: Data?
     var plantPhoto: UIImage?
     
+    var keyboardToolbar = UIToolbar()
+    
+    // MARK: - Update Views
+    
+    func updateViews() {
+        guard let plantType = plantType,
+            let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first else { return }
+
+        plantHealthNotesTextView.text = plantRecord.plantHealthNotes!
+        plantHealth = plantRecord.plantHealth
+        guard let imageData = plantRecord.plantImage else {return}
+        plantPhoto = UIImage(data: imageData)
+        thumbnailImageView.image = plantPhoto
+    }
+    
+    // MARK: - Setup Views
+    func setupViews() {
+        plantHealthNotesTextView.inputAccessoryView = keyboardToolbar
+        
+        keyboardToolbar.barStyle = .default
+        keyboardToolbar.isTranslucent = true
+        keyboardToolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonTapped))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        
+        keyboardToolbar.setItems([flexibleSpace, doneButton], animated: false)
+
+    }
+    
+    // MARK: - Outlets
+    @IBOutlet weak var oneButton: UIButton!
+    @IBOutlet weak var twoButton: UIButton!
+    @IBOutlet weak var threeButton: UIButton!
+    @IBOutlet weak var fourButton: UIButton!
+    @IBOutlet weak var fiveButton: UIButton!
+    
+    @IBOutlet weak var plantHealthNotesTextView: UITextView!
+    
+    @IBOutlet weak var thumbnailImageView: UIImageView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+        setupViews()
+    }
+    
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let plantHealthNotes = plantHealthNotesTextView.text,
+        guard let plantType = plantType,
+            let plantHealthNotes = plantHealthNotesTextView.text,
             let plantHealth = plantHealth,
             let imageData = imageData
             else {return}
         
-        if let plantRecord = plantType?.plantRecords?.filter({ ($0 as! PlantRecord).date == Date() }).first as? PlantRecord {
+        if let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first {
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)
         } else {
-            let plantRecord = PlantRecordController.shared.createBlankPlantRecord()
+            let plantRecord = PlantRecordController.shared.createBlankPlantRecordFor(plantType: plantType)
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)
         }
         navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func doneButtonTapped() {
+        plantHealthNotesTextView.resignFirstResponder()
     }
     
     @IBAction func oneButtonTapped(_ sender: Any) {
@@ -120,20 +170,15 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Segue to PhotoDetail
     
-    // MARK: - Outlets
-    @IBOutlet weak var oneButton: UIButton!
-    @IBOutlet weak var twoButton: UIButton!
-    @IBOutlet weak var threeButton: UIButton!
-    @IBOutlet weak var fourButton: UIButton!
-    @IBOutlet weak var fiveButton: UIButton!
-    
-    @IBOutlet weak var plantHealthNotesTextView: UITextView!
-    
-    @IBOutlet weak var thumbnailImageView: UIImageView!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoDetail" {
+            let plantPhoto = self.plantPhoto
+            let photoDetailVC = segue.destination as? PhotoDetailViewController
+            photoDetailVC?.plantPhoto = plantPhoto
+        }
+        
     }
     
     // MARK: - UIImagePickerControllerDelegate
@@ -148,16 +193,5 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
             thumbnailImageView.image = image
             
         }
-    }
-    
-    // MARK: - Segue to PhotoDetail
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPhotoDetail" {
-            let plantPhoto = self.plantPhoto
-            let photoDetailVC = segue.destination as? PhotoDetailViewController
-            photoDetailVC?.plantPhoto = plantPhoto
-        }
-        
     }
 }

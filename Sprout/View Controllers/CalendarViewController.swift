@@ -6,6 +6,10 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//TODO:
+// Make a day which allows the user to select day on calendar in order to fetch latest plantRecord when detailsButtonTapped
+//
+
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

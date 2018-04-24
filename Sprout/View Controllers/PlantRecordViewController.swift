@@ -6,6 +6,9 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//TODO:
+//setup properties for the segue from calendar to populate
+
 import UIKit
 
 class PlantRecordViewController: UIViewController {
@@ -15,15 +18,4 @@ class PlantRecordViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

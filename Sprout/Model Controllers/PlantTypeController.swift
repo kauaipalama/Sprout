@@ -26,6 +26,30 @@ class PlantTypeController {
         }
     }
     
+    //Fetch Function
+    
+    func plantRecordsFor(plantType: PlantType, forDate date: Date) -> [PlantRecord] {
+        
+        guard let plantRecords = plantType.plantRecords?.array as? [PlantRecord] else { return [] }
+        
+        return plantRecords.filter { (plantRecord) -> Bool in
+            
+            guard let plantRecordDate = plantRecord.date else { return false }
+            
+            let today = Date()
+            
+            var componentSet = Set<Calendar.Component>()
+            componentSet.insert(.day)
+            componentSet.insert(.month)
+            componentSet.insert(.year)
+            
+            let todayComponents = Calendar.current.dateComponents(componentSet, from: today)
+            let plantRecordComponents = Calendar.current.dateComponents(componentSet, from: plantRecordDate)
+            
+            return todayComponents == plantRecordComponents
+        }
+    }
+    
     //CRUD Functions
     func create(plantType type: String) {
         PlantType(type: type)

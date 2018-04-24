@@ -27,8 +27,9 @@ class PlantRecordController {
     }
     
     //CRUD Functions
-    func createBlankPlantRecord() -> PlantRecord{
-        let plantRecord = PlantRecord(date: Date())
+    func createBlankPlantRecordFor(plantType: PlantType) -> PlantRecord{
+        let plantRecord = PlantRecord(plantType: plantType)
+        plantType.addToPlantRecords(plantRecord)
         PlantTypeController.shared.saveToPersistantStore()
         return plantRecord
     }

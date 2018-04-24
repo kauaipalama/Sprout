@@ -293,15 +293,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QXc-Nc-KRb">
-                                <rect key="frame" x="30" y="87" width="315" height="492"/>
+                                <rect key="frame" x="0.5" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="5iD-gv-A3F" firstAttribute="bottom" secondItem="QXc-Nc-KRb" secondAttribute="bottom" constant="88" id="2Pe-57-JBE"/>
-                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="leading" secondItem="5iD-gv-A3F" secondAttribute="leading" constant="30" id="3aF-lv-r6B"/>
-                            <constraint firstItem="5iD-gv-A3F" firstAttribute="trailing" secondItem="QXc-Nc-KRb" secondAttribute="trailing" constant="30" id="cEI-Nv-bLr"/>
-                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="top" secondItem="5iD-gv-A3F" secondAttribute="top" constant="23" id="drE-WF-olz"/>
+                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="centerY" secondItem="Xjl-YP-QaY" secondAttribute="centerY" id="9sp-h1-BJt"/>
+                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="width" secondItem="Xjl-YP-QaY" secondAttribute="width" id="Hti-Hf-mth"/>
+                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="centerX" secondItem="Xjl-YP-QaY" secondAttribute="centerX" id="JPU-rC-RpJ"/>
+                            <constraint firstItem="QXc-Nc-KRb" firstAttribute="height" secondItem="Xjl-YP-QaY" secondAttribute="height" id="PrS-Qd-6Ra"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5iD-gv-A3F"/>
                     </view>

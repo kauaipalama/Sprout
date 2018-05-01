@@ -6,9 +6,7 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //TODO:
-//Fetch record for updateViews
 //Keyboard observer to shift keyboard up
-//Update button to show highlighted
 
 import UIKit
 
@@ -24,20 +22,27 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     var plantHealth: Int16? = 0
     var imageData: Data?
     var plantPhoto: UIImage?
+    var day: Day?
     
     var keyboardToolbar = UIToolbar()
     
     // MARK: - Update Views
     
     func updateViews() {
-        guard let plantType = plantType,
-            let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first else { return }
-
-        plantHealthNotesTextView.text = plantRecord.plantHealthNotes!
-        plantHealth = plantRecord.plantHealth
-        guard let imageData = plantRecord.plantImage else {return}
-        plantPhoto = UIImage(data: imageData)
-        thumbnailImageView.image = plantPhoto
+        guard let plantType = plantType else { return }
+        
+        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
+            
+            self.day = day
+            
+            plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
+            plantHealth = day.plantRecord?.plantHealth
+            guard let imageData = day.plantRecord?.plantImage else {return}
+            plantPhoto = UIImage(data: imageData)
+            thumbnailImageView.image = plantPhoto
+            guard let plantRecord = day.plantRecord else {return}
+            setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
+        }
     }
     
     // MARK: - Setup Views
@@ -52,7 +57,54 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         keyboardToolbar.setItems([flexibleSpace, doneButton], animated: false)
-
+        
+    }
+    
+    func setPlantHealthButtons(plantHealth: Int) {
+        switch plantHealth {
+        case 1:
+            oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            twoButton.backgroundColor = UIColor.lightGray
+            threeButton.backgroundColor = UIColor.lightGray
+            fourButton.backgroundColor = UIColor.lightGray
+            fiveButton.backgroundColor = UIColor.lightGray
+            
+        case 2:
+            oneButton.backgroundColor = UIColor.lightGray
+            twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+            threeButton.backgroundColor = UIColor.lightGray
+            fourButton.backgroundColor = UIColor.lightGray
+            fiveButton.backgroundColor = UIColor.lightGray
+            
+        case 3:
+            oneButton.backgroundColor = UIColor.lightGray
+            twoButton.backgroundColor = UIColor.lightGray
+            threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            fourButton.backgroundColor = UIColor.lightGray
+            fiveButton.backgroundColor = UIColor.lightGray
+            
+        case 4:
+            oneButton.backgroundColor = UIColor.lightGray
+            twoButton.backgroundColor = UIColor.lightGray
+            threeButton.backgroundColor = UIColor.lightGray
+            fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
+            fiveButton.backgroundColor = UIColor.lightGray
+            
+        case 5:
+            oneButton.backgroundColor = UIColor.lightGray
+            twoButton.backgroundColor = UIColor.lightGray
+            threeButton.backgroundColor = UIColor.lightGray
+            fourButton.backgroundColor = UIColor.lightGray
+            fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+            
+        default:
+            oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+            threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
+            fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+            
+        }
     }
     
     // MARK: - Outlets
@@ -74,16 +126,16 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let plantType = plantType,
-            let plantHealthNotes = plantHealthNotesTextView.text,
+        guard let plantHealthNotes = plantHealthNotesTextView.text,
             let plantHealth = plantHealth,
             let imageData = imageData
             else {return}
         
-        if let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first {
+        if let plantRecord = day?.plantRecord {
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)
         } else {
-            let plantRecord = PlantRecordController.shared.createBlankPlantRecordFor(plantType: plantType)
+            guard let day = self.day else { return }
+            let plantRecord = PlantRecordController.shared.createBlankPlantRecordFor(days: day)
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)
         }
         navigationController?.popViewController(animated: true)
@@ -96,53 +148,33 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     @IBAction func oneButtonTapped(_ sender: Any) {
         print("one button tapped")
         plantHealth = 1
-        oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-        twoButton.backgroundColor = UIColor.lightGray
-        threeButton.backgroundColor = UIColor.lightGray
-        fourButton.backgroundColor = UIColor.lightGray
-        fiveButton.backgroundColor = UIColor.lightGray
-        
+        setPlantHealthButtons(plantHealth: 1)
     }
     
     @IBAction func twoButtonTapped(_ sender: Any) {
         print("two button tapped")
         plantHealth = 2
-        oneButton.backgroundColor = UIColor.lightGray
-        twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-        threeButton.backgroundColor = UIColor.lightGray
-        fourButton.backgroundColor = UIColor.lightGray
-        fiveButton.backgroundColor = UIColor.lightGray
+        setPlantHealthButtons(plantHealth: 2)
     }
     
     @IBAction func threeButtonTapped(_ sender: Any) {
         print("three button tapped")
         plantHealth = 3
-        oneButton.backgroundColor = UIColor.lightGray
-        twoButton.backgroundColor = UIColor.lightGray
-        threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-        fourButton.backgroundColor = UIColor.lightGray
-        fiveButton.backgroundColor = UIColor.lightGray
+        setPlantHealthButtons(plantHealth: 3)
     }
     
     @IBAction func fourButtonTapped(_ sender: Any) {
         print("four button tapped")
         plantHealth = 4
-        oneButton.backgroundColor = UIColor.lightGray
-        twoButton.backgroundColor = UIColor.lightGray
-        threeButton.backgroundColor = UIColor.lightGray
-        fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
-        fiveButton.backgroundColor = UIColor.lightGray
+        setPlantHealthButtons(plantHealth: 4)
     }
     
     @IBAction func fiveButtonTapped(_ sender: Any) {
         print("five button tapped")
         plantHealth = 5
-        oneButton.backgroundColor = UIColor.lightGray
-        twoButton.backgroundColor = UIColor.lightGray
-        threeButton.backgroundColor = UIColor.lightGray
-        fourButton.backgroundColor = UIColor.lightGray
-        fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+        setPlantHealthButtons(plantHealth: 5)
     }
+    
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         

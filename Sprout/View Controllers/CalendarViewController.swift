@@ -7,18 +7,17 @@
 //
 
 //TODO:
-// Make a day which allows the user to select day on calendar in order to fetch latest plantRecord when detailsButtonTapped
-//
+//Leap year function for numberOfDaysInMonth
+//Add background color to cell to show record exists
 
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    
     // MARK: - Properties
     
     var plantType: PlantType?
-    
+
     var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var currentMonthIndex = 0
     var currentYear = 0
@@ -27,7 +26,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var presentYear = 0
     var todaysDate = 0
     var firstWeekDayOfMonth = 0
-    
+    var currentMonthDays: [Day] = []
     // MARK: - Outlets
     
     @IBOutlet weak var calendarCollectionView: UICollectionView!
@@ -48,7 +47,15 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         calendarCollectionView.delegate = self
         calendarCollectionView.dataSource = self
-
+        
+        setCurrentMonthDays()
+    }
+    
+    func setCurrentMonthDays() {
+        
+        guard let plantType = plantType else { return }
+        
+        self.currentMonthDays = DayController.shared.fetchDaysForMonth(currentMonth: currentMonthIndex, currentYear: currentYear, lastDay: numberOfDaysInMonth[currentMonthIndex - 1], plantType: plantType)
     }
     
     // MARK: - Helper Functions
@@ -72,6 +79,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         calendarCollectionView.reloadData()
         monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
+        setCurrentMonthDays()
     }
     
     @IBAction func prevButtonTapped(_ sender: Any) {
@@ -85,6 +93,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         calendarCollectionView.reloadData()
         monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
+        setCurrentMonthDays()
     }
     @IBAction func detailButtonTapped(_ sender: Any) {
         print("detailButtonTapped")
@@ -109,56 +118,65 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     // MARK: - CollectionViewDataSource
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfDaysInMonth[currentMonthIndex-1] + firstWeekDayOfMonth - 1
+        return numberOfDaysInMonth[currentMonthIndex - 1] + firstWeekDayOfMonth - 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as! CalendarCollectionViewCell
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
         cell.backgroundColor = UIColor.clear
-        if indexPath.item <= firstWeekDayOfMonth - 2 {
-            cell.isHidden=true
+        if indexPath.item < firstWeekDayOfMonth - 1, firstWeekDayOfMonth > 1 {
+            cell.isHidden = true
         } else {
-            let calcDate = indexPath.row-firstWeekDayOfMonth+2
+            
+            let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
+            
+            cell.day = day
+            let calcDate = indexPath.row - firstWeekDayOfMonth + 2
             cell.isHidden = false
             cell.dateLabel.text = "\(calcDate)"
-            if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-                cell.isUserInteractionEnabled = false
+            if currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
+                cell.isUserInteractionEnabled = true
+                cell.dateLabel.textColor = UIColor.lightGray
+            } else if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+                
+                cell.isUserInteractionEnabled = true
                 cell.dateLabel.textColor = UIColor.lightGray
                 
             } else {
                 cell.isUserInteractionEnabled = true
                 cell.dateLabel.textColor=UIColor.black
             }
+            
         }
         return cell
     }
     
-    //Implement For Highlighting Cells
-//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//        <#code#>
-//    }
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell=collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor = UIColor.darkGray
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else {return}
+        let plantRecord = cell.day?.plantRecord
+        
+        if plantRecord != nil && currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
+            performSegue(withIdentifier: "toPlantRecord", sender: nil)
+        } else if plantRecord != nil && indexPath.item < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+            performSegue(withIdentifier: "toPlantRecord", sender: nil)
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell=collectionView.cellForItem(at: indexPath)
-        cell?.backgroundColor=UIColor.clear
-    }
-
-    
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "toPlantRecord"{
+            guard let plantType = plantType,
+                let days = plantType.days else {return}
+            let selectedCell = calendarCollectionView.indexPathsForSelectedItems![0]
+            let day = days[selectedCell.row] as? Day
+            guard let destinationVC = segue.destination as? PlantRecordViewController else {return}
+            destinationVC.day = day
+        }
     }
-    */
-
 }
 
 //Extentions

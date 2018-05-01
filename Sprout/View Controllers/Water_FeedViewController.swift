@@ -6,10 +6,7 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
-//Added keyboard toolbar with done button
-
 //TODO:
-//Fetch record for update views for when coming back to view
 //Keyboard observer to shift view up 
 
 import UIKit
@@ -19,6 +16,7 @@ class Water_FeedViewController: UIViewController {
     // MARK: - Properties
     var plantType: PlantType?
     var keyboardToolbar = UIToolbar()
+    var day: Day?
     
     // MARK: - Outlets
     @IBOutlet weak var conductivityTextField: UITextField!
@@ -26,6 +24,7 @@ class Water_FeedViewController: UIViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: UITextView!
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,13 +35,17 @@ class Water_FeedViewController: UIViewController {
     // MARK: - Update Views
     
     func updateViews() {
-        guard let plantType = plantType,
-            let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first else { return }
+        guard let plantType = plantType else { return }
         
-        conductivityTextField.text = plantRecord.conductivity.description
-        phTextField.text = plantRecord.ph.description
-        volumeTextField.text = plantRecord.volume.description
-        water_FeedNotesTextView.text = plantRecord.water_feedNotes
+        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
+            
+            self.day = day
+            
+            conductivityTextField.text = day.plantRecord?.conductivity.description
+                    phTextField.text = day.plantRecord?.ph.description
+                    volumeTextField.text = day.plantRecord?.volume.description
+                    water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
+        }
     }
     
     // MARK: - Setup Views
@@ -65,8 +68,7 @@ class Water_FeedViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
-        guard let plantType = plantType,
-            let phString = phTextField.text,
+        guard let phString = phTextField.text,
             let ph = Float(phString),
             let conductivityString = conductivityTextField.text,
             let conductivity = Float(conductivityString),
@@ -75,10 +77,11 @@ class Water_FeedViewController: UIViewController {
             let water_feedNotes = water_FeedNotesTextView.text
             else {return}
         
-        if let plantRecord = PlantTypeController.shared.plantRecordsFor(plantType: plantType, forDate: Date()).first {
+        if let plantRecord = day?.plantRecord {
             PlantRecordController.shared.updatePlantRecordWater_Feed(ph: ph, conductivity: conductivity, volume: volume, water_feedNotes: water_feedNotes, plantRecord: plantRecord)
         } else {
-            let plantRecord = PlantRecordController.shared.createBlankPlantRecordFor(plantType: plantType)
+            guard let day = self.day else { return }
+            let plantRecord = PlantRecordController.shared.createBlankPlantRecordFor(days: day)
             PlantRecordController.shared.updatePlantRecordWater_Feed(ph: ph, conductivity: conductivity, volume: volume, water_feedNotes: water_feedNotes, plantRecord: plantRecord)
         }
         navigationController?.popViewController(animated: true)

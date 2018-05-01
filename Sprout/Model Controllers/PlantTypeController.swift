@@ -27,32 +27,32 @@ class PlantTypeController {
     }
     
     //Fetch Function
-    
-    func plantRecordsFor(plantType: PlantType, forDate date: Date) -> [PlantRecord] {
-        
-        guard let plantRecords = plantType.plantRecords?.array as? [PlantRecord] else { return [] }
-        
-        return plantRecords.filter { (plantRecord) -> Bool in
-            
-            guard let plantRecordDate = plantRecord.date else { return false }
-            
-            let today = Date()
+    //Go through plant types array of day and filter them to find out the one for today
+    func fetchDayFor(plantType: PlantType) -> Day? {
+        guard let plantTypeDate = plantType.days?.array as? [Day] else {return nil}
+        let today = plantTypeDate.filter { (day) -> Bool in
+            let currentDate = Date()
             
             var componentSet = Set<Calendar.Component>()
-            componentSet.insert(.day)
-            componentSet.insert(.month)
             componentSet.insert(.year)
+            componentSet.insert(.month)
+            componentSet.insert(.day)
             
-            let todayComponents = Calendar.current.dateComponents(componentSet, from: today)
-            let plantRecordComponents = Calendar.current.dateComponents(componentSet, from: plantRecordDate)
+            let todaysComponents = Calendar.current.dateComponents(componentSet, from: currentDate)
             
-            return todayComponents == plantRecordComponents
-        }
+            guard let dayDate = day.date else { return false }
+            
+            let dayComponents = Calendar.current.dateComponents(componentSet, from: dayDate)
+            
+            return todaysComponents == dayComponents
+        }.first
+        return today
     }
     
     //CRUD Functions
     func create(plantType type: String) {
-        PlantType(type: type)
+        let plantType = PlantType(type: type)
+        DayController.shared.createDaysForTenYearsFor(plantType: plantType)
         saveToPersistantStore()
     }
     

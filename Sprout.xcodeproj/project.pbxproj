@@ -26,6 +26,8 @@
 		B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */; };
 		B4AA20522084F2A400707DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AA20512084F2A400707DF6 /* Assets.xcassets */; };
 		B4AA20552084F2A400707DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */; };
+		B4B99422208FD57F00484298 /* Day+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B99421208FD57F00484298 /* Day+Convenience.swift */; };
+		B4B99426208FD66A00484298 /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B99425208FD66A00484298 /* DayController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		B4AA20512084F2A400707DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4AA20542084F2A400707DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4AA20562084F2A400707DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4B99421208FD57F00484298 /* Day+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+Convenience.swift"; sourceTree = "<group>"; };
+		B4B99425208FD66A00484298 /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */,
+				B4B99425208FD66A00484298 /* DayController.swift */,
 				B40EA22F2087B80700423A70 /* PlantRecordController.swift */,
 			);
 			path = "Model Controllers";
@@ -130,6 +135,7 @@
 				B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */,
 				B40EA2242087AB1500423A70 /* PlantType+Convenience.swift */,
 				B40EA2262087AB2200423A70 /* PlantRecord+Convenience.swift */,
+				B4B99421208FD57F00484298 /* Day+Convenience.swift */,
 				B40EA2282087AB8A00423A70 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -235,11 +241,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */,
+				B4B99426208FD66A00484298 /* DayController.swift in Sources */,
 				B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */,
 				B40EA2272087AB2200423A70 /* PlantRecord+Convenience.swift in Sources */,
 				B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */,
 				B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */,
 				B40EA2212086A96500423A70 /* CalendarViewController.swift in Sources */,
+				B4B99422208FD57F00484298 /* Day+Convenience.swift in Sources */,
 				B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */,
 				B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */,
 				B40EA21F2086A95A00423A70 /* CalendarCollectionViewCell.swift in Sources */,

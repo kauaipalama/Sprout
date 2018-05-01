@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -21,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z60-yV-P8c">
-                                <rect key="frame" x="19" y="83" width="337.5" height="58"/>
+                                <rect key="frame" x="19" y="46" width="337.5" height="58"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Month" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JHs-aB-uVv">
                                         <rect key="frame" x="138.5" y="17" width="61" height="24"/>
@@ -58,7 +57,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="VOd-ya-U5h">
-                                <rect key="frame" x="19" y="149.5" width="337.5" height="344"/>
+                                <rect key="frame" x="19" y="112.5" width="337.5" height="344"/>
                                 <color key="backgroundColor" red="0.93725490570000003" green="0.93725490570000003" blue="0.95686274770000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="344" id="PPp-TG-NS7"/>
@@ -77,10 +76,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4fg-c2-A9v">
-                                                    <rect key="frame" x="0.0" y="29" width="50" height="21"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CHz-JK-h2Z">
                                                     <rect key="frame" x="15" y="5" width="21" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -92,39 +87,21 @@
                                         <constraints>
                                             <constraint firstItem="CHz-JK-h2Z" firstAttribute="top" secondItem="uW1-HO-MHo" secondAttribute="top" constant="5" id="0Ag-Di-ZHo"/>
                                             <constraint firstItem="CHz-JK-h2Z" firstAttribute="centerX" secondItem="uW1-HO-MHo" secondAttribute="centerX" id="ON6-0G-m2T"/>
-                                            <constraint firstAttribute="trailing" secondItem="4fg-c2-A9v" secondAttribute="trailing" id="PNE-tZ-cgP"/>
-                                            <constraint firstItem="4fg-c2-A9v" firstAttribute="top" secondItem="CHz-JK-h2Z" secondAttribute="bottom" constant="3" id="bf0-dy-Rg6"/>
-                                            <constraint firstItem="4fg-c2-A9v" firstAttribute="leading" secondItem="uW1-HO-MHo" secondAttribute="leading" id="jJy-mT-nQn"/>
-                                            <constraint firstAttribute="bottom" secondItem="4fg-c2-A9v" secondAttribute="bottom" id="ja3-jE-7cN"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="CHz-JK-h2Z" id="OM7-YZ-0L6"/>
-                                            <outlet property="water_feedView" destination="4fg-c2-A9v" id="XFk-q3-x7Q"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gYu-zV-5H1">
-                                <rect key="frame" x="131" y="522" width="112.5" height="74"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <state key="normal" title="Detail"/>
-                                <connections>
-                                    <action selector="detailButtonTapped:" destination="aaZ-f8-hjr" eventType="touchUpInside" id="ccU-Ho-pFR"/>
-                                    <segue destination="Kxm-ME-Q2O" kind="show" id="5kr-oD-927"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="VOd-ya-U5h" firstAttribute="top" secondItem="Z60-yV-P8c" secondAttribute="bottom" constant="8.5" id="1fR-mB-pBT"/>
-                            <constraint firstItem="gYu-zV-5H1" firstAttribute="centerX" secondItem="nCN-Gs-HIu" secondAttribute="centerX" id="Goy-rg-n7C"/>
-                            <constraint firstItem="nCN-Gs-HIu" firstAttribute="bottom" secondItem="gYu-zV-5H1" secondAttribute="bottom" constant="71" id="IJq-CC-e2z"/>
                             <constraint firstItem="Z60-yV-P8c" firstAttribute="width" secondItem="EVp-rh-80b" secondAttribute="width" multiplier="0.9" id="K0Z-vH-hUo"/>
-                            <constraint firstItem="Z60-yV-P8c" firstAttribute="top" secondItem="nCN-Gs-HIu" secondAttribute="top" constant="63" id="VTq-eb-rMX"/>
+                            <constraint firstItem="Z60-yV-P8c" firstAttribute="top" secondItem="nCN-Gs-HIu" secondAttribute="top" constant="26" id="VTq-eb-rMX"/>
                             <constraint firstItem="Z60-yV-P8c" firstAttribute="centerX" secondItem="nCN-Gs-HIu" secondAttribute="centerX" id="Wlq-Js-vWt"/>
                             <constraint firstItem="VOd-ya-U5h" firstAttribute="width" secondItem="EVp-rh-80b" secondAttribute="width" multiplier="0.9" id="eHZ-3v-XAV"/>
-                            <constraint firstItem="gYu-zV-5H1" firstAttribute="width" secondItem="EVp-rh-80b" secondAttribute="width" multiplier="0.3" id="lFR-ZT-IdC"/>
-                            <constraint firstItem="gYu-zV-5H1" firstAttribute="top" secondItem="VOd-ya-U5h" secondAttribute="bottom" constant="28.5" id="pKK-8e-sII"/>
                             <constraint firstItem="VOd-ya-U5h" firstAttribute="centerX" secondItem="nCN-Gs-HIu" secondAttribute="centerX" id="zWU-Lw-Dv5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nCN-Gs-HIu"/>
@@ -133,6 +110,7 @@
                     <connections>
                         <outlet property="calendarCollectionView" destination="VOd-ya-U5h" id="ZO4-aw-WJc"/>
                         <outlet property="monthLabel" destination="JHs-aB-uVv" id="UwC-ZU-jCO"/>
+                        <segue destination="Kxm-ME-Q2O" kind="show" identifier="toPlantRecord" id="HPZ-KA-hrb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aif-9T-E4G" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -175,9 +153,9 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G8o-To-3nK">
-                                        <rect key="frame" x="19" y="41" width="300" height="91"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="G8o-To-3nK">
+                                        <rect key="frame" x="0.0" y="41" width="337.5" height="91"/>
+                                        <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -185,6 +163,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="132" id="B8w-5v-0gQ"/>
+                                    <constraint firstItem="G8o-To-3nK" firstAttribute="width" secondItem="rpB-yP-saE" secondAttribute="width" id="TwV-kO-Ccz"/>
                                 </constraints>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2nm-RH-GKq">
@@ -194,7 +173,7 @@
                                     <constraint firstAttribute="height" constant="2" id="34S-wD-0mi"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-Bs-Ff0">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-Bs-Ff0">
                                 <rect key="frame" x="19" y="475" width="337.5" height="121"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KTL-5I-MAY">
@@ -247,16 +226,18 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pK4-YH-bW0">
-                                        <rect key="frame" x="0.0" y="30" width="337.5" height="91"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pK4-YH-bW0">
+                                        <rect key="frame" x="0.0" y="34" width="337.5" height="87"/>
+                                        <color key="backgroundColor" red="0.87971800290000002" green="1" blue="0.16138431019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="pK4-YH-bW0" firstAttribute="centerX" secondItem="GHg-Bs-Ff0" secondAttribute="centerX" id="Ycm-5z-CiA"/>
                                     <constraint firstAttribute="height" constant="121" id="q5r-Dk-u2M"/>
+                                    <constraint firstItem="pK4-YH-bW0" firstAttribute="width" secondItem="GHg-Bs-Ff0" secondAttribute="width" id="ysW-1N-8JJ"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -280,6 +261,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mQp-fl-cpB"/>
                     </view>
+                    <connections>
+                        <outlet property="conductivity" destination="fo1-pE-egF" id="tCo-8a-qzQ"/>
+                        <outlet property="fiveButton" destination="iWt-eA-Djs" id="YDG-uZ-zpV"/>
+                        <outlet property="fourButton" destination="TgF-6e-XN4" id="w8W-Xp-Q2a"/>
+                        <outlet property="oneButton" destination="Pis-MR-jKX" id="ftS-ur-NuL"/>
+                        <outlet property="ph" destination="u74-y6-UsN" id="MAb-iU-VId"/>
+                        <outlet property="plantHealthNotes" destination="pK4-YH-bW0" id="a9v-ER-3S7"/>
+                        <outlet property="plantImage" destination="vsQ-zh-WPW" id="kDK-6j-6ci"/>
+                        <outlet property="threeButton" destination="wes-QM-xUL" id="KWO-rr-nlI"/>
+                        <outlet property="twoButton" destination="m8x-2w-dBl" id="Cyy-2I-x2i"/>
+                        <outlet property="water_FeedNotes" destination="G8o-To-3nK" id="KEG-Kt-cYN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tCI-eP-94V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

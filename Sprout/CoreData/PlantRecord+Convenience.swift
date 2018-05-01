@@ -10,10 +10,9 @@ import Foundation
 import CoreData
 
 extension PlantRecord {
-    @discardableResult convenience init(date: Date = Date(), ph: Float = 0, conductivity: Float = 0, volume: Float = 0, water_feedNotes: String? = nil, plantHealth: Int16 = 0, plantHealthNotes: String? = nil, plantImage: Data? = nil, plantType: PlantType, context: NSManagedObjectContext = CoreDataStack.context) {
+    @discardableResult convenience init(ph: Float = 0, conductivity: Float = 0, volume: Float = 0, water_feedNotes: String? = nil, plantHealth: Int16 = 0, plantHealthNotes: String? = nil, plantImage: Data? = nil, days: Day, context: NSManagedObjectContext = CoreDataStack.context) {
         
         self.init(context: context)
-        self.date = date
         self.ph = ph
         self.conductivity = conductivity
         self.volume = volume
@@ -21,6 +20,6 @@ extension PlantRecord {
         self.plantHealth = plantHealth
         self.plantHealthNotes = plantHealthNotes
         self.plantImage = plantImage
-        self.plantType = plantType
+        self.days = days
     }
 }

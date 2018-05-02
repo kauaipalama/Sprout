@@ -157,10 +157,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else {return}
         let plantRecord = cell.day?.plantRecord
         
-        if plantRecord != nil && currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
-            performSegue(withIdentifier: "toPlantRecord", sender: nil)
-        } else if plantRecord != nil && indexPath.item < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-            performSegue(withIdentifier: "toPlantRecord", sender: nil)
+        if plantRecord != nil && currentMonthIndex <= presentMonthIndex && currentYear <= presentYear {
+            performSegue(withIdentifier: "toPlantRecord", sender: cell)
+        } else if plantRecord != nil && indexPath.item <= todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+            performSegue(withIdentifier: "toPlantRecord", sender: cell)
         }
     }
     
@@ -169,10 +169,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "toPlantRecord"{
-            guard let plantType = plantType,
-                let days = plantType.days else {return}
-            let selectedCell = calendarCollectionView.indexPathsForSelectedItems![0]
-            let day = days[selectedCell.row] as? Day
+            guard let cell = sender as? CalendarCollectionViewCell else {return}
+            let day = cell.day
             guard let destinationVC = segue.destination as? PlantRecordViewController else {return}
             destinationVC.day = day
         }

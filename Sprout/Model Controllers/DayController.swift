@@ -61,9 +61,12 @@ class DayController {
         
         let compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [predicate1, predicate2, predicate3])
         
+        let sortDescriptor = NSSortDescriptor(key: "date", ascending: true)
+        
         let moc = CoreDataStack.context
         let daysFetch = NSFetchRequest<Day>(entityName: "Day")
         daysFetch.predicate = compoundPredicate
+        daysFetch.sortDescriptors = [sortDescriptor]
         
         do {
             let fetchedDays = try moc.fetch(daysFetch)

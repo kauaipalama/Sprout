@@ -22,7 +22,7 @@ class Water_FeedViewController: UIViewController {
     @IBOutlet weak var conductivityTextField: UITextField!
     @IBOutlet weak var phTextField: UITextField!
     @IBOutlet weak var volumeTextField: UITextField!
-    @IBOutlet weak var water_FeedNotesTextView: UITextView!
+    @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
     
 
     
@@ -30,6 +30,11 @@ class Water_FeedViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearPlaceholderText()
     }
     
     // MARK: - Update Views
@@ -64,6 +69,19 @@ class Water_FeedViewController: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         
         keyboardToolbar.setItems([flexibleSpace, doneButton], animated: false)
+        
+        water_FeedNotesTextView.placeholderLabel.textAlignment = .center
+        water_FeedNotesTextView.layer.borderWidth = 1
+        water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        water_FeedNotesTextView.layer.cornerRadius = 6
+    }
+    
+    // MARK: - Helper Functions
+    
+    func clearPlaceholderText() {
+        if !water_FeedNotesTextView.text.isEmpty {
+            water_FeedNotesTextView.placeholder = ""
+        }
     }
     
     // MARK: - Actions

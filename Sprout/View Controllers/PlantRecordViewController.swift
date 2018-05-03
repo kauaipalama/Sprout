@@ -15,6 +15,7 @@ class PlantRecordViewController: UIViewController {
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var ph: UILabel!
     @IBOutlet weak var conductivity: UILabel!
+    @IBOutlet weak var volume: UILabel!
     @IBOutlet weak var water_FeedNotes: UITextView!
     
     @IBOutlet weak var oneButton: UIButton!
@@ -32,6 +33,7 @@ class PlantRecordViewController: UIViewController {
     
     func updateViews() {
         guard let plantImageData =  day?.plantRecord?.plantImage,
+            let plantRecord = day?.plantRecord,
             let day = day     
             else {return}
         let image = UIImage(data: plantImageData)
@@ -40,12 +42,12 @@ class PlantRecordViewController: UIViewController {
         let heathNotes = day.plantRecord?.plantHealthNotes
         
         plantImage.image = image
-        ph.text = day.plantRecord?.ph.description
-        conductivity.text = day.plantRecord?.conductivity.description
+        ph.text = "PH: \(plantRecord.ph.description)"
+        conductivity.text = "PPM/EC: \(plantRecord.conductivity.description)"
+        volume.text = "Volume: \(plantRecord.volume.description)"
         water_FeedNotes.text = watterNotes ?? "You need to add some notes!"
         plantHealthNotes.text = heathNotes ?? "HI"
         
-        guard let plantRecord = day.plantRecord else {return}
         setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
     }
     

@@ -38,10 +38,12 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
             plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
             plantHealth = day.plantRecord?.plantHealth
             guard let imageData = day.plantRecord?.plantImage else {return}
+            self.imageData = imageData
             plantPhoto = UIImage(data: imageData)
             thumbnailImageView.image = plantPhoto
             guard let plantRecord = day.plantRecord else {return}
             setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
+            
         }
     }
     
@@ -58,6 +60,19 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         
         keyboardToolbar.setItems([flexibleSpace, doneButton], animated: false)
         
+        plantHealthNotesTextView.placeholderLabel.textAlignment = .center
+        plantHealthNotesTextView.layer.borderWidth = 1
+        plantHealthNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        plantHealthNotesTextView.layer.cornerRadius = 6
+        
+    }
+    
+    // MARK: - Helper Functions
+    
+    func clearPlaceholderText() {
+        if !plantHealthNotesTextView.text.isEmpty {
+            plantHealthNotesTextView.placeholder = ""
+        }
     }
     
     func setPlantHealthButtons(plantHealth: Int) {
@@ -114,14 +129,19 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var fourButton: UIButton!
     @IBOutlet weak var fiveButton: UIButton!
     
-    @IBOutlet weak var plantHealthNotesTextView: UITextView!
+    @IBOutlet weak var plantHealthNotesTextView: PlaceholderTextView!
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
         setupViews()
+        updateViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearPlaceholderText()
     }
     
     // MARK: - Actions
@@ -219,7 +239,8 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            self.imageData = UIImagePNGRepresentation(image)
+            
+            self.imageData = UIImageJPEGRepresentation(image, 0.9)
             self.plantPhoto = image
             delegate?.photoSelectViewControllerSelected(image)
             thumbnailImageView.image = image

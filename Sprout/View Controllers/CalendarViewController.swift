@@ -27,10 +27,13 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     var todaysDate = 0
     var firstWeekDayOfMonth = 0
     var currentMonthDays: [Day] = []
+    
+    let startDateComponents = DateComponents(calendar: Calendar.current, year: 2018, month: 4)
     // MARK: - Outlets
     
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var prevButton: UIButton!
     
     // MARK: - LifeCycle Function
     
@@ -69,6 +72,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     // MARK: - Actions
     
     @IBAction func nextButtonTapped(_ sender: Any) {
+        prevButton.isEnabled = true
         currentMonthIndex += 1
         if currentMonthIndex > 12 {
             currentMonthIndex = 1
@@ -83,7 +87,12 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     }
     
     @IBAction func prevButtonTapped(_ sender: Any) {
-        currentMonthIndex -= 1
+        if currentYear == startDateComponents.year && currentMonthIndex == startDateComponents.month {
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+            currentMonthIndex -= 1
+        }
         if currentMonthIndex < 1 {
             currentMonthIndex = 12
             currentYear -= 1
@@ -94,9 +103,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.reloadData()
         monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
         setCurrentMonthDays()
-    }
-    @IBAction func detailButtonTapped(_ sender: Any) {
-        print("detailButtonTapped")
     }
     
     // MARK: - CollectionViewFlowLayout
@@ -146,6 +152,11 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             } else {
                 cell.isUserInteractionEnabled = true
                 cell.dateLabel.textColor=UIColor.black
+            }
+            let plantRecord = cell.day?.plantRecord
+            if plantRecord != nil {
+                cell.backgroundColor = UIColor(red: 4.0/255.0, green: 149.0/255.0, blue: 255.0/255.0, alpha: 0.5)
+                
             }
             
         }

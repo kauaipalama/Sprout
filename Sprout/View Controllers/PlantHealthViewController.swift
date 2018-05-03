@@ -14,7 +14,7 @@ protocol PlantHealthDetailControllerDelegate: class {
     func photoSelectViewControllerSelected(_ image: UIImage)
 }
 
-class PlantHealthViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class PlantHealthViewController: ShiftableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     // MARK: - Properties
     weak var delegate: PlantHealthDetailControllerDelegate?
@@ -23,6 +23,9 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     var imageData: Data?
     var plantPhoto: UIImage?
     var day: Day?
+    
+    var gradientLayer: CAGradientLayer!
+    
     
     var keyboardToolbar = UIToolbar()
     
@@ -64,7 +67,16 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
         plantHealthNotesTextView.layer.borderWidth = 1
         plantHealthNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         plantHealthNotesTextView.layer.cornerRadius = 6
+    }
+    
+    func createGradientLayer(){
+        gradientLayer = CAGradientLayer()
         
+        gradientLayer.frame = plantHealthBar.bounds
+        gradientLayer.colors = [#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1).cgColor]
+        self.plantHealthBar.layer.addSublayer(gradientLayer)
+        gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
     }
     
     // MARK: - Helper Functions
@@ -133,15 +145,24 @@ class PlantHealthViewController: UIViewController, UIImagePickerControllerDelega
     
     @IBOutlet weak var thumbnailImageView: UIImageView!
     
+    @IBOutlet weak var plantHealthBar: UIView!
+    @IBOutlet weak var poorHealthLabel: UILabel!
+    @IBOutlet weak var excellantHealthLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         updateViews()
+        plantHealthNotesTextView.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         clearPlaceholderText()
+        createGradientLayer()
+        plantHealthBar.addSubview(poorHealthLabel)
+        plantHealthBar.addSubview(excellantHealthLabel)
     }
     
     // MARK: - Actions

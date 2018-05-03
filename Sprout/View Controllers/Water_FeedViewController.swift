@@ -11,7 +11,7 @@
 
 import UIKit
 
-class Water_FeedViewController: UIViewController {
+class Water_FeedViewController: ShiftableViewController {
     
     // MARK: - Properties
     var plantType: PlantType?
@@ -24,12 +24,13 @@ class Water_FeedViewController: UIViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
     
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         updateViews()
+        water_FeedNotesTextView.delegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +76,7 @@ class Water_FeedViewController: UIViewController {
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.layer.cornerRadius = 6
     }
+ 
     
     // MARK: - Helper Functions
     

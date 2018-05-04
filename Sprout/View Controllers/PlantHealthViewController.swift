@@ -72,11 +72,12 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     func createGradientLayer(){
         gradientLayer = CAGradientLayer()
         
-        gradientLayer.frame = plantHealthBar.bounds
+        _ = plantHealthBar.bounds
+        gradientLayer.frame = CGRect(x: 0, y: 0, width: plantHealthBar.frame.size.width, height: plantHealthBar.frame.size.height)
         gradientLayer.colors = [#colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1).cgColor, #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1).cgColor]
-        self.plantHealthBar.layer.addSublayer(gradientLayer)
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
+        self.plantHealthBar.layer.addSublayer(gradientLayer)
     }
     
     // MARK: - Helper Functions
@@ -160,9 +161,11 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         clearPlaceholderText()
-        createGradientLayer()
-        plantHealthBar.addSubview(poorHealthLabel)
-        plantHealthBar.addSubview(excellantHealthLabel)
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (_) in
+            self.createGradientLayer()
+            self.plantHealthBar.addSubview(self.poorHealthLabel)
+            self.plantHealthBar.addSubview(self.excellantHealthLabel)
+        }
     }
     
     // MARK: - Actions

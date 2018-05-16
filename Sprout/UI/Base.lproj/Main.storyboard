@@ -133,7 +133,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nY0-mA-csr" userLabel="plantHealthBar">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nY0-mA-csr" userLabel="plantHealthBar">
                                 <rect key="frame" x="28" y="129" width="319" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="azw-ep-AEX">
@@ -179,7 +179,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CCr-XH-OBh">
-                                                <rect key="frame" x="66" y="0.0" width="55.5" height="56"/>
+                                                <rect key="frame" x="66" y="0.0" width="55.5" height="56.5"/>
                                                 <color key="backgroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="CCr-XH-OBh" secondAttribute="height" multiplier="1:1" id="2h8-tT-DT0"/>
@@ -205,7 +205,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="61c-3m-mxa">
-                                                <rect key="frame" x="197.5" y="0.0" width="55.5" height="56"/>
+                                                <rect key="frame" x="197.5" y="0.0" width="55.5" height="56.5"/>
                                                 <color key="backgroundColor" red="0.87971800289736579" green="1" blue="0.16138431015195676" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="61c-3m-mxa" secondAttribute="height" multiplier="1:1" id="oXO-bc-olG"/>
@@ -260,7 +260,7 @@
                                     <action selector="cameraButtonTapped:" destination="h2D-cN-NyS" eventType="touchUpInside" id="ATO-WD-e2V"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBY-qU-GRk">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GBY-qU-GRk">
                                 <rect key="frame" x="269" y="470.5" width="78" height="79"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="79" id="Ijh-yC-oZL"/>

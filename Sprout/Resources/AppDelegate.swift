@@ -7,6 +7,12 @@
 //
 
 import UIKit
+extension UIButton {
+    @objc dynamic var cornerRadius: CGFloat {
+        get { return layer.cornerRadius }
+        set { layer.cornerRadius = newValue }
+    }
+}
 import CoreData
 
 @UIApplicationMain
@@ -19,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
     
         RunLoop.current.run(until: Date(timeIntervalSinceNow: 2.5))
+        
+        UIButton.appearance().cornerRadius = 6
         
         return true
     }

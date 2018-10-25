@@ -74,13 +74,13 @@ class PlaceholderTextView: UITextView {
     
     deinit{
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidBeginEditing,
+                                                  name: UITextView.textDidBeginEditingNotification,
                                                   object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidChange,
+                                                  name: UITextView.textDidChangeNotification,
                                                   object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidEndEditing,
+                                                  name: UITextView.textDidEndEditingNotification,
                                                   object: nil)
     }
     
@@ -108,15 +108,15 @@ class PlaceholderTextView: UITextView {
     fileprivate func observeTextViewChanges() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidBeginEditing),
-                                               name: NSNotification.Name.UITextViewTextDidBeginEditing,
+                                               name: UITextView.textDidBeginEditingNotification,
                                                object: self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidChange),
-                                               name: NSNotification.Name.UITextViewTextDidChange,
+                                               name: UITextView.textDidChangeNotification,
                                                object: self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidEndEditing),
-                                               name: NSNotification.Name.UITextViewTextDidEndEditing,
+                                               name: UITextView.textDidEndEditingNotification,
                                                object: self)
     }
     

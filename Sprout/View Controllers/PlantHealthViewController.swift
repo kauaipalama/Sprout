@@ -251,12 +251,15 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     // MARK: - Delegatation
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
         picker.dismiss(animated: true, completion: nil)
         
-        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
             
-            self.imageData = UIImageJPEGRepresentation(image, 0.9)
+            self.imageData = image.jpegData(compressionQuality: 0.9)
             self.plantPhoto = image
             delegate?.photoSelectViewControllerSelected(image)
             thumbnailImageView.image = image
@@ -278,4 +281,14 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     var keyboardToolbar = UIToolbar()
     
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
 }

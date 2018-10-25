@@ -122,13 +122,13 @@
 		B4AA20462084F2A000707DF6 /* Sprout */ = {
 			isa = PBXGroup;
 			children = (
-				B4AA205C2084F5CE00707DF6 /* CoreData */,
 				B4D5A24E2180E6BC001C6BD4 /* Model+Convenience */,
 				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
 				B40EA21C2086A93C00423A70 /* Views */,
 				B4B9941E208F897400484298 /* Helpers */,
 				B4AA205E2084F5E900707DF6 /* UI */,
+				B4AA205C2084F5CE00707DF6 /* CoreData */,
 				B4AA205D2084F5E000707DF6 /* Resources */,
 			);
 			path = Sprout;
@@ -214,6 +214,7 @@
 				TargetAttributes = {
 					B4AA20432084F2A000707DF6 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -428,7 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KainoaPalama.Sprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -449,7 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KainoaPalama.Sprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

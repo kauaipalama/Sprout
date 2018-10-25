@@ -47,7 +47,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Plant Types" id="C1p-Fx-FfZ">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="MFI-V7-5WS">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="MFI-V7-5WS">
                             <connections>
                                 <action selector="addButtonTapped:" destination="ROo-Qx-RZT" id="l9a-CC-5gI"/>
                             </connections>
@@ -412,7 +412,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-gR-UVi" customClass="PlaceholderTextView" customModule="Sprout" customModuleProvider="target">
-                                        <rect key="frame" x="28" y="256" width="319" height="244.5"/>
+                                        <rect key="frame" x="28.5" y="256" width="318.5" height="244.5"/>
                                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>

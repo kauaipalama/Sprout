@@ -10,23 +10,9 @@ import Foundation
 import CoreData
 
 class PlantRecordController {
+
+    // MARK: - CRUD
     
-    //Shared Instance
-    static let shared = PlantRecordController()
-    
-    //Properties
-    var plantRecords: [PlantRecord]{
-        let fetchRequest: NSFetchRequest<PlantRecord> = PlantRecord.fetchRequest()
-        let moc = CoreDataStack.context
-        do{
-            return try moc.fetch(fetchRequest)
-        } catch {
-            print("Error fetching PlantTypes from persistent store \(error.localizedDescription)")
-            return []
-        }
-    }
-    
-    //CRUD Functions
     func createBlankPlantRecordFor(days: Day) -> PlantRecord{
         let plantRecord = PlantRecord(days: days)
         days.plantRecord = plantRecord
@@ -47,5 +33,20 @@ class PlantRecordController {
         plantRecord.plantHealthNotes = plantHealthNotes
         plantRecord.plantImage = plantImage
         PlantTypeController.shared.saveToPersistantStore()
+    }
+    
+    // MARK: - Properties
+    
+    static let shared = PlantRecordController()
+    
+    var plantRecords: [PlantRecord]{
+        let fetchRequest: NSFetchRequest<PlantRecord> = PlantRecord.fetchRequest()
+        let moc = CoreDataStack.context
+        do{
+            return try moc.fetch(fetchRequest)
+        } catch {
+            print("Error fetching PlantTypes from persistent store \(error.localizedDescription)")
+            return []
+        }
     }
 }

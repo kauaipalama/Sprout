@@ -5,12 +5,21 @@
 //  Created by Kainoa Palama on 4/19/18.
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
+//Make it so that the plant health only shows the one indicatior. it would be like "Plant Health: [5]" <-- that's supposed to be a button. ADD
 
 import UIKit
 
 class PlantRecordViewController: UIViewController {
     
-    var day: Day?
+    // MARK: - Life Cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+        setupViews()
+    }
+    
+    // MARK: - Actions
     
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var ph: UILabel!
@@ -26,15 +35,27 @@ class PlantRecordViewController: UIViewController {
     
     @IBOutlet weak var plantHealthNotes: UITextView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
+    // MARK: - Views
+    
+    func setupViews() {
+        //Make the date "pretty"
+//        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
+        
+        plantImage.layer.cornerRadius = 6
+        water_FeedNotes.layer.cornerRadius = 6
+        plantHealthNotes.layer.cornerRadius = 6
+        
+        oneButton.layer.cornerRadius = 8
+        twoButton.layer.cornerRadius = 8
+        threeButton.layer.cornerRadius = 8
+        fourButton.layer.cornerRadius = 8
+        fiveButton.layer.cornerRadius = 8
     }
     
     func updateViews() {
         guard let plantImageData =  day?.plantRecord?.plantImage,
             let plantRecord = day?.plantRecord,
-            let day = day     
+            let day = day
             else {return}
         let image = UIImage(data: plantImageData)
         
@@ -96,4 +117,18 @@ class PlantRecordViewController: UIViewController {
             fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
         }
     }
+    
+    // MARK: - Navigation
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPhotoDetail" {
+            guard let plantPhoto = plantImage.image else {return}
+            let photoDetailVC = segue.destination as? PhotoDetailViewController
+            photoDetailVC?.plantPhoto = plantPhoto
+        }
+    }
+    
+    // MARK: - Property
+    
+    var day: Day?
 }

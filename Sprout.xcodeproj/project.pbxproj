@@ -122,12 +122,13 @@
 		B4AA20462084F2A000707DF6 /* Sprout */ = {
 			isa = PBXGroup;
 			children = (
-				B4AA205E2084F5E900707DF6 /* UI */,
 				B4AA205C2084F5CE00707DF6 /* CoreData */,
+				B4D5A24E2180E6BC001C6BD4 /* Model+Convenience */,
 				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
 				B40EA21C2086A93C00423A70 /* Views */,
 				B4B9941E208F897400484298 /* Helpers */,
+				B4AA205E2084F5E900707DF6 /* UI */,
 				B4AA205D2084F5E000707DF6 /* Resources */,
 			);
 			path = Sprout;
@@ -137,9 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */,
-				B40EA2242087AB1500423A70 /* PlantType+Convenience.swift */,
-				B40EA2262087AB2200423A70 /* PlantRecord+Convenience.swift */,
-				B4B99421208FD57F00484298 /* Day+Convenience.swift */,
 				B40EA2282087AB8A00423A70 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
@@ -172,6 +170,16 @@
 				B4600880209BAC560053FF82 /* ShiftableViewController.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B4D5A24E2180E6BC001C6BD4 /* Model+Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				B40EA2242087AB1500423A70 /* PlantType+Convenience.swift */,
+				B40EA2262087AB2200423A70 /* PlantRecord+Convenience.swift */,
+				B4B99421208FD57F00484298 /* Day+Convenience.swift */,
+			);
+			path = "Model+Convenience";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

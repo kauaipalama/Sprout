@@ -10,13 +10,16 @@ import UIKit
 
 class PlantTypeDetailViewController: UIViewController {
     
-    var plantType: PlantType?
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //bold the title
+        navigationItem.title = "Main Menu"
     }
     
     // MARK: - Navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toWater_feedVC" {
             let plantType = self.plantType
@@ -32,4 +35,9 @@ class PlantTypeDetailViewController: UIViewController {
             calendarVC?.plantType = plantType
         }
     }
+    
+    // MARK: - Property
+    
+    var plantType: PlantType?
+    
 }

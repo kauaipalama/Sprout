@@ -9,8 +9,6 @@
 import Foundation
 import CoreData
 
-//Do I need days here?
-
 extension PlantType {
     @discardableResult convenience init(type: String, context: NSManagedObjectContext = CoreDataStack.context){
         

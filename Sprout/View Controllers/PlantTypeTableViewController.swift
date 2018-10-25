@@ -11,6 +11,12 @@ import CoreData
 
 class PlantTypeTableViewController: UITableViewController {
     
+    // MARK: - Life cycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
     // MARK: - Actions
     
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -32,13 +38,7 @@ class PlantTypeTableViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - LifeCycle Function
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // MARK: - Table view delegate
+    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = deleteAction(at: indexPath)
@@ -83,8 +83,6 @@ class PlantTypeTableViewController: UITableViewController {
         }
         return action
     }
-    
-    // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return PlantTypeController.shared.plantTypes.count

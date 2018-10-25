@@ -6,17 +6,24 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//Make imageView "zoomable" with scrollview and a delegate
+
 import UIKit
 
-class PhotoDetailViewController: UIViewController {
+class PhotoDetailViewController: UIViewController{
     
-    //Properties
-    var plantPhoto: UIImage?
+    // MARK: - Life Cycle
     
-    @IBOutlet weak var plantPhotoDetail: UIImageView!
-
     override func viewDidLoad() {
         super.viewDidLoad()
         plantPhotoDetail.image = plantPhoto
     }
+    
+    // MARK: - Outlet
+    
+    @IBOutlet weak var plantPhotoDetail: UIImageView!
+
+    // MARK: - Property
+    
+    var plantPhoto: UIImage?
 }

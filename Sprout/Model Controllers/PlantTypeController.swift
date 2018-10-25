@@ -10,24 +10,15 @@ import Foundation
 import CoreData
 
 class PlantTypeController {
+
+    // MARK: - CRUD
     
-    //Shared Instance
-    static let shared = PlantTypeController()
-    
-    //Properties
-    var plantTypes: [PlantType] {
-        let fetchRequest: NSFetchRequest<PlantType> = PlantType.fetchRequest()
-        let moc = CoreDataStack.context
-        do{
-            return try moc.fetch(fetchRequest)
-        } catch {
-            print("Error fetching PlantTypes from persistent store \(error.localizedDescription)")
-            return []
-        }
+    func create(plantType type: String) {
+        let plantType = PlantType(type: type)
+        DayController.shared.createDaysForTenYearsFor(plantType: plantType)
+        saveToPersistantStore()
     }
     
-    //Fetch Function
-    //Go through plant types array of day and filter them to find out the one for today
     func fetchDayFor(plantType: PlantType) -> Day? {
         guard let plantTypeDate = plantType.days?.array as? [Day] else {return nil}
         let today = plantTypeDate.filter { (day) -> Bool in
@@ -45,15 +36,8 @@ class PlantTypeController {
             let dayComponents = Calendar.current.dateComponents(componentSet, from: dayDate)
             
             return todaysComponents == dayComponents
-        }.first
+            }.first
         return today
-    }
-    
-    //CRUD Functions
-    func create(plantType type: String) {
-        let plantType = PlantType(type: type)
-        DayController.shared.createDaysForTenYearsFor(plantType: plantType)
-        saveToPersistantStore()
     }
     
     func update(plantType: PlantType, newTitle: String){
@@ -66,13 +50,29 @@ class PlantTypeController {
         moc?.delete(plantType)
     }
     
-    //Save To CoreData
+    // MARK: - Persistence
+    
     func saveToPersistantStore() {
         let moc = CoreDataStack.context
         do {
             try moc.save()
         } catch {
             print("Error saving to persistant store: \(error.localizedDescription)")
+        }
+    }
+    
+    // MARK: - Properties
+    
+    static let shared = PlantTypeController()
+    
+    var plantTypes: [PlantType] {
+        let fetchRequest: NSFetchRequest<PlantType> = PlantType.fetchRequest()
+        let moc = CoreDataStack.context
+        do{
+            return try moc.fetch(fetchRequest)
+        } catch {
+            print("Error fetching PlantTypes from persistent store \(error.localizedDescription)")
+            return []
         }
     }
 }

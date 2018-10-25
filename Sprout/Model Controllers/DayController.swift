@@ -12,10 +12,7 @@ import CoreData
 
 class DayController {
     
-    static let shared = DayController()
-    
-    var day: Day?
-    var calendarDays: [Day] = []
+    // MARK: - CRUD
     
     func createCalendarStartingDay() -> Day? {
         let startingDay: Day
@@ -76,6 +73,13 @@ class DayController {
             return []
         }
     }
+    
+    // MARK: - Properties
+    
+    static let shared = DayController()
+    
+    var day: Day?
+    var calendarDays: [Day] = []
 }
 
 

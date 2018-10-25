@@ -6,7 +6,9 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //TODO:
-//Keyboard observer to shift keyboard up
+//Keyboard observer to shift keyboard up. ADD
+//Wont save when parts of record are missing. ie: photo. FIX OR ALERT
+//Need to change the colors of the indicator to match pastel feel of app.
 
 import UIKit
 
@@ -16,41 +18,27 @@ protocol PlantHealthDetailControllerDelegate: class {
 
 class PlantHealthViewController: ShiftableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
-    // MARK: - Properties
-    weak var delegate: PlantHealthDetailControllerDelegate?
-    var plantType: PlantType?
-    var plantHealth: Int16? = 0
-    var imageData: Data?
-    var plantPhoto: UIImage?
-    var day: Day?
+    // MARK: - Life Cycle
     
-    var gradientLayer: CAGradientLayer!
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupViews()
+        updateViews()
+        plantHealthNotesTextView.delegate = self
+    }
     
-    
-    var keyboardToolbar = UIToolbar()
-    
-    // MARK: - Update Views
-    
-    func updateViews() {
-        guard let plantType = plantType else { return }
-        
-        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
-            
-            self.day = day
-            
-            plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
-            plantHealth = day.plantRecord?.plantHealth
-            guard let imageData = day.plantRecord?.plantImage else {return}
-            self.imageData = imageData
-            plantPhoto = UIImage(data: imageData)
-            thumbnailImageView.image = plantPhoto
-            guard let plantRecord = day.plantRecord else {return}
-            setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
-            
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        clearPlaceholderText()
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (_) in
+            self.createGradientLayer()
+            self.plantHealthBar.addSubview(self.poorHealthLabel)
+            self.plantHealthBar.addSubview(self.excellantHealthLabel)
         }
     }
     
-    // MARK: - Setup Views
+    // MARK: - Views
+    
     func setupViews() {
         plantHealthNotesTextView.inputAccessoryView = keyboardToolbar
         
@@ -81,14 +69,6 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         self.plantHealthBar.layer.addSublayer(gradientLayer)
-    }
-    
-    // MARK: - Helper Functions
-    
-    func clearPlaceholderText() {
-        if !plantHealthNotesTextView.text.isEmpty {
-            plantHealthNotesTextView.placeholder = ""
-        }
     }
     
     func setPlantHealthButtons(plantHealth: Int) {
@@ -134,11 +114,39 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
             fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
             fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+        }
+    }
+    
+    func updateViews() {
+        guard let plantType = plantType else { return }
+        
+        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
+            
+            self.day = day
+            
+            plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
+            plantHealth = day.plantRecord?.plantHealth
+            guard let imageData = day.plantRecord?.plantImage else {return}
+            self.imageData = imageData
+            plantPhoto = UIImage(data: imageData)
+            thumbnailImageView.image = plantPhoto
+            guard let plantRecord = day.plantRecord else {return}
+            setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
             
         }
     }
     
+    
+    // MARK: - Helper function
+    
+    func clearPlaceholderText() {
+        if !plantHealthNotesTextView.text.isEmpty {
+            plantHealthNotesTextView.placeholder = ""
+        }
+    }
+    
     // MARK: - Outlets
+    
     @IBOutlet weak var oneButton: UIButton!
     @IBOutlet weak var twoButton: UIButton!
     @IBOutlet weak var threeButton: UIButton!
@@ -153,25 +161,8 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBOutlet weak var poorHealthLabel: UILabel!
     @IBOutlet weak var excellantHealthLabel: UILabel!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupViews()
-        updateViews()
-        plantHealthNotesTextView.delegate = self
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        clearPlaceholderText()
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (_) in
-            self.createGradientLayer()
-            self.plantHealthBar.addSubview(self.poorHealthLabel)
-            self.plantHealthBar.addSubview(self.excellantHealthLabel)
-        }
-    }
-    
     // MARK: - Actions
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let plantHealthNotes = plantHealthNotesTextView.text,
             let plantHealth = plantHealth,
@@ -243,13 +234,12 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
                 self.present(imagePicker, animated: true, completion: nil)
             }))
         }
-        
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
         present(alert, animated: true, completion: nil)
     }
     
-    // MARK: - Segue to PhotoDetail
+    // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPhotoDetail" {
@@ -257,10 +247,9 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             let photoDetailVC = segue.destination as? PhotoDetailViewController
             photoDetailVC?.plantPhoto = plantPhoto
         }
-        
     }
     
-    // MARK: - UIImagePickerControllerDelegate
+    // MARK: - Delegatation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         picker.dismiss(animated: true, completion: nil)
@@ -274,4 +263,19 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             
         }
     }
+    
+    // MARK: - Properties
+    
+    weak var delegate: PlantHealthDetailControllerDelegate?
+    var plantType: PlantType?
+    var plantHealth: Int16? = 0
+    var imageData: Data?
+    var plantPhoto: UIImage?
+    var day: Day?
+    
+    var gradientLayer: CAGradientLayer!
+    
+    
+    var keyboardToolbar = UIToolbar()
+    
 }

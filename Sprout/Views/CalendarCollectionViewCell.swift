@@ -8,31 +8,13 @@
 
 import UIKit
 
-//protocol CalendarCollectionViewCellDelegate: class {
-//    func calendarCollectionViewDidSelectView(_ cell: CalendarCollectionViewCell)
-//}
-
 class CalendarCollectionViewCell: UICollectionViewCell {
     
+    // MARK: - Outlet
+    
     @IBOutlet weak var dateLabel: UILabel!
-    @IBOutlet weak var water_feedView: UIView!
-//    weak var delegate: CalendarCollectionViewCellDelegate?
     
-    var day: Day? {
-        didSet {
-//            updateViews()
-        }
-    }
+    // MARK: - Property
     
-    func updateViews() {
-//        delegate?.calendarCollectionViewDidSelectView(self)
-//
-//        switch <#value#> {
-//        case <#pattern#>:
-//            <#code#>
-//        default:
-//            <#code#>
-//        }
-    }
-    
+    var day: Day?
 }

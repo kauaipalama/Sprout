@@ -7,23 +7,14 @@
 //
 
 //TODO:
-//Keyboard observer to shift view up 
+//Keyboard observer to shift view up. ADD
+//When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX
 
 import UIKit
 
 class Water_FeedViewController: ShiftableViewController {
     
-    // MARK: - Properties
-    var plantType: PlantType?
-    var keyboardToolbar = UIToolbar()
-    var day: Day?
-    
-    // MARK: - Outlets
-    @IBOutlet weak var conductivityTextField: UITextField!
-    @IBOutlet weak var phTextField: UITextField!
-    @IBOutlet weak var volumeTextField: UITextField!
-    @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
-    
+    // MARK: - Life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,25 +29,10 @@ class Water_FeedViewController: ShiftableViewController {
         clearPlaceholderText()
     }
     
-    // MARK: - Update Views
-    
-    func updateViews() {
-        guard let plantType = plantType else { return }
-        
-        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
-            
-            self.day = day
-            
-            conductivityTextField.text = day.plantRecord?.conductivity.description
-                    phTextField.text = day.plantRecord?.ph.description
-                    volumeTextField.text = day.plantRecord?.volume.description
-                    water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
-        }
-    }
-    
-    // MARK: - Setup Views
+    // MARK: - Views
     
     func setupViews() {
+        
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
         volumeTextField.inputAccessoryView = keyboardToolbar
@@ -76,9 +52,23 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.layer.cornerRadius = 6
     }
- 
     
-    // MARK: - Helper Functions
+    func updateViews() {
+        guard let plantType = plantType else { return }
+        
+        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
+            
+            self.day = day
+            //Make the text field for ph and volume only have one digit after decimal. rounded
+            conductivityTextField.text = day.plantRecord?.conductivity.description
+            phTextField.text = day.plantRecord?.ph.description
+            volumeTextField.text = day.plantRecord?.volume.description
+            water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
+        }
+    }
+    
+    
+    // MARK: - Helper function
     
     func clearPlaceholderText() {
         if !water_FeedNotesTextView.text.isEmpty {
@@ -86,7 +76,15 @@ class Water_FeedViewController: ShiftableViewController {
         }
     }
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var conductivityTextField: UITextField!
+    @IBOutlet weak var phTextField: UITextField!
+    @IBOutlet weak var volumeTextField: UITextField!
+    @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
+    
     // MARK: - Actions
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
         guard let phString = phTextField.text,
             let ph = Float(phString),
@@ -114,6 +112,12 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.resignFirstResponder()
     }
     
-    // MARK: - Keyboard Notification Center
+    // MARK: - Properties
+    
+    var plantType: PlantType?
+    var keyboardToolbar = UIToolbar()
+    var day: Day?
+    
+    // MARK: - Notification Center
     
     }

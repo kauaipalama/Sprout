@@ -7,38 +7,24 @@
 //
 
 //TODO:
-//Leap year function for numberOfDaysInMonth
-//Add background color to cell to show record exists
-
+//Leap year function for numberOfDaysInMonth. ADD
+//Fix the cells of the collection view from duplicating the image on frames that do not contain plantRecords. Seems to be an indexing issue. Happens when going back and forth between months. FIX (HIDDEN RIGHT NOW)
+//ALSO. Major bug only reproducable when using "old" data. Error: Index out of range. Happens when loading "days" in cellForRowAt
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    // MARK: - Properties
-    
-    var plantType: PlantType?
-
-    var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-    var currentMonthIndex = 0
-    var currentYear = 0
-    var numberOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
-    var presentMonthIndex = 0
-    var presentYear = 0
-    var todaysDate = 0
-    var firstWeekDayOfMonth = 0
-    var currentMonthDays: [Day] = []
-    
-    let startDateComponents = DateComponents(calendar: Calendar.current, year: 2018, month: 4)
-    // MARK: - Outlets
-    
-    @IBOutlet weak var calendarCollectionView: UICollectionView!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var prevButton: UIButton!
-    
-    // MARK: - LifeCycle Function
+    // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Grow Log"
+        setCalendar()
+    }
+    
+    // MARK: - Calendar Setup
+    
+    func setCalendar() {
         currentMonthIndex = Calendar.current.component(.month, from: Date())
         currentYear = Calendar.current.component(.year, from: Date())
         todaysDate = Calendar.current.component(.day, from: Date())
@@ -54,6 +40,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         setCurrentMonthDays()
     }
     
+    // MARK: - Helper Functions
+    
     func setCurrentMonthDays() {
         
         guard let plantType = plantType else { return }
@@ -61,13 +49,17 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         self.currentMonthDays = DayController.shared.fetchDaysForMonth(currentMonth: currentMonthIndex, currentYear: currentYear, lastDay: numberOfDaysInMonth[currentMonthIndex - 1], plantType: plantType)
     }
     
-    // MARK: - Helper Functions
-    
     func getFirstWeekDay() -> Int {
         print("getFirstWeekDay: \(currentYear) \(currentMonthIndex)")
         let day = ("\(currentYear)-\(currentMonthIndex)-01".date?.firstDayOfTheMonth.weekday)!
         return day == 7 ? 1 : day
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var prevButton: UIButton!
     
     // MARK: - Actions
     
@@ -81,9 +73,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         firstWeekDayOfMonth = getFirstWeekDay()
         
-        calendarCollectionView.reloadData()
         monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
         setCurrentMonthDays()
+        calendarCollectionView.reloadData()
     }
     
     @IBAction func prevButtonTapped(_ sender: Any) {
@@ -100,9 +92,9 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         
         firstWeekDayOfMonth = getFirstWeekDay()
         
-        calendarCollectionView.reloadData()
         monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
         setCurrentMonthDays()
+        calendarCollectionView.reloadData()
     }
     
     // MARK: - CollectionViewFlowLayout
@@ -130,11 +122,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
+        
         cell.backgroundColor = UIColor.clear
+        cell.layer.cornerRadius = 8
+        
         if indexPath.item < firstWeekDayOfMonth - 1, firstWeekDayOfMonth > 1 {
             cell.isHidden = true
         } else {
-            
+            //Here is the MAJOR BUG occurance due to index out of range (below)
             let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
             
             cell.day = day
@@ -143,22 +138,34 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.dateLabel.text = "\(calcDate)"
             if currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
                 cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.lightGray
+                cell.dateLabel.textColor = UIColor.black
             } else if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
                 
                 cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.lightGray
+                cell.dateLabel.textColor = UIColor.black
                 
             } else {
                 cell.isUserInteractionEnabled = true
                 cell.dateLabel.textColor=UIColor.black
             }
+            
             let plantRecord = cell.day?.plantRecord
             if plantRecord != nil {
-                cell.backgroundColor = UIColor(red: 4.0/255.0, green: 149.0/255.0, blue: 255.0/255.0, alpha: 0.5)
-                
+                switch plantRecord?.plantHealth {
+                case 1:
+                    cell.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+                case 2:
+                    cell.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+                case 3:
+                    cell.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+                case 4:
+                    cell.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
+                case 5:
+                    cell.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+                default:
+                     cell.backgroundColor = UIColor.clear
+                }
             }
-            
         }
         return cell
     }
@@ -186,9 +193,25 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             destinationVC.day = day
         }
     }
+    
+    // MARK: - Properties
+    
+    var plantType: PlantType?
+    
+    var monthsArray = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    var currentMonthIndex = 0
+    var currentYear = 0
+    var numberOfDaysInMonth = [31,28,31,30,31,30,31,31,30,31,30,31]
+    var presentMonthIndex = 0
+    var presentYear = 0
+    var todaysDate = 0
+    var firstWeekDayOfMonth = 0
+    var currentMonthDays: [Day] = []
+    
+    let startDateComponents = DateComponents(calendar: Calendar.current, year: 2018, month: 4)
 }
 
-//Extentions
+// MARK: - Extentions
 
 extension Date {
     var weekday: Int {

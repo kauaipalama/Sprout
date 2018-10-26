@@ -15,7 +15,7 @@ class PlantTypeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //bold the title
-        navigationItem.title = "Main Menu"
+        navigationItem.title = "\(plantType!.type!)"
     }
     
     // MARK: - Navigation

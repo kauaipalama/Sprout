@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//This is where the preference pane modul VC will exist. Will use "static keys" (not sure if those are the right words) to reuse later in other parts of the code. POSSIBLY a modul presentation of a new view controller(s) from preference pane VC.
+
 import UIKit
 import CoreData
 

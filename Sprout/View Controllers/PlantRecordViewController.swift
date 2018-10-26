@@ -59,15 +59,15 @@ class PlantRecordViewController: UIViewController {
             else {return}
         let image = UIImage(data: plantImageData)
         
-        let watterNotes = day.plantRecord?.water_feedNotes
-        let heathNotes = day.plantRecord?.plantHealthNotes
+        let waterNotes = day.plantRecord?.water_feedNotes
+        let healthNotes = day.plantRecord?.plantHealthNotes
         
         plantImage.image = image
-        ph.text = "PH: \(plantRecord.ph.description)"
-        conductivity.text = "PPM/EC: \(plantRecord.conductivity.description)"
-        volume.text = "Volume: \(plantRecord.volume.description)"
-        water_FeedNotes.text = watterNotes ?? "You need to add some notes!"
-        plantHealthNotes.text = heathNotes ?? "HI"
+        ph.text = "PH: \(plantRecord.phString)"
+        conductivity.text = "PPM/EC: \(plantRecord.conductivityString)"
+        volume.text = "Volume: \(plantRecord.volumeString)"
+        water_FeedNotes.text = waterNotes ?? "You need to add some notes!"
+        plantHealthNotes.text = healthNotes ?? "HI"
         
         setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
     }

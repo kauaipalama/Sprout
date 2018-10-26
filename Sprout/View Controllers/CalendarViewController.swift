@@ -10,6 +10,7 @@
 //Leap year function for numberOfDaysInMonth. ADD
 //Fix the cells of the collection view from duplicating the image on frames that do not contain plantRecords. Seems to be an indexing issue. Happens when going back and forth between months. FIX (HIDDEN RIGHT NOW)
 //ALSO. Major bug only reproducable when using "old" data. Error: Index out of range. Happens when loading "days" in cellForRowAt
+//REDUCE CODE by following MVC principles. Move properties into a model file and functions into a controller file to increase modularity and readabilty.
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -136,6 +137,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             let calcDate = indexPath.row - firstWeekDayOfMonth + 2
             cell.isHidden = false
             cell.dateLabel.text = "\(calcDate)"
+            
+            //POSSIBLY GET RID OF THIS WHOLE IF ELSE STATEMENT BELOW > CASCADE <
             if currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
                 cell.isUserInteractionEnabled = true
                 cell.dateLabel.textColor = UIColor.black

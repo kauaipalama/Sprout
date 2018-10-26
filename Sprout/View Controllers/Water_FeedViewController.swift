@@ -10,6 +10,9 @@
 //Keyboard observer to shift view up. ADD
 //When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX
 
+// Setup preferences and use to populate volumeTextField with the value followed by " gallons" or liters whatever you set it as in preferences pane.
+// Setup preferences to change between ppm 500, ppm700 and EC labels
+
 import UIKit
 
 class Water_FeedViewController: ShiftableViewController {
@@ -60,9 +63,9 @@ class Water_FeedViewController: ShiftableViewController {
             
             self.day = day
             //Make the text field for ph and volume only have one digit after decimal. rounded
-            conductivityTextField.text = day.plantRecord?.conductivity.description
-            phTextField.text = day.plantRecord?.ph.description
-            volumeTextField.text = day.plantRecord?.volume.description
+            conductivityTextField.text = day.plantRecord?.conductivityString
+            phTextField.text = day.plantRecord?.phString
+            volumeTextField.text = day.plantRecord?.volumeString
             water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
         }
     }

@@ -306,23 +306,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-p6-rYz">
-                                <rect key="frame" x="-34" y="58" width="443" height="571"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L88-g1-kNG">
+                                <rect key="frame" x="-54" y="38" width="483" height="611"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-p6-rYz">
+                                        <rect key="frame" x="20" y="20" width="443" height="571"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Pqd-p6-rYz" secondAttribute="height" multiplier="125:161" id="r49-4Q-NjX"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Pqd-p6-rYz" secondAttribute="height" multiplier="125:161" id="r49-4Q-NjX"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerY" secondItem="L88-g1-kNG" secondAttribute="centerY" id="46K-q4-9mN"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="leading" secondItem="L88-g1-kNG" secondAttribute="leading" constant="20" id="MdB-bz-EgO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pqd-p6-rYz" secondAttribute="trailing" constant="20" id="dHV-5K-vLi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pqd-p6-rYz" secondAttribute="bottom" constant="20" id="lii-P1-Zp2"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerX" secondItem="L88-g1-kNG" secondAttribute="centerX" id="w9Y-o1-brs"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="top" secondItem="L88-g1-kNG" secondAttribute="top" constant="20" id="xhW-EW-z9C"/>
                                 </constraints>
-                            </imageView>
+                                <connections>
+                                    <outlet property="delegate" destination="Bls-RE-mH7" id="lyM-on-Aw9"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerX" secondItem="Af2-H2-08i" secondAttribute="centerX" id="eBF-lS-ztd"/>
-                            <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerY" secondItem="Af2-H2-08i" secondAttribute="centerY" id="eVN-d6-gps"/>
-                            <constraint firstItem="Pqd-p6-rYz" firstAttribute="top" secondItem="Af2-H2-08i" secondAttribute="top" constant="38" id="v9z-so-q5v"/>
+                            <constraint firstItem="L88-g1-kNG" firstAttribute="top" secondItem="Af2-H2-08i" secondAttribute="top" constant="18" id="QEM-AI-YW6"/>
+                            <constraint firstItem="L88-g1-kNG" firstAttribute="centerX" secondItem="CAM-s5-zW3" secondAttribute="centerX" id="S5d-03-Wid"/>
+                            <constraint firstItem="Af2-H2-08i" firstAttribute="bottom" secondItem="L88-g1-kNG" secondAttribute="bottom" constant="18" id="jOj-Mx-3dV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Af2-H2-08i"/>
                     </view>
                     <connections>
-                        <outlet property="plantPhotoDetail" destination="Pqd-p6-rYz" id="Dnk-bZ-ptf"/>
+                        <outlet property="plantPhotoDetail" destination="Pqd-p6-rYz" id="TTB-JZ-cOc"/>
+                        <outlet property="scrollView" destination="L88-g1-kNG" id="FYE-gi-8dJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CZo-8X-aWA" userLabel="First Responder" sceneMemberID="firstResponder"/>

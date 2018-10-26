@@ -12,6 +12,7 @@
 
 // Setup preferences and use to populate volumeTextField with the value followed by " gallons" or liters whatever you set it as in preferences pane.
 // Setup preferences to change between ppm 500, ppm700 and EC labels
+// Setup numbers only keyboard for ph and ec/ppm text fields.
 
 import UIKit
 
@@ -23,8 +24,6 @@ class Water_FeedViewController: ShiftableViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
-        water_FeedNotesTextView.delegate = self
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,7 +34,6 @@ class Water_FeedViewController: ShiftableViewController {
     // MARK: - Views
     
     func setupViews() {
-        
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
         volumeTextField.inputAccessoryView = keyboardToolbar
@@ -54,15 +52,14 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.layer.borderWidth = 1
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.layer.cornerRadius = 6
+        water_FeedNotesTextView.delegate = self
     }
     
     func updateViews() {
         guard let plantType = plantType else { return }
         
         if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
-            
             self.day = day
-            //Make the text field for ph and volume only have one digit after decimal. rounded
             conductivityTextField.text = day.plantRecord?.conductivityString
             phTextField.text = day.plantRecord?.phString
             volumeTextField.text = day.plantRecord?.volumeString

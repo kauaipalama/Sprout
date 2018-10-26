@@ -138,7 +138,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.dateLabel.text = "\(calcDate)"
             cell.isHidden = false
             cell.isUserInteractionEnabled = true
-            cell.dateLabel.textColor=UIColor.black
+            cell.dateLabel.textColor = UIColor.black
             
             let plantRecord = cell.day?.plantRecord
             if plantRecord != nil {

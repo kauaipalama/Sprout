@@ -74,7 +74,7 @@
                                         <color key="backgroundColor" red="0.93361288310000001" green="0.97250598669999999" blue="0.97255092860000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Water / Nutrients">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="water_feedButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="7wG-Md-W9H"/>
@@ -86,7 +86,7 @@
                                         <color key="backgroundColor" red="0.99576658010482788" green="0.97299593687057495" blue="0.94509512186050415" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Plant Health">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="plantHealthButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="PB1-7m-KKW"/>
@@ -98,7 +98,7 @@
                                         <color key="backgroundColor" red="0.88885289430000003" green="0.9174605012" blue="0.63916903729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                         <state key="normal" title="Grow Log">
-                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="calendarButtonTapped:" destination="zTg-Hm-ixt" eventType="touchUpInside" id="bho-EN-DTp"/>
@@ -429,7 +429,7 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-gR-UVi" customClass="PlaceholderTextView" customModule="Sprout" customModuleProvider="target">
-                                        <rect key="frame" x="28" y="256" width="319" height="244.5"/>
+                                        <rect key="frame" x="28.5" y="256" width="318.5" height="244.5"/>
                                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -456,7 +456,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WmE-vd-BeW"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Water/Feed" id="7hz-Wb-PII">
+                    <navigationItem key="navigationItem" title="Water / Nutrients" id="7hz-Wb-PII">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="uRC-PH-VSx">
                             <connections>
                                 <action selector="saveButtonTapped:" destination="LxJ-7Z-ttF" id="uY7-aO-TM7"/>

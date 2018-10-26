@@ -278,7 +278,6 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
     
     var gradientLayer: CAGradientLayer!
     
-    
     var keyboardToolbar = UIToolbar()
     
 }

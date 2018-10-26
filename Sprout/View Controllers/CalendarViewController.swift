@@ -132,25 +132,13 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         } else {
             //Here is the MAJOR BUG occurance due to index out of range (below)
             let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
+            let calcDate = indexPath.row - firstWeekDayOfMonth + 2
             
             cell.day = day
-            let calcDate = indexPath.row - firstWeekDayOfMonth + 2
-            cell.isHidden = false
             cell.dateLabel.text = "\(calcDate)"
-            
-            //POSSIBLY GET RID OF THIS WHOLE IF ELSE STATEMENT BELOW > CASCADE <
-            if currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.black
-            } else if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-                
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.black
-                
-            } else {
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor=UIColor.black
-            }
+            cell.isHidden = false
+            cell.isUserInteractionEnabled = true
+            cell.dateLabel.textColor=UIColor.black
             
             let plantRecord = cell.day?.plantRecord
             if plantRecord != nil {

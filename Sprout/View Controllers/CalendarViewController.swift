@@ -130,7 +130,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         if indexPath.item < firstWeekDayOfMonth - 1, firstWeekDayOfMonth > 1 {
             cell.isHidden = true
         } else {
-            //Here is the MAJOR BUG occurance due to index out of range (below)
+            //Here is the MAJOR BUG occurance due to index out of range (day). Possible indexing issue.
             let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
             let calcDate = indexPath.row - firstWeekDayOfMonth + 2
             

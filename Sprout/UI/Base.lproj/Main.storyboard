@@ -328,10 +328,10 @@
             </objects>
             <point key="canvasLocation" x="584" y="605"/>
         </scene>
-        <!--Photo Detail-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="g2j-co-nHO">
             <objects>
-                <viewController title="Photo Detail" id="oVC-FD-UNp" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="oVC-FD-UNp" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xjl-YP-QaY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

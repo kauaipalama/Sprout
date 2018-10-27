@@ -6,6 +6,7 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //Make it so that the plant health only shows the one indicatior. it would be like "Plant Health: [5]" <-- that's supposed to be a button. ADD
+//When view loads, scroll the textView(s) down and up once.
 
 import UIKit
 
@@ -75,7 +76,7 @@ class PlantRecordViewController: UIViewController {
     func setPlantHealthButtons(plantHealth: Int) {
         switch plantHealth {
         case 1:
-            oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+            oneButton.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1)
             twoButton.backgroundColor = UIColor.lightGray
             threeButton.backgroundColor = UIColor.lightGray
             fourButton.backgroundColor = UIColor.lightGray
@@ -83,7 +84,7 @@ class PlantRecordViewController: UIViewController {
             
         case 2:
             oneButton.backgroundColor = UIColor.lightGray
-            twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
+            twoButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7137254902, blue: 0.4941176471, alpha: 1)
             threeButton.backgroundColor = UIColor.lightGray
             fourButton.backgroundColor = UIColor.lightGray
             fiveButton.backgroundColor = UIColor.lightGray
@@ -91,7 +92,7 @@ class PlantRecordViewController: UIViewController {
         case 3:
             oneButton.backgroundColor = UIColor.lightGray
             twoButton.backgroundColor = UIColor.lightGray
-            threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
+            threeButton.backgroundColor = #colorLiteral(red: 1, green: 0.9764705882, blue: 0.5882352941, alpha: 1)
             fourButton.backgroundColor = UIColor.lightGray
             fiveButton.backgroundColor = UIColor.lightGray
             
@@ -99,7 +100,7 @@ class PlantRecordViewController: UIViewController {
             oneButton.backgroundColor = UIColor.lightGray
             twoButton.backgroundColor = UIColor.lightGray
             threeButton.backgroundColor = UIColor.lightGray
-            fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
+            fourButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.9803921569, blue: 0.5803921569, alpha: 1)
             fiveButton.backgroundColor = UIColor.lightGray
             
         case 5:
@@ -107,14 +108,14 @@ class PlantRecordViewController: UIViewController {
             twoButton.backgroundColor = UIColor.lightGray
             threeButton.backgroundColor = UIColor.lightGray
             fourButton.backgroundColor = UIColor.lightGray
-            fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+            fiveButton.backgroundColor = #colorLiteral(red: 0.6666666667, green: 0.9137254902, blue: 0.5411764706, alpha: 1)
             
         default:
-            oneButton.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-            twoButton.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-            threeButton.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-            fourButton.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
-            fiveButton.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
+            oneButton.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1)
+            twoButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7137254902, blue: 0.4941176471, alpha: 1)
+            threeButton.backgroundColor = #colorLiteral(red: 1, green: 0.9764705882, blue: 0.5882352941, alpha: 1)
+            fourButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.9803921569, blue: 0.5803921569, alpha: 1)
+            fiveButton.backgroundColor = #colorLiteral(red: 0.6666666667, green: 0.9137254902, blue: 0.5411764706, alpha: 1)
         }
     }
     

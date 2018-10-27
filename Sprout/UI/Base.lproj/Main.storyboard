@@ -72,7 +72,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ut-Np-H6G">
                                         <rect key="frame" x="0.0" y="0.0" width="262.5" height="56.5"/>
                                         <color key="backgroundColor" red="0.93361288310000001" green="0.97250598669999999" blue="0.97255092860000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Water / Nutrients">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -84,7 +84,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ru3-Gx-E4r">
                                         <rect key="frame" x="0.0" y="138.5" width="262.5" height="56.5"/>
                                         <color key="backgroundColor" red="0.99576658010482788" green="0.97299593687057495" blue="0.94509512186050415" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Plant Health">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
@@ -96,7 +96,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O6Y-KF-B4o">
                                         <rect key="frame" x="0.0" y="277" width="262.5" height="56.5"/>
                                         <color key="backgroundColor" red="0.88885289430000003" green="0.9174605012" blue="0.63916903729999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" title="Grow Log">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>

@@ -34,6 +34,10 @@ class Water_FeedViewController: ShiftableViewController {
     // MARK: - Views
     
     func setupViews() {
+        conductivityTextField.keyboardType = UIKeyboardType.decimalPad
+        phTextField.keyboardType = UIKeyboardType.decimalPad
+        volumeTextField.keyboardType = UIKeyboardType.decimalPad
+        
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
         volumeTextField.inputAccessoryView = keyboardToolbar
@@ -68,7 +72,7 @@ class Water_FeedViewController: ShiftableViewController {
     }
     
     
-    // MARK: - Helper function
+    // MARK: - Helper functions
     
     func clearPlaceholderText() {
         if !water_FeedNotesTextView.text.isEmpty {

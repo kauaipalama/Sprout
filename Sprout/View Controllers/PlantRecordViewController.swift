@@ -51,6 +51,11 @@ class PlantRecordViewController: UIViewController {
         threeButton.layer.cornerRadius = 8
         fourButton.layer.cornerRadius = 8
         fiveButton.layer.cornerRadius = 8
+        
+        plantHealthNotes.layer.borderWidth = 1
+        plantHealthNotes.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        water_FeedNotes.layer.borderWidth = 1
+        water_FeedNotes.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
     }
     
     func updateViews() {

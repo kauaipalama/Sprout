@@ -197,68 +197,58 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-Bs-Ff0">
                                 <rect key="frame" x="19" y="491" width="337.5" height="121"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="KTL-5I-MAY">
-                                        <rect key="frame" x="81.5" y="0.0" width="174" height="30"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hja-Tf-Zol">
+                                        <rect key="frame" x="85.5" y="0.0" width="166.5" height="20.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pis-MR-jKX">
-                                                <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.88235294119999996" green="0.49803921569999998" blue="0.43137254899999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plant Health:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMT-62-3Iw">
+                                                <rect key="frame" x="0.0" y="0.0" width="101" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="KTL-5I-MAY">
+                                                <rect key="frame" x="105" y="0.0" width="61.5" height="20.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="10" translatesAutoresizingMaskIntoConstraints="NO" id="aes-UG-sAG">
+                                                        <rect key="frame" x="0.0" y="0.0" width="20.5" height="20.5"/>
+                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20.5" id="Ufb-8I-9fa"/>
+                                                            <constraint firstAttribute="width" secondItem="aes-UG-sAG" secondAttribute="height" multiplier="1:1" id="tLJ-gv-sgu"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="15" translatesAutoresizingMaskIntoConstraints="NO" id="Tpf-vU-Urq">
+                                                        <rect key="frame" x="20.5" y="0.0" width="20.5" height="20.5"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Tpf-vU-Urq" secondAttribute="height" multiplier="1:1" id="ozX-KP-eia"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="15" translatesAutoresizingMaskIntoConstraints="NO" id="RyW-C4-lpj">
+                                                        <rect key="frame" x="41" y="0.0" width="20.5" height="20.5"/>
+                                                        <color key="backgroundColor" red="0.66666666669999997" green="0.91372549020000005" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="RyW-C4-lpj" secondAttribute="height" multiplier="1:1" id="pmb-pz-FsM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="Pis-MR-jKX" secondAttribute="height" multiplier="1:1" id="kBU-5U-RYa"/>
+                                                    <constraint firstItem="RyW-C4-lpj" firstAttribute="centerY" secondItem="KTL-5I-MAY" secondAttribute="centerY" id="eRy-2s-yw1"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="1">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m8x-2w-dBl">
-                                                <rect key="frame" x="36" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.92549019610000005" green="0.71372549019999998" blue="0.4941176471" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="m8x-2w-dBl" secondAttribute="height" multiplier="1:1" id="aqt-q5-Lee"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="2">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wes-QM-xUL">
-                                                <rect key="frame" x="72" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.97647058819999999" blue="0.58823529409999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="wes-QM-xUL" secondAttribute="height" multiplier="1:1" id="jUi-5g-Aa8"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="3">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TgF-6e-XN4">
-                                                <rect key="frame" x="108" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.92549019610000005" green="0.98039215690000003" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="TgF-6e-XN4" secondAttribute="height" multiplier="1:1" id="Grg-Wv-C1V"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="4">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWt-eA-Djs">
-                                                <rect key="frame" x="144" y="0.0" width="30" height="30"/>
-                                                <color key="backgroundColor" red="0.66666666669999997" green="0.91372549020000005" blue="0.54117647059999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" secondItem="iWt-eA-Djs" secondAttribute="height" multiplier="1:1" id="ccV-cC-ctM"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="15"/>
-                                                <state key="normal" title="5">
-                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                </state>
-                                            </button>
+                                            </stackView>
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pK4-YH-bW0">
-                                        <rect key="frame" x="0.0" y="34" width="337.5" height="87"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="337.5" height="96.5"/>
                                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
@@ -298,14 +288,11 @@
                     </view>
                     <connections>
                         <outlet property="conductivity" destination="fo1-pE-egF" id="tCo-8a-qzQ"/>
-                        <outlet property="fiveButton" destination="iWt-eA-Djs" id="YDG-uZ-zpV"/>
-                        <outlet property="fourButton" destination="TgF-6e-XN4" id="w8W-Xp-Q2a"/>
-                        <outlet property="oneButton" destination="Pis-MR-jKX" id="ftS-ur-NuL"/>
                         <outlet property="ph" destination="u74-y6-UsN" id="MAb-iU-VId"/>
+                        <outlet property="plantHealthFirstButton" destination="aes-UG-sAG" id="QB9-fP-Slk"/>
                         <outlet property="plantHealthNotes" destination="pK4-YH-bW0" id="a9v-ER-3S7"/>
+                        <outlet property="plantHealthSecondButton" destination="RyW-C4-lpj" id="05f-EW-vTy"/>
                         <outlet property="plantImage" destination="vsQ-zh-WPW" id="kDK-6j-6ci"/>
-                        <outlet property="threeButton" destination="wes-QM-xUL" id="KWO-rr-nlI"/>
-                        <outlet property="twoButton" destination="m8x-2w-dBl" id="Cyy-2I-x2i"/>
                         <outlet property="volume" destination="o5f-fH-Cl2" id="4mg-iq-dlE"/>
                         <outlet property="water_FeedNotes" destination="G8o-To-3nK" id="KEG-Kt-cYN"/>
                     </connections>

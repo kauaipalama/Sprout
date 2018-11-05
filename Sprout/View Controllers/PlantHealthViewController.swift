@@ -7,8 +7,9 @@
 //
 //TODO:
 //Keyboard observer to shift keyboard up. ADD
-//Wont save when parts of record are missing. ie: photo. FIX OR ALERT
-//Need to change the colors of the indicator to match pastel feel of app.
+
+//*****Wont save when parts of record are missing. ie: photo. FIX OR ALERT******
+//Alert the user know they still need to input values if they try to save before doing so.
 
 import UIKit
 
@@ -168,6 +169,11 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             let plantHealth = plantHealth,
             let imageData = imageData
             else {return}
+        
+        //Set a default image here so that it doesnt return in updateViews in PlantRecordVC
+        //Use if let statement with imageData and set default with default image data?
+        //Tried using an optional for imageData but the updatePlantRecordHealth does not allow for a optional
+        //See if the notes are blank. If they are display N/A
         
         if let plantRecord = day?.plantRecord {
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)

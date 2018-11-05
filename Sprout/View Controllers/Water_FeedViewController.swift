@@ -12,7 +12,8 @@
 
 // Setup preferences and use to populate volumeTextField with the value followed by " gallons" or liters whatever you set it as in preferences pane.
 // Setup preferences to change between ppm 500, ppm700 and EC labels
-// Setup numbers only keyboard for ph and ec/ppm text fields.
+
+//Alert the user know they still need to input values if they try to save before doing so.
 
 import UIKit
 

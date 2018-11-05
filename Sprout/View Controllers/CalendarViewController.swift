@@ -8,6 +8,7 @@
 
 //TODO:
 //Leap year function for numberOfDaysInMonth. ADD
+//Notes at the bottom of the calendarView that persist with the coreData model. General notes for the month. Save to coreData and fetch for month.
 //Fix the cells of the collection view from duplicating the image on frames that do not contain plantRecords. Seems to be an indexing issue. Happens when going back and forth between months. FIX (HIDDEN RIGHT NOW)
 //ALSO. Major bug only reproducable when using "old" data. Error: Index out of range. Happens when loading "days" in cellForRowAt
 //REDUCE CODE by following MVC principles. Move properties into a model file and functions into a controller file to increase modularity and readabilty.

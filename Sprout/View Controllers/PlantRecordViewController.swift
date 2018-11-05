@@ -66,8 +66,8 @@ class PlantRecordViewController: UIViewController {
         ph.text = "PH: \(plantRecord.phString)"
         conductivity.text = "PPM/EC: \(plantRecord.conductivityString)"
         volume.text = "Volume: \(plantRecord.volumeString)"
-        water_FeedNotes.text = waterNotes ?? "You need to add some notes!"
-        plantHealthNotes.text = healthNotes ?? "HI"
+        water_FeedNotes.text = waterNotes ?? "N/A"
+        plantHealthNotes.text = healthNotes ?? "N/A"
         
         setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
     }

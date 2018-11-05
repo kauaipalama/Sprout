@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//Possibly add "runoff ph" and "runoff conductivity"
+
 import Foundation
 import CoreData
 
@@ -26,18 +28,17 @@ extension PlantRecord {
     // MARK: - Helper Function
     //Helps to convert a float to a "pretty" string. Checks to see if the property is nil, if so, the function returns a not applicable string. Removes the zero at the end of whole numbers by using a Int initializer after checking if float is equal to itself rounded to the nearest whole number. If they are not equal, the statement returns a direct string interpolation of the float property.
     
-    func floatAsString(float: Float?) -> String {
-        guard let float = float else {return "N/A"}
-        
-        var floatAsString: String = ""
-        
-        if float.isEqual(to: float.rounded()) {
-            floatAsString = "\(Int(float))"
-            print(floatAsString)
-        } else {
-            floatAsString = "\(float)"
-            print(floatAsString)
-        }
+    func floatAsString(float: Float) -> String {
+            var floatAsString: String = ""
+        if float == 0 {
+            floatAsString = "N/A"
+        } else if float.isEqual(to: float.rounded()) {
+                floatAsString = "\(Int(float))"
+                print(floatAsString)
+            } else {
+                floatAsString = "\(float)"
+                print(floatAsString)
+            }
         return floatAsString
     }
     

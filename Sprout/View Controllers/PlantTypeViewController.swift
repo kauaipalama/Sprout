@@ -35,6 +35,10 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    @IBAction func blurViewTapped(_ sender: UITapGestureRecognizer) {
+        closeMenu()
+    }
+    
     func setupSubViews() {
         
         navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
@@ -60,41 +64,49 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var menuPreferencesButton: UIButton!
     @IBOutlet weak var menuHelpButton: UIButton!
     
+    func openMenu() {
+        menuViewTopConstraint.constant = 0
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        navigationItem.rightBarButtonItem?.tintColor = .clear
+        navigationItem.title = "Main Menu"
+        blurView.isUserInteractionEnabled = true
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+            self.view.insertSubview(self.blurView, at: 1)
+            self.blurView.effect = SproutTheme.current.blurEffect
+            self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
+            self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
+            self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
+        }
+    }
+    
+    func closeMenu() {
+        menuViewTopConstraint.constant = -167
+        navigationItem.rightBarButtonItem?.isEnabled = true
+        navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4, green: 0.6235294118, blue: 0.9411764706, alpha: 1)
+        navigationItem.title = "Plants"
+        blurView.isUserInteractionEnabled = false
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.layoutIfNeeded()
+            self.blurView.effect = nil
+            self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
+            self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
+            self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
+        }) { (_) in
+            self.view.insertSubview(self.blurView, at: 0)
+        }
+
+    }
+    
     @IBAction func menuButtonTapped(_ sender: Any) {
         if menuIsOpen == false {
-            
-            menuViewTopConstraint.constant = 0
-            navigationItem.rightBarButtonItem?.isEnabled = false
-            navigationItem.rightBarButtonItem?.tintColor = .clear
-            navigationItem.title = "Main Menu"
-            
-            UIView.animate(withDuration: 0.5) {
-                self.view.layoutIfNeeded()
-                self.view.insertSubview(self.blurView, at: 1)
-                self.blurView.effect = SproutTheme.current.blurEffect
-                self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
-                self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
-                self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
-            }
+            openMenu()
             menuIsOpen = true
     
         } else {
-            
-            menuViewTopConstraint.constant = -167
-            navigationItem.rightBarButtonItem?.isEnabled = true
-            navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4, green: 0.6235294118, blue: 0.9411764706, alpha: 1)
-            navigationItem.title = "Plants"
-            
-            UIView.animate(withDuration: 0.5, animations: {
-                self.view.layoutIfNeeded()
-                self.blurView.effect = nil
-                self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
-                self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
-                self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
-            }) { (_) in
-                self.view.insertSubview(self.blurView, at: 0)
-            }
-            
+            closeMenu()
             menuIsOpen = false
         }
     }

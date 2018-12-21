@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v75-oT-gnA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v75-oT-gnA">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -57,6 +56,7 @@
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" id="Na1-PI-893">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="675"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <gestureRecognizers/>
                                             </view>
                                             <vibrancyEffect>
                                                 <blurEffect style="light"/>
@@ -65,7 +65,11 @@
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <gestureRecognizers/>
                                 <blurEffect style="light"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="kTc-ar-1hR" appends="YES" id="pFc-C2-79P"/>
+                                </connections>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6RE-CX-jQL">
                                 <rect key="frame" x="0.0" y="-167" width="414" height="157"/>
@@ -158,6 +162,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SL2-ji-QOE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kTc-ar-1hR">
+                    <connections>
+                        <action selector="blurViewTapped:" destination="8KW-70-B4U" id="15q-c2-aM8"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-25" y="-954"/>
         </scene>
@@ -805,7 +814,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icons8-menu-24" width="24" height="24"/>
+        <image name="icons8-menu-24" width="54" height="54"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ISV-uU-7jl"/>

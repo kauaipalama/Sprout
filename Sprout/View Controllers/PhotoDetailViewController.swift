@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//Looks good
+
 import UIKit
 
 class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
@@ -17,6 +19,10 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
         setupViews()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var plantPhotoDetail: UIImageView!
@@ -25,6 +31,8 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     // MARK: - Views
     
     func setupViews() {
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        
         plantPhotoDetail.image = plantPhoto
         plantPhotoDetail.isUserInteractionEnabled = true
         scrollView.minimumZoomScale = 1.0

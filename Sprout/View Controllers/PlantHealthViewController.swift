@@ -11,6 +11,9 @@
 //*****Wont save when parts of record are missing. ie: photo. FIX OR ALERT******
 //Alert the user know they still need to input values if they try to save before doing so.
 
+//For dark theme use a off white yellowish type of color for the textViews
+//Check constraints
+
 import UIKit
 
 protocol PlantHealthDetailControllerDelegate: class {
@@ -28,6 +31,10 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         plantHealthNotesTextView.delegate = self
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         clearPlaceholderText()
@@ -41,6 +48,14 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     // MARK: - Views
     
     func setupViews() {
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        
+        oneButton.tintColor = SproutTheme.current.health1Color
+        twoButton.tintColor = SproutTheme.current.health2Color
+        threeButton.tintColor = SproutTheme.current.health3Color
+        fourButton.tintColor = SproutTheme.current.health4Color
+        fiveButton.tintColor = SproutTheme.current.health5Color
+        
         plantHealthNotesTextView.inputAccessoryView = keyboardToolbar
         
         keyboardToolbar.barStyle = .default
@@ -54,7 +69,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         
         plantHealthNotesTextView.placeholderLabel.textAlignment = .center
         plantHealthNotesTextView.layer.borderWidth = 1
-        plantHealthNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        plantHealthNotesTextView.layer.borderColor = SproutTheme.current.accentColor.cgColor
         plantHealthNotesTextView.layer.cornerRadius = 6
         
         plantHealthBar.layer.cornerRadius = 6
@@ -66,7 +81,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         
         _ = plantHealthBar.bounds
         gradientLayer.frame = CGRect(x: 0, y: 0, width: plantHealthBar.frame.size.width, height: plantHealthBar.frame.size.height)
-        gradientLayer.colors = [#colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1).cgColor, #colorLiteral(red: 0.9254901961, green: 0.7137254902, blue: 0.4941176471, alpha: 1).cgColor, #colorLiteral(red: 1, green: 0.9764705882, blue: 0.5882352941, alpha: 1).cgColor, #colorLiteral(red: 0.9254901961, green: 0.9803921569, blue: 0.5803921569, alpha: 1).cgColor, #colorLiteral(red: 0.6666666667, green: 0.9137254902, blue: 0.5411764706, alpha: 1).cgColor]
+        gradientLayer.colors = [SproutTheme.current.health1Color.cgColor,SproutTheme.current.health2Color.cgColor,SproutTheme.current.health3Color.cgColor,SproutTheme.current.health4Color.cgColor,SproutTheme.current.health5Color.cgColor]
         gradientLayer.startPoint = CGPoint(x: 0, y: 0.5)
         gradientLayer.endPoint = CGPoint(x: 1, y: 0.5)
         self.plantHealthBar.layer.addSublayer(gradientLayer)

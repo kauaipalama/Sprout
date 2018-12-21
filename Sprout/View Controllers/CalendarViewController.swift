@@ -12,6 +12,8 @@
 //Fix the cells of the collection view from duplicating the image on frames that do not contain plantRecords. Seems to be an indexing issue. Happens when going back and forth between months. FIX (HIDDEN RIGHT NOW)
 //ALSO. Major bug only reproducable when using "old" data. Error: Index out of range. Happens when loading "days" in cellForRowAt
 //REDUCE CODE by following MVC principles. Move properties into a model file and functions into a controller file to increase modularity and readabilty.
+
+//LOOKS good. Still needs work
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -22,6 +24,14 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         navigationItem.title = "Grow Log"
         setCalendar()
+        
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        headerView.backgroundColor = SproutTheme.current.backgroundColor
+        monthLabel.textColor = SproutTheme.current.textColor
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
     }
     
     // MARK: - Calendar Setup
@@ -62,6 +72,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var headerView: UIView!
     
     // MARK: - Actions
     
@@ -139,21 +150,22 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.dateLabel.text = "\(calcDate)"
             cell.isHidden = false
             cell.isUserInteractionEnabled = true
-            cell.dateLabel.textColor = UIColor.black
+            cell.dateLabel.textColor = SproutTheme.current.textColor
             
             let plantRecord = cell.day?.plantRecord
             if plantRecord != nil {
+                cell.dateLabel.textColor = UIColor.darkText
                 switch plantRecord?.plantHealth {
                 case 1:
-                    cell.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1)
+                    cell.backgroundColor = SproutTheme.current.health1Color
                 case 2:
-                    cell.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7137254902, blue: 0.4941176471, alpha: 1)
+                    cell.backgroundColor = SproutTheme.current.health2Color
                 case 3:
-                    cell.backgroundColor = #colorLiteral(red: 1, green: 0.9764705882, blue: 0.5882352941, alpha: 1)
+                    cell.backgroundColor = SproutTheme.current.health3Color
                 case 4:
-                    cell.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.9803921569, blue: 0.5803921569, alpha: 1)
+                    cell.backgroundColor = SproutTheme.current.health4Color
                 case 5:
-                    cell.backgroundColor = #colorLiteral(red: 0.6666666667, green: 0.9137254902, blue: 0.5411764706, alpha: 1)
+                    cell.backgroundColor = SproutTheme.current.health5Color
                 default:
                      cell.backgroundColor = UIColor.clear
                 }

@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//Add ability for views to change with theme
+
 import UIKit
 
 class CalendarCollectionViewCell: UICollectionViewCell {

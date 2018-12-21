@@ -10,10 +10,12 @@
 //Keyboard observer to shift view up. ADD
 //When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX
 
-// Setup preferences and use to populate volumeTextField with the value followed by " gallons" or liters whatever you set it as in preferences pane.
-// Setup preferences to change between ppm 500, ppm700 and EC labels
-
 //Alert the user know they still need to input values if they try to save before doing so.
+
+//Add ability for views to change with theme
+
+//For dark theme use a off white yellowish type of color for the textViews
+//Check constraints
 
 import UIKit
 
@@ -32,11 +34,26 @@ class Water_FeedViewController: ShiftableViewController {
         clearPlaceholderText()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
     // MARK: - Views
     
     func setupViews() {
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        
+        conductivityLabel.textColor = SproutTheme.current.textColor
+        conductivityTextField.textColor = SproutTheme.current.textColor
+        conductivityTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         conductivityTextField.keyboardType = UIKeyboardType.decimalPad
+        phLabel.textColor = SproutTheme.current.textColor
+        phTextField.textColor = SproutTheme.current.textColor
+        phTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         phTextField.keyboardType = UIKeyboardType.decimalPad
+        volumeLabel.textColor = SproutTheme.current.textColor
+        volumeTextField.textColor = SproutTheme.current.textColor
+        volumeTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         volumeTextField.keyboardType = UIKeyboardType.decimalPad
         
         conductivityTextField.inputAccessoryView = keyboardToolbar
@@ -83,11 +100,13 @@ class Water_FeedViewController: ShiftableViewController {
     
     // MARK: - Outlets
     
+    @IBOutlet weak var conductivityLabel: UILabel!
     @IBOutlet weak var conductivityTextField: UITextField!
+    @IBOutlet weak var phLabel: UILabel!
     @IBOutlet weak var phTextField: UITextField!
+    @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
-    
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {

@@ -9,13 +9,14 @@
 //ONBOARDING NEEDED. Will show flow of how to use the app.
 
 import UIKit
+import CoreData
+
 extension UIButton {
     @objc dynamic var cornerRadius: CGFloat {
         get { return layer.cornerRadius }
         set { layer.cornerRadius = newValue }
     }
 }
-import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,9 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
     
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.2))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.7))
+        
+        UINavigationBar.appearance().layer.backgroundColor = UIColor.clear.cgColor
+        UINavigationBar.appearance().shadowImage = UIImage()
         
         UIButton.appearance().cornerRadius = 6
         

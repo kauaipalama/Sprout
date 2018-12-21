@@ -7,6 +7,13 @@
 //
 //When view loads, scroll the textView(s) down and up once.
 
+//Add ability for views to change with theme
+//Needs redesign
+//For dark theme use a off white yellowish type of color for the textViews
+
+//Need to switch theme colors for plant health buttons. Make darker buttons correspond with light mode and vice versa
+//Change text of buttons with theme switching
+
 import UIKit
 
 class PlantRecordViewController: UIViewController {
@@ -17,6 +24,10 @@ class PlantRecordViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         setupViews()
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
     }
     
     // MARK: - Actions
@@ -32,12 +43,22 @@ class PlantRecordViewController: UIViewController {
     
     
     @IBOutlet weak var plantHealthNotes: UITextView!
+    @IBOutlet weak var plantHealth: UILabel!
+    @IBOutlet weak var plantHealthBackslash: UILabel!
     
     // MARK: - Views
     
     func setupViews() {
         //Make the date "pretty"
 //        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        volume.textColor = SproutTheme.current.textColor
+        conductivity.textColor = SproutTheme.current.textColor
+        ph.textColor = SproutTheme.current.textColor
+        plantHealth.textColor = SproutTheme.current.textColor
+        plantHealthBackslash.textColor = SproutTheme.current.textColor
+        plantHealthFirstButton.textColor = SproutTheme.current.textColor
+        plantHealthSecondButton.textColor = SproutTheme.current.textColor
         
         plantImage.layer.cornerRadius = 6
         water_FeedNotes.layer.cornerRadius = 6
@@ -47,9 +68,9 @@ class PlantRecordViewController: UIViewController {
         plantHealthSecondButton.layer.cornerRadius = 4
         
         plantHealthNotes.layer.borderWidth = 1
-        plantHealthNotes.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        plantHealthNotes.layer.borderColor = SproutTheme.current.accentColor.cgColor
         water_FeedNotes.layer.borderWidth = 1
-        water_FeedNotes.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        water_FeedNotes.layer.borderColor = SproutTheme.current.accentColor.cgColor
     }
     
     func updateViews() {
@@ -64,8 +85,8 @@ class PlantRecordViewController: UIViewController {
         
         plantImage.image = image
         ph.text = "PH: \(plantRecord.phString)"
-        conductivity.text = "PPM/EC: \(plantRecord.conductivityString)"
-        volume.text = "Volume: \(plantRecord.volumeString)"
+        conductivity.text = "Conductivity \(SproutPreferencesController.shared.conductivityUnitString): \(plantRecord.conductivityString)"
+        volume.text = "Volume: \(plantRecord.volumeString) \(SproutPreferencesController.shared.volumeUnitString)"
         water_FeedNotes.text = waterNotes ?? "N/A"
         plantHealthNotes.text = healthNotes ?? "N/A"
         
@@ -75,27 +96,27 @@ class PlantRecordViewController: UIViewController {
     func setPlantHealthButtons(plantHealth: Int) {
         switch plantHealth {
         case 1:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health1Color
             plantHealthFirstButton.text = "\(plantHealth)"
             
         case 2:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.7137254902, blue: 0.4941176471, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health2Color
             plantHealthFirstButton.text = "\(plantHealth)"
             
         case 3:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 1, green: 0.9764705882, blue: 0.5882352941, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health3Color
             plantHealthFirstButton.text = "\(plantHealth)"
 
         case 4:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 0.9254901961, green: 0.9803921569, blue: 0.5803921569, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health4Color
             plantHealthFirstButton.text = "\(plantHealth)"
             
         case 5:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 0.6666666667, green: 0.9137254902, blue: 0.5411764706, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health5Color
             plantHealthFirstButton.text = "\(plantHealth)"
             
         default:
-            plantHealthFirstButton.backgroundColor = #colorLiteral(red: 0.8823529412, green: 0.4980392157, blue: 0.431372549, alpha: 1)
+            plantHealthFirstButton.backgroundColor = SproutTheme.current.health1Color
         }
     }
     

@@ -5,6 +5,7 @@
 //  Created by Kainoa Palama on 4/19/18.
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
+//Looks good
 
 import UIKit
 
@@ -15,6 +16,19 @@ class PlantTypeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "\(plantType!.type!)"
+        setupViews()
+    }
+    
+    @IBOutlet weak var waterNutrientsButton: UIButton!
+    @IBOutlet weak var plantHealthButton: UIButton!
+    @IBOutlet weak var growLogButton: UIButton!
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
+    func setupViews() {
+        view.backgroundColor = SproutTheme.current.backgroundColor
     }
     
     // MARK: - Navigation

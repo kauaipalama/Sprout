@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -116,6 +115,7 @@
                     <navigationItem key="navigationItem" id="m68-LF-1vS"/>
                     <connections>
                         <outlet property="calendarCollectionView" destination="VOd-ya-U5h" id="ZO4-aw-WJc"/>
+                        <outlet property="headerView" destination="Z60-yV-P8c" id="6Pz-BT-sDg"/>
                         <outlet property="monthLabel" destination="JHs-aB-uVv" id="UwC-ZU-jCO"/>
                         <outlet property="prevButton" destination="Qwc-He-9Fh" id="kSy-t8-uEE"/>
                         <segue destination="Kxm-ME-Q2O" kind="show" identifier="toPlantRecord" id="HPZ-KA-hrb"/>
@@ -289,6 +289,8 @@
                     <connections>
                         <outlet property="conductivity" destination="fo1-pE-egF" id="tCo-8a-qzQ"/>
                         <outlet property="ph" destination="u74-y6-UsN" id="MAb-iU-VId"/>
+                        <outlet property="plantHealth" destination="jMT-62-3Iw" id="l97-Cj-TZD"/>
+                        <outlet property="plantHealthBackslash" destination="Tpf-vU-Urq" id="wgc-z9-1Bo"/>
                         <outlet property="plantHealthFirstButton" destination="aes-UG-sAG" id="QB9-fP-Slk"/>
                         <outlet property="plantHealthNotes" destination="pK4-YH-bW0" id="a9v-ER-3S7"/>
                         <outlet property="plantHealthSecondButton" destination="RyW-C4-lpj" id="05f-EW-vTy"/>

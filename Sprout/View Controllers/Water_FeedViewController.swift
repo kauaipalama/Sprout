@@ -44,17 +44,15 @@ class Water_FeedViewController: ShiftableViewController {
         view.backgroundColor = SproutTheme.current.backgroundColor
         
         conductivityLabel.textColor = SproutTheme.current.textColor
-        conductivityTextField.textColor = SproutTheme.current.textColor
         conductivityTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         conductivityTextField.keyboardType = UIKeyboardType.decimalPad
         phLabel.textColor = SproutTheme.current.textColor
-        phTextField.textColor = SproutTheme.current.textColor
         phTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         phTextField.keyboardType = UIKeyboardType.decimalPad
         volumeLabel.textColor = SproutTheme.current.textColor
-        volumeTextField.textColor = SproutTheme.current.textColor
         volumeTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         volumeTextField.keyboardType = UIKeyboardType.decimalPad
+        water_FeedNotesLabel.textColor = SproutTheme.current.textColor
         
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
@@ -107,6 +105,7 @@ class Water_FeedViewController: ShiftableViewController {
     @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
+    @IBOutlet weak var water_FeedNotesLabel: UILabel!
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {

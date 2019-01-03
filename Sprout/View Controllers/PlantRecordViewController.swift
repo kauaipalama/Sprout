@@ -20,10 +20,15 @@ class PlantRecordViewController: UIViewController {
     
     // MARK: - Life Cycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         setupViews()
+        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

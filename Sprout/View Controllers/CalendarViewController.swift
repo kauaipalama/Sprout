@@ -19,6 +19,9 @@ import UIKit
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Life Cycle
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +31,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         view.backgroundColor = SproutTheme.current.backgroundColor
         headerView.backgroundColor = SproutTheme.current.backgroundColor
         monthLabel.textColor = SproutTheme.current.textColor
+        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

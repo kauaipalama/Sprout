@@ -17,6 +17,11 @@ class PlantTypeDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "\(plantType!.type!)"
         setupViews()
+        print(self.view.frame.origin.y)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
     }
     
     @IBOutlet weak var waterNutrientsButton: UIButton!

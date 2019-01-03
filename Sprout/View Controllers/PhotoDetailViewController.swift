@@ -14,9 +14,14 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Life Cycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

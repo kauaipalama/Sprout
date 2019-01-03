@@ -24,7 +24,6 @@
 		B4517546219CBF3F000AD0DB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517545219CBF3F000AD0DB /* DarkTheme.swift */; };
 		B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517547219CBF56000AD0DB /* LightTheme.swift */; };
 		B451754B21A4CDC6000AD0DB /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B451754A21A4CDC6000AD0DB /* UINavigationControllerExtension.swift */; };
-		B456D63D2088290000489F23 /* deleteME.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63C2088290000489F23 /* deleteME.swift */; };
 		B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */; };
 		B456D6412089A4A200489F23 /* Water_FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6402089A4A200489F23 /* Water_FeedViewController.swift */; };
 		B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6422089A4B000489F23 /* PlantHealthViewController.swift */; };
@@ -60,7 +59,6 @@
 		B4517545219CBF3F000AD0DB /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		B4517547219CBF56000AD0DB /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
 		B451754A21A4CDC6000AD0DB /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
-		B456D63C2088290000489F23 /* deleteME.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = deleteME.swift; sourceTree = "<group>"; };
 		B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeDetailViewController.swift; sourceTree = "<group>"; };
 		B456D6402089A4A200489F23 /* Water_FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_FeedViewController.swift; sourceTree = "<group>"; };
 		B456D6422089A4B000489F23 /* PlantHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantHealthViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		B4AA20462084F2A000707DF6 /* Sprout */ = {
 			isa = PBXGroup;
 			children = (
-				B456D63C2088290000489F23 /* deleteME.swift */,
 				B4D5A24E2180E6BC001C6BD4 /* Model+Convenience */,
 				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
@@ -322,7 +319,6 @@
 				B446E1AD2193D7BA007F4C71 /* AboutViewController.swift in Sources */,
 				B4517546219CBF3F000AD0DB /* DarkTheme.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,
-				B456D63D2088290000489F23 /* deleteME.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
 				B4AF061C2197C83700CF0ECF /* SproutPreferencesController.swift in Sources */,
 				B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */,

@@ -16,12 +16,18 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         setupSubViews()
         tableview.reloadData()
         blurView.effect = SproutTheme.current.blurEffect
+        print(self.view.frame.origin.y)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
         setupSubViews()
+        print(self.view.frame.origin.y)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
     }
     
     func setupInitialView() {

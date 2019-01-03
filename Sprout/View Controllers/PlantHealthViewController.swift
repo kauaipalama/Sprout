@@ -24,11 +24,16 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     // MARK: - Life Cycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         updateViews()
         plantHealthNotesTextView.delegate = self
+        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

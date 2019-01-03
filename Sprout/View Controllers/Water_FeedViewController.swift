@@ -23,10 +23,15 @@ class Water_FeedViewController: ShiftableViewController {
     
     // MARK: - Life cycle
     
+    override func viewDidAppear(_ animated: Bool) {
+        print(self.view.frame.origin.y)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         updateViews()
+        print(self.view.frame.origin.y)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -73,6 +78,7 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.layer.cornerRadius = 6
         water_FeedNotesTextView.delegate = self
+        
     }
     
     func updateViews() {

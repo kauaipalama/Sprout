@@ -20,14 +20,6 @@ class PlantTypeDetailViewController: UIViewController {
         print(self.view.frame.origin.y)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
-    
-    @IBOutlet weak var waterNutrientsButton: UIButton!
-    @IBOutlet weak var plantHealthButton: UIButton!
-    @IBOutlet weak var growLogButton: UIButton!
-    
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
     }
@@ -53,6 +45,10 @@ class PlantTypeDetailViewController: UIViewController {
             calendarVC?.plantType = plantType
         }
     }
+    
+    @IBOutlet weak var waterNutrientsButton: UIButton!
+    @IBOutlet weak var plantHealthButton: UIButton!
+    @IBOutlet weak var growLogButton: UIButton!
     
     // MARK: - Property
     

@@ -77,12 +77,6 @@ class Water_FeedViewController: ShiftableViewController {
         
     }
     
-    @objc func doneButtonTapped() {
-        conductivityTextField.resignFirstResponder()
-        phTextField.resignFirstResponder()
-        volumeTextField.resignFirstResponder()
-        water_FeedNotesTextView.resignFirstResponder()
-    }
     
     func updateViews() {
         guard let plantType = plantType else { return }
@@ -100,6 +94,13 @@ class Water_FeedViewController: ShiftableViewController {
         if !water_FeedNotesTextView.text.isEmpty {
             water_FeedNotesTextView.placeholder = ""
         }
+    }
+    
+    @objc func doneButtonTapped() {
+        conductivityTextField.resignFirstResponder()
+        phTextField.resignFirstResponder()
+        volumeTextField.resignFirstResponder()
+        water_FeedNotesTextView.resignFirstResponder()
     }
     
     // MARK: - Outlets

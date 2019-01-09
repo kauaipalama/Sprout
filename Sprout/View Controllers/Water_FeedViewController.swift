@@ -23,10 +23,6 @@ class Water_FeedViewController: ShiftableViewController {
     
     // MARK: - Life cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -81,6 +77,13 @@ class Water_FeedViewController: ShiftableViewController {
         
     }
     
+    @objc func doneButtonTapped() {
+        conductivityTextField.resignFirstResponder()
+        phTextField.resignFirstResponder()
+        volumeTextField.resignFirstResponder()
+        water_FeedNotesTextView.resignFirstResponder()
+    }
+    
     func updateViews() {
         guard let plantType = plantType else { return }
         
@@ -92,9 +95,6 @@ class Water_FeedViewController: ShiftableViewController {
             water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
         }
     }
-    
-    
-    // MARK: - Helper functions
     
     func clearPlaceholderText() {
         if !water_FeedNotesTextView.text.isEmpty {
@@ -134,12 +134,6 @@ class Water_FeedViewController: ShiftableViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func doneButtonTapped() {
-        conductivityTextField.resignFirstResponder()
-        phTextField.resignFirstResponder()
-        volumeTextField.resignFirstResponder()
-        water_FeedNotesTextView.resignFirstResponder()
-    }
     
     // MARK: - Properties
     

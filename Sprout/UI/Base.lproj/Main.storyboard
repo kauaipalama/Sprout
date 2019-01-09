@@ -133,7 +133,7 @@
                             <constraint firstItem="6RE-CX-jQL" firstAttribute="top" secondItem="PVx-wD-z9w" secondAttribute="top" constant="-167" id="ebc-LX-Dqf"/>
                             <constraint firstItem="VCF-65-L0r" firstAttribute="leading" secondItem="PVx-wD-z9w" secondAttribute="leading" id="lRx-tZ-F6L"/>
                             <constraint firstItem="ENy-6L-8gM" firstAttribute="top" secondItem="VCF-65-L0r" secondAttribute="top" id="pm6-dA-Zey"/>
-                            <constraint firstItem="PVx-wD-z9w" firstAttribute="bottom" secondItem="VCF-65-L0r" secondAttribute="bottom" id="qlw-qB-JSf"/>
+                            <constraint firstAttribute="bottom" secondItem="VCF-65-L0r" secondAttribute="bottom" id="qlw-qB-JSf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PVx-wD-z9w"/>
                     </view>

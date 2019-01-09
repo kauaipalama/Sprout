@@ -5,30 +5,31 @@
 //  Created by Kainoa Palama on 11/7/18.
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
-//Needs a gesture which closes menu when touched outside view.
+
 //Instead of using an alertController when adding a plant type. Use a modal presentation OR present the view similarly to how it was presented for the menuView. Text field. Rounded views. Like an alert controller but prettier and soft. OR add a blank cell and present keyboard when add button tapped and show the text as it is typed in. save and cancel on keyboard.
+
+//Good for now
 
 import UIKit
 
 class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
-        setupSubViews()
+        setupFinalView()
         tableview.reloadData()
         blurView.effect = SproutTheme.current.blurEffect
-        print(self.view.frame.origin.y)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupInitialView()
-        setupSubViews()
-        print(self.view.frame.origin.y)
+        setupFinalView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
     }
+    
     
     func setupInitialView() {
         self.view.sendSubviewToBack(blurView)
@@ -37,15 +38,7 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         tableview.dataSource = self
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return SproutTheme.current.preferredStatusBarStyle
-    }
-    
-    @IBAction func blurViewTapped(_ sender: UITapGestureRecognizer) {
-        closeMenu()
-    }
-    
-    func setupSubViews() {
+    func setupFinalView() {
         
         navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
@@ -61,14 +54,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         tableview.backgroundColor = SproutTheme.current.backgroundColor
         tableview.separatorColor = UIColor.clear
     }
-    
-    @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var menuViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var menuAboutButton: UIButton!
-    @IBOutlet weak var menuPreferencesButton: UIButton!
-    @IBOutlet weak var menuHelpButton: UIButton!
     
     func openMenu() {
         menuViewTopConstraint.constant = 0
@@ -106,42 +91,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
 
     }
     
-    @IBAction func menuButtonTapped(_ sender: Any) {
-        if menuIsOpen == false {
-            openMenu()
-            menuIsOpen = true
-    
-        } else {
-            closeMenu()
-            menuIsOpen = false
-        }
-    }
-    
-    @IBAction func addButtonTapped(_ sender: Any) {
-        var newPlantTypeTextField: UITextField?
-        
-        let alert = UIAlertController(title: "Add Plant Type", message: "Name of New Plant Type", preferredStyle: .alert)
-        
-        alert.addTextField {(textfield) in newPlantTypeTextField = textfield}
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-        let save = UIAlertAction(title: "Save", style: .default) { (_) in
-            guard let plantTypeName = newPlantTypeTextField?.text else {return}
-            
-            PlantTypeController.shared.create(plantType: plantTypeName)
-            self.tableview.reloadData()
-        }
-        alert.addAction(cancel)
-        alert.addAction(save)
-        present(alert, animated: true, completion: nil)
-    }
-    
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let delete = deleteAction(at: indexPath)
-        let edit = editAction(at: indexPath)
-        return UISwipeActionsConfiguration(actions: [delete, edit])
-    }
     
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
@@ -185,12 +134,19 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         return PlantTypeController.shared.plantTypes.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "plantTypeCell", for: indexPath)
         let plantType = PlantTypeController.shared.plantTypes[indexPath.row]
         cell.textLabel?.text = plantType.type
         cell.textLabel?.textColor = SproutTheme.current.textColor
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(at: indexPath)
+        let edit = editAction(at: indexPath)
+        return UISwipeActionsConfiguration(actions: [delete, edit])
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -206,6 +162,48 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
             let plantTypeDetailVC = segue.destination as? PlantTypeDetailViewController
             plantTypeDetailVC?.plantType = plantType
         }
+    }
+    
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var menuViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var menuAboutButton: UIButton!
+    @IBOutlet weak var menuPreferencesButton: UIButton!
+    @IBOutlet weak var menuHelpButton: UIButton!
+    
+    @IBAction func menuButtonTapped(_ sender: Any) {
+        if menuIsOpen == false {
+            openMenu()
+            menuIsOpen = true
+            
+        } else {
+            closeMenu()
+            menuIsOpen = false
+        }
+    }
+    
+    @IBAction func blurViewTapped(_ sender: UITapGestureRecognizer) {
+        closeMenu()
+    }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        var newPlantTypeTextField: UITextField?
+        
+        let alert = UIAlertController(title: "Add Plant Type", message: "Name of New Plant Type", preferredStyle: .alert)
+        
+        alert.addTextField {(textfield) in newPlantTypeTextField = textfield}
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let save = UIAlertAction(title: "Save", style: .default) { (_) in
+            guard let plantTypeName = newPlantTypeTextField?.text else {return}
+            
+            PlantTypeController.shared.create(plantType: plantTypeName)
+            self.tableview.reloadData()
+        }
+        alert.addAction(cancel)
+        alert.addAction(save)
+        present(alert, animated: true, completion: nil)
     }
     
     var menuIsOpen: Bool = false

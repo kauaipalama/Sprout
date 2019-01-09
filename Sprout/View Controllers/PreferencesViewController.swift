@@ -13,26 +13,11 @@ class PreferencesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        print(self.view.frame.origin.y)
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
     }
-    
-    @IBOutlet weak var unitsLabel: UILabel!
-    @IBOutlet weak var conductivityLabel: UILabel!
-    @IBOutlet weak var volumeLabel: UILabel!
-    @IBOutlet weak var themeLabel: UILabel!
-    @IBOutlet weak var conductivitySegControl: UISegmentedControl!
-    @IBOutlet weak var volumeSegControl: UISegmentedControl!
-    @IBOutlet weak var themeSegControl: UISegmentedControl!
     
     func setupViews() {
         view.backgroundColor = SproutTheme.current.backgroundColor
@@ -72,6 +57,15 @@ class PreferencesViewController: UIViewController {
             themeSegControl.selectedSegmentIndex = 1
         }
     }
+    
+    @IBOutlet weak var unitsLabel: UILabel!
+    @IBOutlet weak var conductivityLabel: UILabel!
+    @IBOutlet weak var volumeLabel: UILabel!
+    @IBOutlet weak var themeLabel: UILabel!
+    @IBOutlet weak var conductivitySegControl: UISegmentedControl!
+    @IBOutlet weak var volumeSegControl: UISegmentedControl!
+    @IBOutlet weak var themeSegControl: UISegmentedControl!
+    
     
     @IBAction func conductivitySegControlTapped(_ sender: Any) {
         let index = conductivitySegControl.selectedSegmentIndex

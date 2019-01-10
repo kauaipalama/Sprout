@@ -23,7 +23,6 @@ class Water_FeedViewController: ShiftableViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
-        print(self.view.frame.origin.y)
     }
     
     override func viewWillAppear(_ animated: Bool) {

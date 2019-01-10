@@ -17,7 +17,6 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
-        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

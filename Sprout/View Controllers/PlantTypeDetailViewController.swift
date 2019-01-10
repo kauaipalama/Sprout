@@ -17,7 +17,6 @@ class PlantTypeDetailViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "\(plantType!.type!)"
         setupViews()
-        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

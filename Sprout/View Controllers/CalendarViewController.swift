@@ -28,7 +28,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         view.backgroundColor = SproutTheme.current.backgroundColor
         headerView.backgroundColor = SproutTheme.current.backgroundColor
         monthLabel.textColor = SproutTheme.current.textColor
-        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {

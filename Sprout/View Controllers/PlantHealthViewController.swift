@@ -28,7 +28,6 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         setupViews()
         updateViews()
         plantHealthNotesTextView.delegate = self
-        print(self.view.frame.origin.y)
     }
     
     override func viewWillAppear(_ animated: Bool) {

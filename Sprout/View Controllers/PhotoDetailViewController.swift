@@ -14,10 +14,6 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Life Cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -27,11 +23,6 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
     }
-    
-    // MARK: - Outlets
-    
-    @IBOutlet weak var plantPhotoDetail: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Views
     
@@ -45,6 +36,11 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
         //Make the date "pretty"
         //        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var plantPhotoDetail: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     // MARK: - Delegate Functions
     

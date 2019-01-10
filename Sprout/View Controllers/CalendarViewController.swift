@@ -19,9 +19,6 @@ import UIKit
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Life Cycle
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,48 +68,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return day == 7 ? 1 : day
     }
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var calendarCollectionView: UICollectionView!
-    @IBOutlet weak var monthLabel: UILabel!
-    @IBOutlet weak var prevButton: UIButton!
-    @IBOutlet weak var headerView: UIView!
-    
-    // MARK: - Actions
-    
-    @IBAction func nextButtonTapped(_ sender: Any) {
-        prevButton.isEnabled = true
-        currentMonthIndex += 1
-        if currentMonthIndex > 12 {
-            currentMonthIndex = 1
-            currentYear += 1
-        }
-        
-        firstWeekDayOfMonth = getFirstWeekDay()
-        
-        monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
-        setCurrentMonthDays()
-        calendarCollectionView.reloadData()
-    }
-    
-    @IBAction func prevButtonTapped(_ sender: Any) {
-        if currentYear == startDateComponents.year && currentMonthIndex == startDateComponents.month {
-            prevButton.isEnabled = false
-        } else {
-            prevButton.isEnabled = true
-            currentMonthIndex -= 1
-        }
-        if currentMonthIndex < 1 {
-            currentMonthIndex = 12
-            currentYear -= 1
-        }
-        
-        firstWeekDayOfMonth = getFirstWeekDay()
-        
-        monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
-        setCurrentMonthDays()
-        calendarCollectionView.reloadData()
-    }
     
     // MARK: - CollectionViewFlowLayout
     
@@ -200,6 +155,49 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             guard let destinationVC = segue.destination as? PlantRecordViewController else {return}
             destinationVC.day = day
         }
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var calendarCollectionView: UICollectionView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var headerView: UIView!
+    
+    // MARK: - Actions
+    
+    @IBAction func nextButtonTapped(_ sender: Any) {
+        prevButton.isEnabled = true
+        currentMonthIndex += 1
+        if currentMonthIndex > 12 {
+            currentMonthIndex = 1
+            currentYear += 1
+        }
+        
+        firstWeekDayOfMonth = getFirstWeekDay()
+        
+        monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
+        setCurrentMonthDays()
+        calendarCollectionView.reloadData()
+    }
+    
+    @IBAction func prevButtonTapped(_ sender: Any) {
+        if currentYear == startDateComponents.year && currentMonthIndex == startDateComponents.month {
+            prevButton.isEnabled = false
+        } else {
+            prevButton.isEnabled = true
+            currentMonthIndex -= 1
+        }
+        if currentMonthIndex < 1 {
+            currentMonthIndex = 12
+            currentYear -= 1
+        }
+        
+        firstWeekDayOfMonth = getFirstWeekDay()
+        
+        monthLabel.text = "\(monthsArray[currentMonthIndex - 1]) \(currentYear)"
+        setCurrentMonthDays()
+        calendarCollectionView.reloadData()
     }
     
     // MARK: - Properties

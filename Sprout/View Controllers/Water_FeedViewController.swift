@@ -13,6 +13,8 @@
 
 //For dark theme use a off white yellowish type of color for the textViews
 
+//Bigger texts fields. Think Jitterbug.
+
 import UIKit
 
 class Water_FeedViewController: ShiftableViewController {

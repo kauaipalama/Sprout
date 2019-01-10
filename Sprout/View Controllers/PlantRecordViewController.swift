@@ -20,36 +20,15 @@ class PlantRecordViewController: UIViewController {
     
     // MARK: - Life Cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
         setupViews()
-        print(self.view.frame.origin.y)
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
     }
-    
-    // MARK: - Actions
-    
-    @IBOutlet weak var plantImage: UIImageView!
-    @IBOutlet weak var ph: UILabel!
-    @IBOutlet weak var conductivity: UILabel!
-    @IBOutlet weak var volume: UILabel!
-    @IBOutlet weak var water_FeedNotes: UITextView!
-    
-    @IBOutlet weak var plantHealthFirstButton: UILabel!
-    @IBOutlet weak var plantHealthSecondButton: UILabel!
-    
-    
-    @IBOutlet weak var plantHealthNotes: UITextView!
-    @IBOutlet weak var plantHealth: UILabel!
-    @IBOutlet weak var plantHealthBackslash: UILabel!
     
     // MARK: - Views
     
@@ -134,6 +113,19 @@ class PlantRecordViewController: UIViewController {
             photoDetailVC?.plantPhoto = plantPhoto
         }
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var plantImage: UIImageView!
+    @IBOutlet weak var ph: UILabel!
+    @IBOutlet weak var conductivity: UILabel!
+    @IBOutlet weak var volume: UILabel!
+    @IBOutlet weak var water_FeedNotes: UITextView!
+    @IBOutlet weak var plantHealthFirstButton: UILabel!
+    @IBOutlet weak var plantHealthSecondButton: UILabel!
+    @IBOutlet weak var plantHealthNotes: UITextView!
+    @IBOutlet weak var plantHealth: UILabel!
+    @IBOutlet weak var plantHealthBackslash: UILabel!
     
     // MARK: - Property
     

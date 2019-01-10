@@ -12,7 +12,7 @@
         <!--Plants-->
         <scene sceneID="BsE-3p-lWJ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="8KW-70-B4U" customClass="PlantTypeViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="8KW-70-B4U" customClass="PlantTypeViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJL-9s-Mjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +173,7 @@
         <!--Preferences-->
         <scene sceneID="g8j-DD-nB8">
             <objects>
-                <viewController title="Preferences" id="jCO-vz-0NZ" customClass="PreferencesViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Preferences" extendedLayoutIncludesOpaqueBars="YES" id="jCO-vz-0NZ" customClass="PreferencesViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z5N-VW-Wuc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +277,7 @@
         <!--About-->
         <scene sceneID="RCF-Et-kU6">
             <objects>
-                <viewController title="About" id="wdd-47-Hcd" customClass="AboutViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="About" extendedLayoutIncludesOpaqueBars="YES" id="wdd-47-Hcd" customClass="AboutViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3rF-Qy-Lcn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -292,7 +292,7 @@
         <!--Plant Type Detail View Controller-->
         <scene sceneID="66H-PK-YiI">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="iSt-4U-uef" customClass="PlantTypeDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="iSt-4U-uef" customClass="PlantTypeDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CIe-wn-jBR">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -362,7 +362,7 @@
         <!--Plant Health-->
         <scene sceneID="hco-pq-KVe">
             <objects>
-                <viewController title="Plant Health" id="h2D-cN-NyS" customClass="PlantHealthViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Plant Health" extendedLayoutIncludesOpaqueBars="YES" id="h2D-cN-NyS" customClass="PlantHealthViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="asn-7N-AHX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -577,7 +577,7 @@
         <!--Photo Detail View Controller-->
         <scene sceneID="g2j-co-nHO">
             <objects>
-                <viewController id="oVC-FD-UNp" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="oVC-FD-UNp" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xjl-YP-QaY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -625,7 +625,7 @@
         <!--Water/Feed-->
         <scene sceneID="MEX-3s-toY">
             <objects>
-                <viewController title="Water/Feed" id="LxJ-7Z-ttF" customClass="Water_FeedViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Water/Feed" extendedLayoutIncludesOpaqueBars="YES" id="LxJ-7Z-ttF" customClass="Water_FeedViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AUL-H6-ky0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -738,9 +738,9 @@
         <!--Navigation Controller-->
         <scene sceneID="c9w-9G-JyT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="v75-oT-gnA" sceneMemberID="viewController">
+                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="v75-oT-gnA" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dRe-7K-E5o">
+                    <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="dRe-7K-E5o">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaZ-f8-hjr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aaZ-f8-hjr">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -12,7 +12,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="FTc-9g-FVj">
             <objects>
-                <viewController id="aaZ-f8-hjr" customClass="CalendarViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="aaZ-f8-hjr" customClass="CalendarViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EVp-rh-80b">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -92,8 +92,8 @@
                                                     </subviews>
                                                 </view>
                                                 <constraints>
-                                                    <constraint firstItem="CHz-JK-h2Z" firstAttribute="centerX" secondItem="uW1-HO-MHo" secondAttribute="centerX" id="GPy-ep-Lfa"/>
-                                                    <constraint firstItem="CHz-JK-h2Z" firstAttribute="top" secondItem="uW1-HO-MHo" secondAttribute="top" constant="5" id="yUw-of-G46"/>
+                                                    <constraint firstItem="CHz-JK-h2Z" firstAttribute="centerX" secondItem="uW1-HO-MHo" secondAttribute="centerX" id="hOf-5k-oIl"/>
+                                                    <constraint firstItem="CHz-JK-h2Z" firstAttribute="top" secondItem="uW1-HO-MHo" secondAttribute="top" constant="5" id="ukz-09-pJM"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="dateLabel" destination="CHz-JK-h2Z" id="OM7-YZ-0L6"/>
@@ -128,7 +128,7 @@
         <!--Plant Record View Controller-->
         <scene sceneID="Z4x-Ci-HNS">
             <objects>
-                <viewController id="Kxm-ME-Q2O" customClass="PlantRecordViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Kxm-ME-Q2O" customClass="PlantRecordViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Js6-cW-U84">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -306,7 +306,7 @@
         <!--Photo Detail View Controller-->
         <scene sceneID="sTs-4a-etY">
             <objects>
-                <viewController id="Bls-RE-mH7" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Bls-RE-mH7" customClass="PhotoDetailViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CAM-s5-zW3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

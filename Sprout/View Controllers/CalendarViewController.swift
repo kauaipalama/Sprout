@@ -108,7 +108,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
             cell.day = day
             cell.dateLabel.text = "\(calcDate)"
             cell.isHidden = false
-            cell.isUserInteractionEnabled = true
             cell.dateLabel.textColor = SproutTheme.current.textColor
             
             let plantRecord = cell.day?.plantRecord
@@ -138,9 +137,7 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else {return}
         let plantRecord = cell.day?.plantRecord
         
-        if plantRecord != nil && currentMonthIndex <= presentMonthIndex && currentYear <= presentYear {
-            performSegue(withIdentifier: "toPlantRecord", sender: cell)
-        } else if plantRecord != nil && indexPath.item <= todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
+        if plantRecord != nil {
             performSegue(withIdentifier: "toPlantRecord", sender: cell)
         }
     }

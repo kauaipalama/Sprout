@@ -191,8 +191,8 @@
 			children = (
 				B4AA20472084F2A000707DF6 /* AppDelegate.swift */,
 				B4AA20512084F2A400707DF6 /* Assets.xcassets */,
-				B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */,
 				B4AA20562084F2A400707DF6 /* Info.plist */,
+				B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";

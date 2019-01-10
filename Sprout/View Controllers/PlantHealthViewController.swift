@@ -6,7 +6,6 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //TODO:
-//Keyboard observer to shift keyboard up. ADD
 
 //*****Wont save when parts of record are missing. ie: photo. FIX OR ALERT******
 //Alert the user know they still need to input values if they try to save before doing so.
@@ -24,20 +23,12 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     // MARK: - Life Cycle
     
-    override func viewDidAppear(_ animated: Bool) {
-        print(self.view.frame.origin.y)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         updateViews()
         plantHealthNotesTextView.delegate = self
         print(self.view.frame.origin.y)
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return SproutTheme.current.preferredStatusBarStyle
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,6 +39,10 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             self.plantHealthBar.addSubview(self.poorHealthLabel)
             self.plantHealthBar.addSubview(self.excellantHealthLabel)
         }
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
     }
     
     // MARK: - Views
@@ -79,6 +74,25 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         
         plantHealthBar.layer.cornerRadius = 6
         thumbnailImageView.layer.cornerRadius = 6
+    }
+    
+    func updateViews() {
+        guard let plantType = plantType else { return }
+        
+        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
+            
+            self.day = day
+            
+            plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
+            plantHealth = day.plantRecord?.plantHealth
+            guard let imageData = day.plantRecord?.plantImage else {return}
+            self.imageData = imageData
+            plantPhoto = UIImage(data: imageData)
+            thumbnailImageView.image = plantPhoto
+            guard let plantRecord = day.plantRecord else {return}
+            setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
+            
+        }
     }
     
     func createGradientLayer(){
@@ -138,32 +152,14 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         }
     }
     
-    func updateViews() {
-        guard let plantType = plantType else { return }
-        
-        if let day = PlantTypeController.shared.fetchDayFor(plantType: plantType) {
-            
-            self.day = day
-            
-            plantHealthNotesTextView.text = day.plantRecord?.plantHealthNotes
-            plantHealth = day.plantRecord?.plantHealth
-            guard let imageData = day.plantRecord?.plantImage else {return}
-            self.imageData = imageData
-            plantPhoto = UIImage(data: imageData)
-            thumbnailImageView.image = plantPhoto
-            guard let plantRecord = day.plantRecord else {return}
-            setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
-            
-        }
-    }
-    
-    
-    // MARK: - Helper function
-    
     func clearPlaceholderText() {
         if !plantHealthNotesTextView.text.isEmpty {
             plantHealthNotesTextView.placeholder = ""
         }
+    }
+    
+    @objc func doneButtonTapped() {
+        plantHealthNotesTextView.resignFirstResponder()
     }
     
     // MARK: - Outlets
@@ -173,11 +169,8 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBOutlet weak var threeButton: UIButton!
     @IBOutlet weak var fourButton: UIButton!
     @IBOutlet weak var fiveButton: UIButton!
-    
     @IBOutlet weak var plantHealthNotesTextView: PlaceholderTextView!
-    
     @IBOutlet weak var thumbnailImageView: UIImageView!
-    
     @IBOutlet weak var plantHealthBar: UIView!
     @IBOutlet weak var poorHealthLabel: UILabel!
     @IBOutlet weak var excellantHealthLabel: UILabel!
@@ -205,9 +198,6 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         navigationController?.popViewController(animated: true)
     }
     
-    @objc func doneButtonTapped() {
-        plantHealthNotesTextView.resignFirstResponder()
-    }
     
     @IBAction func oneButtonTapped(_ sender: Any) {
         print("one button tapped")

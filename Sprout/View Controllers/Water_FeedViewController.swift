@@ -7,15 +7,11 @@
 //
 
 //TODO:
-//Keyboard observer to shift view up. ADD
-//When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX
+//??When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX??
 
 //Alert the user know they still need to input values if they try to save before doing so.
 
-//Add ability for views to change with theme
-
 //For dark theme use a off white yellowish type of color for the textViews
-//Check constraints
 
 import UIKit
 
@@ -113,6 +109,7 @@ class Water_FeedViewController: ShiftableViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
     @IBOutlet weak var water_FeedNotesLabel: UILabel!
+    
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {

@@ -177,15 +177,17 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if plantHealth == nil || imageData == nil {
+            print("Present alert controller")
+            let alert = UIAlertController(title: "Before you go:", message: "-Select Plant Health \n-Take a photo \n\nOptional: \n-Take Notes", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
         guard let plantHealthNotes = plantHealthNotesTextView.text,
             let plantHealth = plantHealth,
             let imageData = imageData
             else {return}
-        
-        //Set a default image here so that it doesnt return in updateViews in PlantRecordVC
-        //Use if let statement with imageData and set default with default image data?
-        //Tried using an optional for imageData but the updatePlantRecordHealth does not allow for a optional
-        //See if the notes are blank. If they are display N/A
         
         if let plantRecord = day?.plantRecord {
             PlantRecordController.shared.updatePlantRecordHealth(plantHealth: plantHealth, plantHealthNotes: plantHealthNotes, plantImage: imageData, plantRecord: plantRecord)

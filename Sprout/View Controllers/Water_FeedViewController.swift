@@ -114,6 +114,12 @@ class Water_FeedViewController: ShiftableViewController {
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        if conductivityTextField.text == "" || conductivityTextField.text == "N/A"||phTextField.text == "" || phTextField.text == "N/A" || volumeTextField.text == "" || volumeTextField.text == "N/A" {
+            let alert = UIAlertController(title: "Before you go", message: "-Enter Conductivity \n-Enter pH \n-Enter Volume \n\nOptional: \n-Take Notes", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated:  true, completion: nil)
+        }
+        
         guard let phString = phTextField.text,
             let ph = Float(phString),
             let conductivityString = conductivityTextField.text,

@@ -28,6 +28,8 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         setupViews()
         updateViews()
         plantHealthNotesTextView.delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -159,6 +161,38 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     @objc func doneButtonTapped() {
         plantHealthNotesTextView.resignFirstResponder()
+    }
+    
+    @objc func keyboardWillChangeFrame(notification: Notification) {
+        print("Keyboard did change frame")
+        var keyboardSize: CGRect = .zero
+        var keyboardAnimationDuration: Double = 0.0
+        
+        if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            keyboardAnimationDuration = animationDuration
+        }
+        
+        
+        
+        if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            keyboardRect.height != 0 {
+            keyboardSize = keyboardRect
+        } else if let keyboardRect = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
+            keyboardSize = keyboardRect
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            UIView.animate(withDuration: keyboardAnimationDuration) {
+                self.view.layoutIfNeeded()
+//                self.water_FeedNotesLabelTopConstraint.constant = keyboardSize.height/3.4
+                
+            }
+        } else {
+            UIView.animate(withDuration: keyboardAnimationDuration) {
+                self.view.layoutIfNeeded()
+//                self.water_FeedNotesLabelTopConstraint.constant = 10
+            }
+        }
     }
     
     // MARK: - Outlets

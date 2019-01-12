@@ -88,7 +88,8 @@ class ShiftableViewController: UIViewController, UITextFieldDelegate, UITextView
     @objc func yShiftWhenKeyboardAppearsFor(textInput: UIView, keyboardSize: CGRect, nextY: CGFloat) -> CGFloat {
         
         let textFieldOrigin = self.view.convert(textInput.frame, from: textInput.superview!).origin.y
-        let textFieldBottomY = textFieldOrigin + textInput.frame.size.height
+        //Added the 8 points to match my constraints. NEEDS ADJUSTMENT. NO LONGER GENERIC
+        let textFieldBottomY = textFieldOrigin + textInput.frame.size.height + 8
         
         // This is the y point that the textField's bottom can be at before it gets covered by the keyboard
         let maximumY = self.view.frame.height - (keyboardSize.height + view.safeAreaInsets.bottom)

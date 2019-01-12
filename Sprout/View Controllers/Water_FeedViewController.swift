@@ -25,6 +25,8 @@ class Water_FeedViewController: ShiftableViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +37,15 @@ class Water_FeedViewController: ShiftableViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
     }
+    
+    //    override func keyboardWillShow(notification: Notification) {
+    //        //Animate the top constraint of the textView's label to better match the screen.
+    //        //Modify the constraints multiplier to around 1.355. Check and adjust
+    //    }
+    //
+    //    override func keyboardWillHide(notification: Notification) {
+    //        //Animate the bottom constraint again back to 0.
+    //    }
     
     // MARK: - Views
     
@@ -100,6 +111,37 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.resignFirstResponder()
     }
     
+    @objc func keyboardWillChangeFrame(notification: Notification) {
+        print("Keyboard did change frame")
+        var keyboardSize: CGRect = .zero
+        var keyboardAnimationDuration: Double = 0.0
+        
+        if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
+            keyboardAnimationDuration = animationDuration
+        }
+        
+        
+        
+        if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
+            keyboardRect.height != 0 {
+            keyboardSize = keyboardRect
+        } else if let keyboardRect = notification.userInfo?["UIKeyboardBoundsUserInfoKey"] as? CGRect {
+            keyboardSize = keyboardRect
+        }
+        
+        if self.view.frame.origin.y == 0 {
+            UIView.animate(withDuration: keyboardAnimationDuration) {
+                self.view.layoutIfNeeded()
+                self.water_FeedNotesLabelTopConstraint.constant = keyboardSize.height/3.3
+            }
+        } else {
+            UIView.animate(withDuration: keyboardAnimationDuration) {
+                self.view.layoutIfNeeded()
+                self.water_FeedNotesLabelTopConstraint.constant = 10
+            }
+        }
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var conductivityLabel: UILabel!
@@ -110,6 +152,9 @@ class Water_FeedViewController: ShiftableViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
     @IBOutlet weak var water_FeedNotesLabel: UILabel!
+    @IBOutlet weak var water_FeedNotesLabelTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var water_FeedNotesTextViewBottomConstraint: NSLayoutConstraint!
+    
     
     // MARK: - Actions
     
@@ -148,4 +193,4 @@ class Water_FeedViewController: ShiftableViewController {
     
     // MARK: - Notification Center
     
-    }
+}

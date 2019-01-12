@@ -728,7 +728,9 @@
                         <outlet property="volumeLabel" destination="3Wh-zM-atZ" id="Sqa-as-Fl4"/>
                         <outlet property="volumeTextField" destination="A91-gl-BqN" id="pGr-xr-Z1L"/>
                         <outlet property="water_FeedNotesLabel" destination="c7N-nt-SW8" id="kxQ-Xw-S67"/>
+                        <outlet property="water_FeedNotesLabelTopConstraint" destination="MPT-XL-Rhp" id="uwK-EP-Jeg"/>
                         <outlet property="water_FeedNotesTextView" destination="5Hj-gR-UVi" id="wmR-zi-2NL"/>
+                        <outlet property="water_FeedNotesTextViewBottomConstraint" destination="BKI-LR-8mj" id="kje-Ux-Oxi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4m-rI-vCv" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -214,7 +214,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBAction func saveButtonTapped(_ sender: Any) {
         if plantHealth == nil || imageData == nil {
             print("Present alert controller")
-            let alert = UIAlertController(title: "Before you go:", message: "-Select Plant Health \n-Take a photo \n\nOptional: \n-Take Notes", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Before you go:", message: "-Rate Plant Health between 1-5 \n-Take a photo \n\nOptional: \n-Take Notes", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             present(alert, animated: true, completion: nil)

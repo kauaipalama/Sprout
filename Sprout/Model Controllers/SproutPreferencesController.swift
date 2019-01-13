@@ -17,10 +17,10 @@ class SproutPreferencesController {
         loadFromUserDefaults()
     }
     
-    let defaultPreferences = ["(PPM 500)", "Gallons"]
+    let defaultPreferences = ["PPM", "Gallons"]
     let defaultDarkModeBool = false
     
-    var conductivityUnitString: String = "(PPM 500)" {
+    var conductivityUnitString: String = "PPM" {
         didSet {
             saveToUserDefaults()
         }

@@ -33,10 +33,8 @@ class PreferencesViewController: UIViewController {
         switch SproutPreferencesController.shared.conductivityUnitString {
         case "EC":
             conductivitySegControl.selectedSegmentIndex = 0
-        case "(PPM 500)":
+        case "PPM":
             conductivitySegControl.selectedSegmentIndex = 1
-        case "(PPM 700)":
-            conductivitySegControl.selectedSegmentIndex = 2
         default:
             ()
         }
@@ -73,11 +71,9 @@ class PreferencesViewController: UIViewController {
         case 0:
             SproutPreferencesController.shared.conductivityUnitString = "EC"
         case 1:
-            SproutPreferencesController.shared.conductivityUnitString = "(PPM 500)"
-        case 2:
-            SproutPreferencesController.shared.conductivityUnitString = "(PPM 700)"
+            SproutPreferencesController.shared.conductivityUnitString = "PPM"
         default:
-            SproutPreferencesController.shared.conductivityUnitString = "(PPM 500)"
+            SproutPreferencesController.shared.conductivityUnitString = "PPM"
         }
     }
     

@@ -200,8 +200,7 @@
                                                 <rect key="frame" x="142.66666666666669" y="0.0" width="230" height="29"/>
                                                 <segments>
                                                     <segment title="EC"/>
-                                                    <segment title="PPM(500)"/>
-                                                    <segment title="PPM(700)"/>
+                                                    <segment title="PPM"/>
                                                 </segments>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <connections>

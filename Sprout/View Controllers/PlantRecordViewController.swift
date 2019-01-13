@@ -68,7 +68,7 @@ class PlantRecordViewController: UIViewController {
         
         plantImage.image = image
         ph.text = "PH: \(plantRecord.phString)"
-        conductivity.text = "Conductivity \(SproutPreferencesController.shared.conductivityUnitString): \(plantRecord.conductivityString)"
+        conductivity.text = "\(SproutPreferencesController.shared.conductivityUnitString): \(plantRecord.conductivityString)"
         volume.text = "Volume: \(plantRecord.volumeString) \(SproutPreferencesController.shared.volumeUnitString)"
         water_FeedNotes.text = waterNotes ?? "N/A"
         plantHealthNotes.text = healthNotes ?? "N/A"

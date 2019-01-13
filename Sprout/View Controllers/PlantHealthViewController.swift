@@ -184,7 +184,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         if self.view.frame.origin.y == 0 {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
-                self.plantHealthBarTopConstraint.constant = keyboardSize.height/2.2
+                self.plantHealthBarTopConstraint.constant = keyboardSize.height/2.4
                 
             }
         } else {

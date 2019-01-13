@@ -184,13 +184,13 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         if self.view.frame.origin.y == 0 {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
-//                self.water_FeedNotesLabelTopConstraint.constant = keyboardSize.height/3.4
+                self.plantHealthBarTopConstraint.constant = keyboardSize.height/2.2
                 
             }
         } else {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
-//                self.water_FeedNotesLabelTopConstraint.constant = 10
+                self.plantHealthBarTopConstraint.constant = 8
             }
         }
     }
@@ -207,6 +207,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBOutlet weak var plantHealthBar: UIView!
     @IBOutlet weak var poorHealthLabel: UILabel!
     @IBOutlet weak var excellantHealthLabel: UILabel!
+    @IBOutlet weak var plantHealthBarTopConstraint: NSLayoutConstraint!
     
     // MARK: - Actions
     

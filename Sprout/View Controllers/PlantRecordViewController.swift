@@ -49,6 +49,7 @@ class PlantRecordViewController: UIViewController {
         
         plantHealthFirstButton.layer.cornerRadius = 4
         plantHealthSecondButton.layer.cornerRadius = 4
+        plantHealthSecondButton.backgroundColor = SproutTheme.current.health5Color
         
         plantHealthNotes.layer.borderWidth = 1
         plantHealthNotes.layer.borderColor = SproutTheme.current.accentColor.cgColor

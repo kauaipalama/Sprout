@@ -53,10 +53,13 @@ class Water_FeedViewController: ShiftableViewController {
         conductivityTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         conductivityTextField.keyboardType = UIKeyboardType.decimalPad
         conductivityTextField.placeholder = "Enter \(SproutPreferencesController.shared.conductivityUnitString)"
+        conductivityTextField.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         phTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         phTextField.keyboardType = UIKeyboardType.decimalPad
+        phTextField.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         volumeTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
-        volumeTextField.keyboardType = UIKeyboardType.decimalPad        
+        volumeTextField.keyboardType = UIKeyboardType.decimalPad
+        volumeTextField.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
         volumeTextField.inputAccessoryView = keyboardToolbar
@@ -74,6 +77,7 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.placeholderLabel.textAlignment = .center
         water_FeedNotesTextView.layer.borderWidth = 1
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
+        water_FeedNotesTextView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         water_FeedNotesTextView.layer.cornerRadius = 6
         water_FeedNotesTextView.delegate = self
         volumeTextField.delegate = self

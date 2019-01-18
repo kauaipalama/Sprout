@@ -17,6 +17,8 @@ class LightTheme: Theme {
     
     var backgroundColor: UIColor = SproutColors().lightBackgroundColor
     
+    var textFieldBackgroundColor: UIColor = SproutColors().lightTextFieldBackgroundColor
+    
     var accentColor: UIColor = SproutColors().lightAccentColor
     
     var tintedTextColor: UIColor = SproutColors().lightTintedTextColor

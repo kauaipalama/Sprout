@@ -17,6 +17,8 @@ class DarkTheme: Theme {
     
     var backgroundColor: UIColor = SproutColors().darkBackgroundColor
     
+    var textFieldBackgroundColor: UIColor = SproutColors().darkTextFieldBackgroundColor
+    
     var accentColor: UIColor = SproutColors().darkAccentColor
     
     var tintedTextColor: UIColor = SproutColors().darkTintedTextColor

@@ -66,6 +66,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         plantHealthNotesTextView.placeholderLabel.textAlignment = .center
         plantHealthNotesTextView.layer.borderWidth = 1
         plantHealthNotesTextView.layer.borderColor = SproutTheme.current.accentColor.cgColor
+        plantHealthNotesTextView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         plantHealthNotesTextView.layer.cornerRadius = 6
         
         plantHealthBar.layer.cornerRadius = 6

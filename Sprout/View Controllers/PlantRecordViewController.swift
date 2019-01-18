@@ -51,8 +51,10 @@ class PlantRecordViewController: UIViewController {
         
         plantHealthNotes.layer.borderWidth = 1
         plantHealthNotes.layer.borderColor = SproutTheme.current.accentColor.cgColor
+        plantHealthNotes.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         water_FeedNotes.layer.borderWidth = 1
         water_FeedNotes.layer.borderColor = SproutTheme.current.accentColor.cgColor
+        water_FeedNotes.backgroundColor = SproutTheme.current.textFieldBackgroundColor
     }
     
     func updateViews() {

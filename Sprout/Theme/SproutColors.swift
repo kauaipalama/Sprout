@@ -13,6 +13,7 @@ struct SproutColors {
     
     let lightTextColor = UIColor.black
     let lightBackgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
+    let lightTextFieldBackgroundColor = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0)
     let lightAccentColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
     let lightTintedTextColor = UIColor(red: 113.0/255.0, green: 159.0/255.0, blue: 234.0/255.0, alpha: 1.0)
     let lightNutrientsButtonColor = UIColor(red: 238.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1.0)
@@ -26,6 +27,7 @@ struct SproutColors {
 
     let darkTextColor = UIColor.white
     let darkBackgroundColor = UIColor.black
+    let darkTextFieldBackgroundColor = UIColor(red: 254.0/255.0, green: 249.0/255.0, blue: 217.0/255.0, alpha: 1.0)
     let darkAccentColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 1.0)
     let darkTintedTextColor = UIColor(red: 113.0/255.0, green: 159.0/255.0, blue: 234.0/255.0, alpha: 1.0)
     let darkNutrientsButtonColor = UIColor(red: 238.0/255.0, green: 248.0/255.0, blue: 248.0/255.0, alpha: 1.0)

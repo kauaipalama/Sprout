@@ -13,6 +13,7 @@ protocol Theme {
     var blurEffect: UIBlurEffect {get}
     var textColor: UIColor {get}
     var backgroundColor: UIColor {get}
+    var textFieldBackgroundColor: UIColor {get}
     var accentColor: UIColor {get}
     var tintedTextColor: UIColor {get}
     var nutrientsButtonColor: UIColor {get}

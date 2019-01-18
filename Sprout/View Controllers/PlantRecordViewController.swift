@@ -58,19 +58,32 @@ class PlantRecordViewController: UIViewController {
     }
     
     func updateViews() {
-        guard let plantImageData =  day?.plantRecord?.plantImage,
-            let plantRecord = day?.plantRecord,
+        guard let plantRecord = day?.plantRecord,
             let day = day
             else {return}
-        let image = UIImage(data: plantImageData)
+        
+        let plantImageData = day.plantRecord?.plantImage
+
+        let defaultImage = UIImage(named: "LaunchScreen")
+        guard let defaultImageData = defaultImage?.jpegData(compressionQuality: 0) else {return}
+        
+        let image = UIImage(data: plantImageData ?? defaultImageData)
         
         let waterNotes = day.plantRecord?.water_feedNotes
         let healthNotes = day.plantRecord?.plantHealthNotes
         
+        var volumeStringIsNA: Bool
+        
+        if plantRecord.volumeString == "N/A" {
+            volumeStringIsNA = true
+        } else {
+            volumeStringIsNA = false
+        }
+        
         plantImage.image = image
-        ph.text = "PH: \(plantRecord.phString)"
-        conductivity.text = "\(SproutPreferencesController.shared.conductivityUnitString): \(plantRecord.conductivityString)"
-        volume.text = "Volume: \(plantRecord.volumeString) \(SproutPreferencesController.shared.volumeUnitString)"
+        ph.text = plantRecord.phString
+        conductivity.text = plantRecord.conductivityString
+        volume.text = volumeStringIsNA ? "Volume: \(plantRecord.volumeString)" : plantRecord.volumeString
         water_FeedNotes.text = waterNotes ?? "N/A"
         plantHealthNotes.text = healthNotes ?? "N/A"
         
@@ -118,6 +131,8 @@ class PlantRecordViewController: UIViewController {
     
     @IBOutlet weak var plantImage: UIImageView!
     @IBOutlet weak var ph: UILabel!
+    
+    //Change naming conventions. So it does not match data model.
     @IBOutlet weak var conductivity: UILabel!
     @IBOutlet weak var volume: UILabel!
     @IBOutlet weak var water_FeedNotes: UITextView!

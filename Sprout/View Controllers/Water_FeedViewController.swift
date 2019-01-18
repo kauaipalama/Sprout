@@ -9,11 +9,9 @@
 //TODO:
 //??When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX??
 
-//Alert the user know they still need to input values if they try to save before doing so.
+//Need labels to go along with values. ex; "PPM: N/A" or "EC: 1.2 BUT no label for volume."
 
 //For dark theme use a off white yellowish type of color for the textViews
-
-//Bigger texts fields. Think Jitterbug.
 
 import UIKit
 
@@ -38,31 +36,17 @@ class Water_FeedViewController: ShiftableViewController {
         return SproutTheme.current.preferredStatusBarStyle
     }
     
-    //    override func keyboardWillShow(notification: Notification) {
-    //        //Animate the top constraint of the textView's label to better match the screen.
-    //        //Modify the constraints multiplier to around 1.355. Check and adjust
-    //    }
-    //
-    //    override func keyboardWillHide(notification: Notification) {
-    //        //Animate the bottom constraint again back to 0.
-    //    }
-    
     // MARK: - Views
     
     func setupViews() {
         view.backgroundColor = SproutTheme.current.backgroundColor
         
-        conductivityLabel.textColor = SproutTheme.current.textColor
         conductivityTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         conductivityTextField.keyboardType = UIKeyboardType.decimalPad
-        phLabel.textColor = SproutTheme.current.textColor
         phTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         phTextField.keyboardType = UIKeyboardType.decimalPad
-        volumeLabel.textColor = SproutTheme.current.textColor
         volumeTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
-        volumeTextField.keyboardType = UIKeyboardType.decimalPad
-        water_FeedNotesLabel.textColor = SproutTheme.current.textColor
-        
+        volumeTextField.keyboardType = UIKeyboardType.decimalPad        
         conductivityTextField.inputAccessoryView = keyboardToolbar
         phTextField.inputAccessoryView = keyboardToolbar
         volumeTextField.inputAccessoryView = keyboardToolbar
@@ -129,31 +113,26 @@ class Water_FeedViewController: ShiftableViewController {
             keyboardSize = keyboardRect
         }
         
-        if self.view.frame.origin.y == 0 {
-            UIView.animate(withDuration: keyboardAnimationDuration) {
+        if self.view.frame.origin.y == 0 && textViewBeingEdited == water_FeedNotesTextView {
+            UIView.animate(withDuration: keyboardAnimationDuration + 1.5) {
                 self.view.layoutIfNeeded()
-                self.water_FeedNotesLabelTopConstraint.constant = keyboardSize.height/3.3
+                self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height/2.0
             }
         } else {
-            UIView.animate(withDuration: keyboardAnimationDuration) {
+            UIView.animate(withDuration: keyboardAnimationDuration + 1.5) {
                 self.view.layoutIfNeeded()
-                self.water_FeedNotesLabelTopConstraint.constant = 10
+                self.water_FeedNotesTextViewTopConstraint.constant = 8
             }
         }
     }
     
     // MARK: - Outlets
     
-    @IBOutlet weak var conductivityLabel: UILabel!
     @IBOutlet weak var conductivityTextField: UITextField!
-    @IBOutlet weak var phLabel: UILabel!
     @IBOutlet weak var phTextField: UITextField!
-    @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
-    @IBOutlet weak var water_FeedNotesLabel: UILabel!
-    @IBOutlet weak var water_FeedNotesLabelTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var water_FeedNotesTextViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var water_FeedNotesTextViewTopConstraint: NSLayoutConstraint!
     
     
     // MARK: - Actions

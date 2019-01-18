@@ -631,53 +631,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="PPM/ EC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyE-eR-WvI">
-                                <rect key="frame" x="8" y="72" width="398" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter PPM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-85-31K">
+                                <rect key="frame" x="8" y="72" width="398" height="43"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter PPM / EC" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bnQ-85-31K">
-                                <rect key="frame" x="8" y="104" width="398" height="30"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="PH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zE5-1Y-Pt1">
-                                <rect key="frame" x="8" y="144" width="398" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter PH" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lyq-Br-RSx">
-                                <rect key="frame" x="8" y="176" width="398" height="30"/>
+                                <rect key="frame" x="8" y="123" width="398" height="43"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Volume" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Wh-zM-atZ">
-                                <rect key="frame" x="8" y="216" width="398" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Volume" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A91-gl-BqN">
-                                <rect key="frame" x="8" y="248" width="398" height="30"/>
+                                <rect key="frame" x="8" y="174" width="398" height="43"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="32"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7N-nt-SW8">
-                                <rect key="frame" x="8" y="288" width="398" height="24"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle3"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hj-gR-UVi" customClass="PlaceholderTextView" customModule="Sprout" customModuleProvider="target">
-                                <rect key="frame" x="8" y="320" width="398" height="408"/>
+                                <rect key="frame" x="8" y="225" width="398" height="503"/>
                                 <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter Notes Here"/>
@@ -686,29 +662,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="lyq-Br-RSx" firstAttribute="top" secondItem="zE5-1Y-Pt1" secondAttribute="bottom" constant="8" id="1Ht-H3-KIZ"/>
                             <constraint firstItem="lyq-Br-RSx" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="1Lq-jg-XAx"/>
-                            <constraint firstItem="5Hj-gR-UVi" firstAttribute="top" secondItem="c7N-nt-SW8" secondAttribute="bottom" constant="8" id="1VG-0l-etE"/>
-                            <constraint firstItem="FyE-eR-WvI" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="6VL-co-cSe"/>
-                            <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="c7N-nt-SW8" secondAttribute="trailing" constant="8" id="79V-Dg-R0P"/>
-                            <constraint firstItem="FyE-eR-WvI" firstAttribute="top" secondItem="WmE-vd-BeW" secondAttribute="top" constant="8" id="9DQ-uJ-2cF"/>
-                            <constraint firstItem="WmE-vd-BeW" firstAttribute="bottom" secondItem="5Hj-gR-UVi" secondAttribute="bottom" constant="8" id="BKI-LR-8mj"/>
                             <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="5Hj-gR-UVi" secondAttribute="trailing" constant="8" id="Dxc-9u-8St"/>
-                            <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="3Wh-zM-atZ" secondAttribute="trailing" constant="8" id="KRO-B6-Bb0"/>
-                            <constraint firstItem="3Wh-zM-atZ" firstAttribute="top" secondItem="lyq-Br-RSx" secondAttribute="bottom" constant="10" id="KTa-WQ-89l"/>
-                            <constraint firstItem="zE5-1Y-Pt1" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="LjM-pC-5hz"/>
-                            <constraint firstItem="c7N-nt-SW8" firstAttribute="top" secondItem="A91-gl-BqN" secondAttribute="bottom" constant="10" id="MPT-XL-Rhp"/>
                             <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="A91-gl-BqN" secondAttribute="trailing" constant="8" id="MWw-Je-5ge"/>
-                            <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="FyE-eR-WvI" secondAttribute="trailing" constant="8" id="OUk-Dw-CGU"/>
-                            <constraint firstItem="A91-gl-BqN" firstAttribute="top" secondItem="3Wh-zM-atZ" secondAttribute="bottom" constant="8" id="OZ0-kt-8A6"/>
                             <constraint firstItem="5Hj-gR-UVi" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="T3M-37-Eiz"/>
-                            <constraint firstItem="bnQ-85-31K" firstAttribute="top" secondItem="FyE-eR-WvI" secondAttribute="bottom" constant="8" id="bR4-AU-NfP"/>
-                            <constraint firstItem="zE5-1Y-Pt1" firstAttribute="top" secondItem="bnQ-85-31K" secondAttribute="bottom" constant="10" id="dFP-ze-sEL"/>
+                            <constraint firstItem="A91-gl-BqN" firstAttribute="top" secondItem="lyq-Br-RSx" secondAttribute="bottom" constant="8" id="VCM-Mi-Dyh"/>
                             <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="lyq-Br-RSx" secondAttribute="trailing" constant="8" id="djC-Ch-Xbl"/>
-                            <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="zE5-1Y-Pt1" secondAttribute="trailing" constant="8" id="h1X-Lw-HLI"/>
+                            <constraint firstItem="bnQ-85-31K" firstAttribute="top" secondItem="WmE-vd-BeW" secondAttribute="top" constant="8" id="iri-KJ-eEu"/>
+                            <constraint firstItem="5Hj-gR-UVi" firstAttribute="top" secondItem="A91-gl-BqN" secondAttribute="bottom" constant="8" id="k4p-HY-m2P"/>
                             <constraint firstItem="bnQ-85-31K" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="l7s-JD-ELx"/>
-                            <constraint firstItem="3Wh-zM-atZ" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="mGg-2h-CP9"/>
-                            <constraint firstItem="c7N-nt-SW8" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="opC-AX-CnH"/>
+                            <constraint firstItem="WmE-vd-BeW" firstAttribute="bottom" secondItem="5Hj-gR-UVi" secondAttribute="bottom" constant="8" id="rRP-GL-qOZ"/>
+                            <constraint firstItem="lyq-Br-RSx" firstAttribute="top" secondItem="bnQ-85-31K" secondAttribute="bottom" constant="8" id="uL5-XR-aIJ"/>
                             <constraint firstItem="A91-gl-BqN" firstAttribute="leading" secondItem="WmE-vd-BeW" secondAttribute="leading" constant="8" id="uXQ-x0-PyE"/>
                             <constraint firstItem="WmE-vd-BeW" firstAttribute="trailing" secondItem="bnQ-85-31K" secondAttribute="trailing" constant="8" id="vgk-oG-RS1"/>
                         </constraints>
@@ -722,16 +686,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="conductivityLabel" destination="FyE-eR-WvI" id="Dsn-OW-OUv"/>
                         <outlet property="conductivityTextField" destination="bnQ-85-31K" id="KBS-JQ-J9p"/>
-                        <outlet property="phLabel" destination="zE5-1Y-Pt1" id="R8g-wy-Nuw"/>
                         <outlet property="phTextField" destination="lyq-Br-RSx" id="kQx-uL-Ie4"/>
-                        <outlet property="volumeLabel" destination="3Wh-zM-atZ" id="Sqa-as-Fl4"/>
                         <outlet property="volumeTextField" destination="A91-gl-BqN" id="pGr-xr-Z1L"/>
-                        <outlet property="water_FeedNotesLabel" destination="c7N-nt-SW8" id="kxQ-Xw-S67"/>
-                        <outlet property="water_FeedNotesLabelTopConstraint" destination="MPT-XL-Rhp" id="uwK-EP-Jeg"/>
                         <outlet property="water_FeedNotesTextView" destination="5Hj-gR-UVi" id="wmR-zi-2NL"/>
-                        <outlet property="water_FeedNotesTextViewBottomConstraint" destination="BKI-LR-8mj" id="kje-Ux-Oxi"/>
+                        <outlet property="water_FeedNotesTextViewTopConstraint" destination="k4p-HY-m2P" id="c9c-mg-9v4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4m-rI-vCv" userLabel="First Responder" sceneMemberID="firstResponder"/>

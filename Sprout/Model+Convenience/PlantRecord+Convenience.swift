@@ -45,13 +45,17 @@ extension PlantRecord {
     // MARK: - Computed properties
     
     var conductivityString: String {
-        return floatAsString(float: conductivity)
+        return SproutPreferencesController.shared.conductivityUnitString + ": " + "\(floatAsString(float: conductivity))"
     }
     var volumeString: String {
-        return floatAsString(float: volume)
+        if floatAsString(float: volume) == "N/A"{
+            return floatAsString(float: volume)
+        } else {
+            return "\(floatAsString(float: volume))" + " " + SproutPreferencesController.shared.volumeUnitString
+        }
     }
     var phString: String {
-        return floatAsString(float: ph)
+        return "PH: \(floatAsString(float: ph))"
     }
     
 }

@@ -124,7 +124,8 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
                 case 5:
                     cell.backgroundColor = SproutTheme.current.health5Color
                 default:
-                     cell.backgroundColor = UIColor.clear
+                    cell.backgroundColor = UIColor.clear
+                    cell.dateLabel.textColor = SproutTheme.current.textColor
                 }
             }
         }

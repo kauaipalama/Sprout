@@ -37,7 +37,7 @@ class PlaceholderTextView: UITextView {
     
     
     @IBInspectable
-    var placeholderFont: UIFont = UIFont(name: "HelveticaNeue", size: 18)!{
+    var placeholderFont: UIFont = UIFont(name: "HelveticaNeue", size: 22)!{
         didSet{
             updateView()
         }

@@ -7,10 +7,6 @@
 //
 
 //TODO:
-//??When view loads after partial record saved. It loads with 0.0. If record is partial load with placeholder. FIX??
-
-//Need labels to go along with values. ex; "PPM: N/A" or "EC: 1.2 BUT no label for volume."
-
 //For dark theme use a off white yellowish type of color for the textViews
 
 import UIKit
@@ -24,6 +20,11 @@ class Water_FeedViewController: ShiftableViewController {
         setupViews()
         updateViews()
         
+        if day?.plantRecord?.conductivity == nil && day?.plantRecord?.ph == nil && day?.plantRecord?.volume == nil {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = .clear
+        }
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -31,6 +32,14 @@ class Water_FeedViewController: ShiftableViewController {
         super.viewWillAppear(animated)
         clearPlaceholderText()
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(true)
+//        if phTextField.isEditing == true || conductivityTextField.isEditing == true || volumeTextField.isEditing == true {
+//            self.navigationItem.rightBarButtonItem?.isEnabled = false
+//            self.navigationItem.rightBarButtonItem?.tintColor = .clear
+//        }
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
@@ -43,6 +52,7 @@ class Water_FeedViewController: ShiftableViewController {
         
         conductivityTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         conductivityTextField.keyboardType = UIKeyboardType.decimalPad
+        conductivityTextField.placeholder = "Enter \(SproutPreferencesController.shared.conductivityUnitString)"
         phTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
         phTextField.keyboardType = UIKeyboardType.decimalPad
         volumeTextField.layer.borderColor = SproutTheme.current.accentColor.cgColor
@@ -66,6 +76,9 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.layer.cornerRadius = 6
         water_FeedNotesTextView.delegate = self
+        volumeTextField.delegate = self
+        phTextField.delegate = self
+        conductivityTextField.delegate = self
         
     }
     
@@ -87,6 +100,50 @@ class Water_FeedViewController: ShiftableViewController {
             water_FeedNotesTextView.placeholder = ""
         }
     }
+    
+    override func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("did begin editing")
+        if textField == conductivityTextField && textField.text == "" {
+            textFieldPrefix = "\(SproutPreferencesController.shared.conductivityUnitString): "
+            textField.text = textFieldPrefix
+            textFieldPrefix = nil
+        } else if textField == phTextField && textField.text == "" {
+            textFieldPrefix = "PH: "
+            textField.text = textFieldPrefix
+            textFieldPrefix = nil
+        } else if textField == volumeTextField && textField.text == "" {
+            textFieldPrefix = "\(SproutPreferencesController.shared.volumeUnitString): "
+            textField.text = textFieldPrefix
+            textFieldPrefix = nil
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        print("did end editing")
+        if phTextField.text?.isEmpty == false && conductivityTextField.text?.isEmpty == false && volumeTextField.text?.isEmpty == false {
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
+            self.navigationItem.rightBarButtonItem?.tintColor = SproutTheme.current.tintedTextColor
+        }
+        
+        if textField.text == SproutPreferencesController.shared.conductivityUnitString + ": " || textField.text == SproutPreferencesController.shared.volumeUnitString + ": " || textField.text == "PH: " {
+            textField.text = ""
+        }
+        
+        if textField == phTextField {
+            //Force Unwrapped. Fix later
+            tempPhString = "\(phTextField.text!.dropFirst(4))"
+            print("\(tempPhString)")
+        } else if textField == conductivityTextField {
+            //Force Unwrapped. Fix later
+            tempConductivityString = "\(conductivityTextField.text!.dropFirst(SproutPreferencesController.shared.conductivityUnitString.count + 2))"
+            print("\(tempConductivityString)")
+        } else if textField == volumeTextField {
+            //Force Unwrapped. Fix later
+            tempVolumeString = "\(volumeTextField.text!.dropFirst(SproutPreferencesController.shared.volumeUnitString.count + 2))"
+            print("\(tempVolumeString)")
+        }
+    }
+    
     
     @objc func doneButtonTapped() {
         conductivityTextField.resignFirstResponder()
@@ -144,11 +201,12 @@ class Water_FeedViewController: ShiftableViewController {
             present(alert, animated:  true, completion: nil)
         }
         
-        guard let phString = phTextField.text,
+        guard let phString = tempPhString,
             let ph = Float(phString),
-            let conductivityString = conductivityTextField.text,
+            let conductivityString = tempConductivityString,
             let conductivity = Float(conductivityString),
-            let volumeString = volumeTextField.text,
+            //Breaks here for some reason
+            let volumeString = tempVolumeString,
             let volume = Float(volumeString),
             let water_feedNotes = water_FeedNotesTextView.text
             else {return}
@@ -169,6 +227,10 @@ class Water_FeedViewController: ShiftableViewController {
     var plantType: PlantType?
     var keyboardToolbar = UIToolbar()
     var day: Day?
+    var textFieldPrefix: String?
+    var tempConductivityString: String?
+    var tempPhString: String?
+    var tempVolumeString: String?
     
     // MARK: - Notification Center
     

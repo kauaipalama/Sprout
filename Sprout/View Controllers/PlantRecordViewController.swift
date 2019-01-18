@@ -6,8 +6,6 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //When view loads, scroll the textView(s) down and up once.
-
-//Add ability for views to change with theme
 //Needs redesign
 //For dark theme use a off white yellowish type of color for the textViews
 

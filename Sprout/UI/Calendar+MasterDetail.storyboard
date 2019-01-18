@@ -125,10 +125,10 @@
             </objects>
             <point key="canvasLocation" x="1976.8" y="126.38680659670166"/>
         </scene>
-        <!--Plant Record View Controller-->
+        <!--Plant Record-->
         <scene sceneID="Z4x-Ci-HNS">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Kxm-ME-Q2O" customClass="PlantRecordViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Plant Record" extendedLayoutIncludesOpaqueBars="YES" id="Kxm-ME-Q2O" customClass="PlantRecordViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Js6-cW-U84">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -178,7 +178,7 @@
                                         <rect key="frame" x="0.0" y="132" width="337.5" height="0.0"/>
                                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
@@ -198,7 +198,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GHg-Bs-Ff0">
-                                <rect key="frame" x="19" y="491" width="337.5" height="121"/>
+                                <rect key="frame" x="19" y="491" width="337.5" height="168"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hja-Tf-Zol">
                                         <rect key="frame" x="85.5" y="0.0" width="166.5" height="20.5"/>
@@ -251,16 +251,15 @@
                                         </subviews>
                                     </stackView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="pK4-YH-bW0">
-                                        <rect key="frame" x="0.0" y="24.5" width="337.5" height="96.5"/>
+                                        <rect key="frame" x="0.0" y="24.5" width="337.5" height="143.5"/>
                                         <color key="backgroundColor" red="1" green="0.99997597930000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pK4-YH-bW0" firstAttribute="centerX" secondItem="GHg-Bs-Ff0" secondAttribute="centerX" id="Ycm-5z-CiA"/>
-                                    <constraint firstAttribute="height" constant="121" id="q5r-Dk-u2M"/>
                                     <constraint firstItem="pK4-YH-bW0" firstAttribute="width" secondItem="GHg-Bs-Ff0" secondAttribute="width" id="ysW-1N-8JJ"/>
                                 </constraints>
                             </stackView>
@@ -275,6 +274,8 @@
                             <constraint firstItem="vsQ-zh-WPW" firstAttribute="top" secondItem="mQp-fl-cpB" secondAttribute="top" constant="28" id="Fjw-Ut-jGO"/>
                             <constraint firstItem="FJD-jY-iUD" firstAttribute="centerY" secondItem="vsQ-zh-WPW" secondAttribute="centerY" id="LTY-rx-W1W"/>
                             <constraint firstItem="2nm-RH-GKq" firstAttribute="width" secondItem="Js6-cW-U84" secondAttribute="width" id="UhF-oe-UPm"/>
+                            <constraint firstItem="GHg-Bs-Ff0" firstAttribute="leading" secondItem="rpB-yP-saE" secondAttribute="leading" id="XUj-pU-fD0"/>
+                            <constraint firstItem="mQp-fl-cpB" firstAttribute="bottom" secondItem="GHg-Bs-Ff0" secondAttribute="bottom" constant="8" id="XeI-bi-RyC"/>
                             <constraint firstItem="rpB-yP-saE" firstAttribute="centerX" secondItem="mQp-fl-cpB" secondAttribute="centerX" id="XzD-Pf-Dfn"/>
                             <constraint firstItem="FJD-jY-iUD" firstAttribute="width" secondItem="vsQ-zh-WPW" secondAttribute="width" id="Ynr-Sy-led"/>
                             <constraint firstItem="rpB-yP-saE" firstAttribute="top" secondItem="NRB-kI-RNH" secondAttribute="bottom" constant="8" id="aJg-aD-xzJ"/>
@@ -282,9 +283,8 @@
                             <constraint firstItem="vsQ-zh-WPW" firstAttribute="leading" secondItem="mQp-fl-cpB" secondAttribute="leading" constant="94" id="mYV-jF-ZTg"/>
                             <constraint firstItem="2nm-RH-GKq" firstAttribute="centerX" secondItem="mQp-fl-cpB" secondAttribute="centerX" id="nkr-DX-iVb"/>
                             <constraint firstItem="NRB-kI-RNH" firstAttribute="top" secondItem="vsQ-zh-WPW" secondAttribute="bottom" constant="5" id="pXJ-tG-coS"/>
+                            <constraint firstItem="GHg-Bs-Ff0" firstAttribute="trailing" secondItem="rpB-yP-saE" secondAttribute="trailing" id="s3R-qJ-ekr"/>
                             <constraint firstItem="GHg-Bs-Ff0" firstAttribute="top" secondItem="2nm-RH-GKq" secondAttribute="bottom" constant="8" id="tng-vs-P6L"/>
-                            <constraint firstItem="GHg-Bs-Ff0" firstAttribute="centerX" secondItem="mQp-fl-cpB" secondAttribute="centerX" id="v8s-tR-sb8"/>
-                            <constraint firstItem="GHg-Bs-Ff0" firstAttribute="width" secondItem="Js6-cW-U84" secondAttribute="width" multiplier="0.9" id="ves-RO-Ncj"/>
                             <constraint firstItem="FJD-jY-iUD" firstAttribute="centerX" secondItem="vsQ-zh-WPW" secondAttribute="centerX" id="zAc-8z-N7S"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mQp-fl-cpB"/>
@@ -315,10 +315,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L88-g1-kNG">
-                                <rect key="frame" x="-54" y="38" width="483" height="611"/>
+                                <rect key="frame" x="-51.5" y="38" width="478" height="611"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Pqd-p6-rYz">
-                                        <rect key="frame" x="20" y="20" width="443" height="571"/>
+                                        <rect key="frame" x="8" y="8" width="462" height="595"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Pqd-p6-rYz" secondAttribute="height" multiplier="125:161" id="r49-4Q-NjX"/>
                                         </constraints>
@@ -326,11 +326,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerY" secondItem="L88-g1-kNG" secondAttribute="centerY" id="46K-q4-9mN"/>
-                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="leading" secondItem="L88-g1-kNG" secondAttribute="leading" constant="20" id="MdB-bz-EgO"/>
-                                    <constraint firstAttribute="trailing" secondItem="Pqd-p6-rYz" secondAttribute="trailing" constant="20" id="dHV-5K-vLi"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pqd-p6-rYz" secondAttribute="bottom" constant="20" id="lii-P1-Zp2"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="leading" secondItem="L88-g1-kNG" secondAttribute="leading" constant="8" id="MdB-bz-EgO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Pqd-p6-rYz" secondAttribute="trailing" constant="8" id="dHV-5K-vLi"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pqd-p6-rYz" secondAttribute="bottom" constant="8" id="lii-P1-Zp2"/>
                                     <constraint firstItem="Pqd-p6-rYz" firstAttribute="centerX" secondItem="L88-g1-kNG" secondAttribute="centerX" id="w9Y-o1-brs"/>
-                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="top" secondItem="L88-g1-kNG" secondAttribute="top" constant="20" id="xhW-EW-z9C"/>
+                                    <constraint firstItem="Pqd-p6-rYz" firstAttribute="top" secondItem="L88-g1-kNG" secondAttribute="top" constant="8" id="xhW-EW-z9C"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="delegate" destination="Bls-RE-mH7" id="lyM-on-Aw9"/>

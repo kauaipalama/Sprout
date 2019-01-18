@@ -6,12 +6,7 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 //TODO:
-
-//*****Wont save when parts of record are missing. ie: photo. FIX OR ALERT******
-//Alert the user know they still need to input values if they try to save before doing so.
-
 //For dark theme use a off white yellowish type of color for the textViews
-//Check constraints
 
 import UIKit
 

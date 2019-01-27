@@ -180,8 +180,31 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         if self.view.frame.origin.y == 0 {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
-                self.plantHealthBarTopConstraint.constant = keyboardSize.height/2.4
+                //iPhone SE (568)
+                //iPhone8 (667)
                 
+                //*Just add specifics
+                //iPhone8 Plus (763)
+                //iPads
+                
+                //iPhoneX (812)
+                //iPhoneXSMax (896)
+                //*iPhoneX and later can use outlet of bottom constraint to close gap to safe area. Extra safe area beacause updated Safe Area for iPhone X. Get specifics of iPhoneXSMax.
+                
+                if self.view.frame.height <= 763 {
+                    //iPhone8 Plus
+                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 2.525
+                } else if self.view.frame.height <= 812 {
+                    //iPhoneX
+                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 2.0
+//                    self.plantHealthNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8           
+                } else if self.view.frame.height <= 896 {
+                    //iPhoneXSMax
+                    
+                } else if self.view.frame.height > 896 {
+                    //iPads
+//                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 1.6
+                }
             }
         } else {
             UIView.animate(withDuration: keyboardAnimationDuration) {
@@ -204,6 +227,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBOutlet weak var poorHealthLabel: UILabel!
     @IBOutlet weak var excellantHealthLabel: UILabel!
     @IBOutlet weak var plantHealthBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var plantHealthNotesTextViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Actions
     
@@ -300,9 +324,9 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     // MARK: - Delegatation
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
         picker.dismiss(animated: true, completion: nil)
         
         if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
@@ -332,10 +356,10 @@ let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
 }
 
 // Helper function inserted by Swift 4.2 migrator.
 fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-	return input.rawValue
+    return input.rawValue
 }

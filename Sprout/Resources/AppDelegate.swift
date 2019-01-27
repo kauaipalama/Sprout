@@ -26,9 +26,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        //        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.7))
-        
-        
         UINavigationBar.appearance().layer.backgroundColor = UIColor.clear.cgColor
         UINavigationBar.appearance().shadowImage = UIImage()
         

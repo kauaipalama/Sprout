@@ -177,12 +177,36 @@ class Water_FeedViewController: ShiftableViewController {
         if self.view.frame.origin.y == 0 && textViewBeingEdited == water_FeedNotesTextView {
             UIView.animate(withDuration: keyboardAnimationDuration + 1.5) {
                 self.view.layoutIfNeeded()
-                self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height/2.0
+                print(self.view.frame.height)
+                //*Just add specifics
+                //iPads
+                
+                if self.view.frame.height <= 568 {
+                    //iPhone SE (568)
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 2.1
+                } else if self.view.frame.height <= 667 {
+                    //iPhone8 (667)
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 2.05
+                } else if self.view.frame.height <= 763 {
+                    //iPhone8 Plus (763)
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.95
+                } else if self.view.frame.height <= 812 {
+                    //iPhoneX (812)
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.7
+                    self.water_FeedNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8
+                } else if self.view.frame.height <= 896 {
+                    //iPhoneXSMax (896)
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.67
+                    self.water_FeedNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8
+                } else if self.view.frame.height > 896 {
+                    //IPADS
+                }
             }
         } else {
             UIView.animate(withDuration: keyboardAnimationDuration + 1.5) {
                 self.view.layoutIfNeeded()
                 self.water_FeedNotesTextViewTopConstraint.constant = 8
+                self.water_FeedNotesTextViewBottomConstraint.constant = 8
             }
         }
     }
@@ -194,6 +218,7 @@ class Water_FeedViewController: ShiftableViewController {
     @IBOutlet weak var volumeTextField: UITextField!
     @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
     @IBOutlet weak var water_FeedNotesTextViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var water_FeedNotesTextViewBottomConstraint: NSLayoutConstraint!
     
     
     // MARK: - Actions

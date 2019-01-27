@@ -6,6 +6,8 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
+//Status bar in bar mode is not visible
+
 import UIKit
 
 class DarkTheme: Theme {

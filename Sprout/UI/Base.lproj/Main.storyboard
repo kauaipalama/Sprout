@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v75-oT-gnA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Esi-HH-w1n">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Plants-->
         <scene sceneID="BsE-3p-lWJ">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="8KW-70-B4U" customClass="PlantTypeViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="8KW-70-B4U" customClass="PlantTypeViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZJL-9s-Mjd">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -168,7 +168,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-25" y="-954"/>
+            <point key="canvasLocation" x="881.15942028985512" y="-954.61956521739137"/>
         </scene>
         <!--Preferences-->
         <scene sceneID="g8j-DD-nB8">
@@ -356,7 +356,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rua-bD-wcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zTg-Hm-ixt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="935" y="-955"/>
+            <point key="canvasLocation" x="1842.0289855072465" y="-955.43478260869574"/>
         </scene>
         <!--Plant Health-->
         <scene sceneID="hco-pq-KVe">
@@ -556,6 +556,7 @@
                         <outlet property="plantHealthBar" destination="nY0-mA-csr" id="Mzm-sH-Gb5"/>
                         <outlet property="plantHealthBarTopConstraint" destination="XVp-5w-o5d" id="wa0-nD-vCb"/>
                         <outlet property="plantHealthNotesTextView" destination="BHo-Ad-64m" id="ekI-3J-V8U"/>
+                        <outlet property="plantHealthNotesTextViewBottomConstraint" destination="LqZ-lU-oTb" id="Psg-lG-ueF"/>
                         <outlet property="poorHealthLabel" destination="azw-ep-AEX" id="n9X-PQ-pLc"/>
                         <outlet property="threeButton" destination="iGY-oL-tFj" id="Sbj-cd-7xt"/>
                         <outlet property="thumbnailImageView" destination="GBY-qU-GRk" id="lL0-ul-7w8"/>
@@ -565,7 +566,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uac-24-flL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vEb-Wd-ukq" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="-955.43478260869574"/>
+            <point key="canvasLocation" x="2873.913043478261" y="-955.43478260869574"/>
         </scene>
         <!--Calendar+MasterDetail-->
         <scene sceneID="JAh-Ne-Uck">
@@ -621,7 +622,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fcj-Pu-fmc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3139" y="-955"/>
+            <point key="canvasLocation" x="4044.9275362318845" y="-955.43478260869574"/>
         </scene>
         <!--Water/Feed-->
         <scene sceneID="MEX-3s-toY">
@@ -690,6 +691,7 @@
                         <outlet property="phTextField" destination="lyq-Br-RSx" id="kQx-uL-Ie4"/>
                         <outlet property="volumeTextField" destination="A91-gl-BqN" id="pGr-xr-Z1L"/>
                         <outlet property="water_FeedNotesTextView" destination="5Hj-gR-UVi" id="wmR-zi-2NL"/>
+                        <outlet property="water_FeedNotesTextViewBottomConstraint" destination="rRP-GL-qOZ" id="kVI-VM-yGM"/>
                         <outlet property="water_FeedNotesTextViewTopConstraint" destination="k4p-HY-m2P" id="c9c-mg-9v4"/>
                     </connections>
                 </viewController>
@@ -697,10 +699,79 @@
             </objects>
             <point key="canvasLocation" x="1966.6666666666667" y="-1753.5326086956522"/>
         </scene>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="JYt-2d-fMk">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Esi-HH-w1n" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRu-FZ-FNa">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="oPx-21-oJI">
+                                <rect key="frame" x="158.66666666666666" y="299.33333333333331" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oPx-21-oJI" secondAttribute="height" multiplier="1:1" id="3Cy-a9-L1Y"/>
+                                    <constraint firstAttribute="height" constant="97" id="kYN-tS-d7T"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPROUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7I-Ks-DZ4">
+                                <rect key="frame" x="158.66666666666666" y="396.33333333333331" width="97" height="32.666666666666686"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.666666666666686" id="VZY-kL-L2h"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6k-pA-WN6" userLabel="firstMask">
+                                <rect key="frame" x="159" y="396.33333333333331" width="80" height="32.666666666666686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="XTR-h1-R6j"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mlp-nb-LOm" userLabel="secondMask">
+                                <rect key="frame" x="239" y="396.33333333333331" width="16.666666666666657" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="y14-Bn-Mmc"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="S7I-Ks-DZ4" firstAttribute="top" secondItem="oPx-21-oJI" secondAttribute="bottom" constant="-5.6843418860808015e-14" id="DwE-GV-xVz"/>
+                            <constraint firstItem="Mlp-nb-LOm" firstAttribute="top" secondItem="S7I-Ks-DZ4" secondAttribute="top" id="OB8-bG-PIf"/>
+                            <constraint firstItem="d6k-pA-WN6" firstAttribute="bottom" secondItem="S7I-Ks-DZ4" secondAttribute="bottom" id="a1Q-Wm-hoU"/>
+                            <constraint firstItem="oPx-21-oJI" firstAttribute="centerY" secondItem="8eu-Ma-6cv" secondAttribute="centerY" multiplier="0.92" id="bWL-oF-1Op"/>
+                            <constraint firstItem="S7I-Ks-DZ4" firstAttribute="trailing" secondItem="oPx-21-oJI" secondAttribute="trailing" id="bmk-oe-za0"/>
+                            <constraint firstItem="Mlp-nb-LOm" firstAttribute="leading" secondItem="d6k-pA-WN6" secondAttribute="trailing" id="cpR-re-lao"/>
+                            <constraint firstItem="d6k-pA-WN6" firstAttribute="trailing" secondItem="oPx-21-oJI" secondAttribute="trailing" constant="-16.600000000000001" id="gmg-SQ-bIm"/>
+                            <constraint firstItem="d6k-pA-WN6" firstAttribute="top" secondItem="S7I-Ks-DZ4" secondAttribute="top" id="jdY-aa-Lun"/>
+                            <constraint firstItem="oPx-21-oJI" firstAttribute="centerX" secondItem="8eu-Ma-6cv" secondAttribute="centerX" id="lF5-SI-C3a"/>
+                            <constraint firstItem="S7I-Ks-DZ4" firstAttribute="leading" secondItem="oPx-21-oJI" secondAttribute="leading" id="pCT-46-iQG"/>
+                            <constraint firstItem="S7I-Ks-DZ4" firstAttribute="centerX" secondItem="8eu-Ma-6cv" secondAttribute="centerX" id="tX1-e4-qvB"/>
+                            <constraint firstItem="Mlp-nb-LOm" firstAttribute="trailing" secondItem="S7I-Ks-DZ4" secondAttribute="trailing" id="whh-mW-4pP"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8eu-Ma-6cv"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstMaskView" destination="d6k-pA-WN6" id="XnX-eS-XgI"/>
+                        <outlet property="firstMaskWidthConstraint" destination="XTR-h1-R6j" id="CMw-Cu-cyK"/>
+                        <outlet property="secondMaskHeightConstraint" destination="y14-Bn-Mmc" id="CDE-6J-z9S"/>
+                        <outlet property="secondMaskView" destination="Mlp-nb-LOm" id="RPu-Y2-htR"/>
+                        <outlet property="sproutLabel" destination="S7I-Ks-DZ4" id="HRR-f0-ap0"/>
+                        <segue destination="v75-oT-gnA" kind="presentation" identifier="toNavigationStack" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="pIw-Ip-KqR"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h60-AZ-DOm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="-1754"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="c9w-9G-JyT">
             <objects>
-                <navigationController extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="v75-oT-gnA" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navigationController" extendedLayoutIncludesOpaqueBars="YES" automaticallyAdjustsScrollViewInsets="NO" id="v75-oT-gnA" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="dRe-7K-E5o">
                         <rect key="frame" x="0.0" y="20" width="414" height="44"/>
@@ -718,10 +789,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YuV-ya-la0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-984" y="-954"/>
+            <point key="canvasLocation" x="-76.811594202898561" y="-954.61956521739137"/>
         </scene>
     </scenes>
     <resources>
+        <image name="LaunchScreen" width="1536" height="1536"/>
         <image name="icons8-menu-24" width="54" height="54"/>
     </resources>
     <color key="tintColor" red="0.40000000000000002" green="0.62352941176470589" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

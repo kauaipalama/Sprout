@@ -89,7 +89,7 @@ class ShiftableViewController: UIViewController, UITextFieldDelegate, UITextView
         
         let textFieldOrigin = self.view.convert(textInput.frame, from: textInput.superview!).origin.y
         //Added the 8 points to match my constraints. NEEDS ADJUSTMENT. NO LONGER GENERIC
-        let textFieldBottomY = textFieldOrigin + textInput.frame.size.height + 8
+        let textFieldBottomY = textFieldOrigin + textInput.frame.size.height + 4
         
         // This is the y point that the textField's bottom can be at before it gets covered by the keyboard
         let maximumY = self.view.frame.height - (keyboardSize.height + view.safeAreaInsets.bottom)

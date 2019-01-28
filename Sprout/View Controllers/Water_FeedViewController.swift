@@ -26,6 +26,7 @@ class Water_FeedViewController: ShiftableViewController {
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -79,7 +80,12 @@ class Water_FeedViewController: ShiftableViewController {
         water_FeedNotesTextView.layer.borderColor = UIColor(red: 204.0/255.0, green: 204.0/255.0, blue: 204.0/255.0, alpha: 0.4).cgColor
         water_FeedNotesTextView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         water_FeedNotesTextView.layer.cornerRadius = 6
-        water_FeedNotesTextView.delegate = self
+        
+        if self.view.frame.height >= 1024 {
+            water_FeedNotesTextView.delegate = nil
+        } else {
+            water_FeedNotesTextView.delegate = self
+        }
         volumeTextField.delegate = self
         phTextField.delegate = self
         conductivityTextField.delegate = self
@@ -199,9 +205,6 @@ class Water_FeedViewController: ShiftableViewController {
                     //iPhoneXSMax (896)
                     self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.67
                     self.water_FeedNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8
-                } else if self.view.frame.height >= 1024 {
-                    //iPad 5th
-                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.7
                 }
             }
         } else {

@@ -15,6 +15,7 @@
 		B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2282087AB8A00423A70 /* CoreDataStack.swift */; };
 		B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */; };
 		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
+		B429C18921FEBC000096450F /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B429C18821FEBC000096450F /* SplashScreen.storyboard */; };
 		B446E1A52190FA85007F4C71 /* SproutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A42190FA85007F4C71 /* SproutTheme.swift */; };
 		B446E1A72193C4D4007F4C71 /* PlantTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */; };
 		B446E1A92193D130007F4C71 /* SproutColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A82193D130007F4C71 /* SproutColors.swift */; };
@@ -52,6 +53,7 @@
 		B40EA2282087AB8A00423A70 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeController.swift; sourceTree = "<group>"; };
 		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
+		B429C18821FEBC000096450F /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B446E1A42190FA85007F4C71 /* SproutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutTheme.swift; sourceTree = "<group>"; };
 		B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeViewController.swift; sourceTree = "<group>"; };
 		B446E1A82193D130007F4C71 /* SproutColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutColors.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				B4AA204B2084F2A000707DF6 /* Main.storyboard */,
 				B40EA2222086A99D00423A70 /* Calendar+MasterDetail.storyboard */,
+				B429C18821FEBC000096450F /* SplashScreen.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				B40EA2232086A99D00423A70 /* Calendar+MasterDetail.storyboard in Resources */,
 				B4AA20552084F2A400707DF6 /* LaunchScreen.storyboard in Resources */,
 				B4AA20522084F2A400707DF6 /* Assets.xcassets in Resources */,
+				B429C18921FEBC000096450F /* SplashScreen.storyboard in Resources */,
 				B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

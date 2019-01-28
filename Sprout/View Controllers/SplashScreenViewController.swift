@@ -19,6 +19,10 @@ class SplashScreenViewController: UIViewController {
         animateGraphic()
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
     @IBOutlet weak var secondMaskView: UIView!
     @IBOutlet weak var firstMaskView: UIView!
     @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!

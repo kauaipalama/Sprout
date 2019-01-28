@@ -149,6 +149,7 @@ class Water_FeedViewController: ShiftableViewController {
     }
     
     
+    
     @objc func doneButtonTapped() {
         conductivityTextField.resignFirstResponder()
         phTextField.resignFirstResponder()
@@ -198,8 +199,9 @@ class Water_FeedViewController: ShiftableViewController {
                     //iPhoneXSMax (896)
                     self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.67
                     self.water_FeedNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8
-                } else if self.view.frame.height > 896 {
-                    //IPADS
+                } else if self.view.frame.height >= 1024 {
+                    //iPad 5th
+                    self.water_FeedNotesTextViewTopConstraint.constant = keyboardSize.height / 1.7
                 }
             }
         } else {

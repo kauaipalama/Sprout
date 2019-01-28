@@ -70,7 +70,6 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         plantHealthNotesTextView.layer.cornerRadius = 6
         
         plantHealthBar.layer.cornerRadius = 6
-        thumbnailImageView.layer.cornerRadius = 6
     }
     
     func updateViews() {
@@ -85,7 +84,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             guard let imageData = day.plantRecord?.plantImage else {return}
             self.imageData = imageData
             plantPhoto = UIImage(data: imageData)
-            thumbnailImageView.image = plantPhoto
+            plantImageButton.setBackgroundImage(plantPhoto, for: .normal)
             guard let plantRecord = day.plantRecord else {return}
             setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
             
@@ -180,16 +179,18 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         if self.view.frame.origin.y == 0 {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
-                //iPhone SE (568)
-                //iPhone8 (667)
-                
+                print(self.view.frame.height)
                 //*Just add specifics
-                //iPhone8 Plus (763)
-                //iPads
-                
-                //iPhoneX (812)
-                //iPhoneXSMax (896)
-                //*iPhoneX and later can use outlet of bottom constraint to close gap to safe area. Extra safe area beacause updated Safe Area for iPhone X. Get specifics of iPhoneXSMax.
+                //5th 1024
+                //6th
+                //Air
+                //Air 2
+                //Pro 9.7
+                //Pro 10.5
+                //Pro 11
+                //Pro 12.9
+                //Pro 12.9.2
+                //Pro 12.9.3
                 
                 if self.view.frame.height <= 763 {
                     //iPhone8 Plus
@@ -197,19 +198,21 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
                 } else if self.view.frame.height <= 812 {
                     //iPhoneX
                     self.plantHealthBarTopConstraint.constant = keyboardSize.height / 2.0
-//                    self.plantHealthNotesTextViewBottomConstraint.constant = -(self.view.safeAreaInsets.bottom) + 8           
+                    self.plantImageButtonHeightConstraint.constant = 47
                 } else if self.view.frame.height <= 896 {
                     //iPhoneXSMax
-                    
-                } else if self.view.frame.height > 896 {
-                    //iPads
-//                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 1.6
+                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 1.95
+                    self.plantImageButtonHeightConstraint.constant = 47
+                } else if self.view.frame.height >= 1024.0 {
+                    //iPad 5th
+                    self.plantHealthBarTopConstraint.constant = keyboardSize.height / 3.45
                 }
             }
         } else {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
                 self.plantHealthBarTopConstraint.constant = 8
+                self.plantImageButtonHeightConstraint.constant = 78
             }
         }
     }
@@ -222,12 +225,12 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     @IBOutlet weak var fourButton: UIButton!
     @IBOutlet weak var fiveButton: UIButton!
     @IBOutlet weak var plantHealthNotesTextView: PlaceholderTextView!
-    @IBOutlet weak var thumbnailImageView: UIImageView!
     @IBOutlet weak var plantHealthBar: UIView!
     @IBOutlet weak var poorHealthLabel: UILabel!
     @IBOutlet weak var excellantHealthLabel: UILabel!
     @IBOutlet weak var plantHealthBarTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var plantHealthNotesTextViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var plantImageButton: UIButton!
+    @IBOutlet weak var plantImageButtonHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Actions
     
@@ -334,7 +337,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             self.imageData = image.jpegData(compressionQuality: 0.9)
             self.plantPhoto = image
             delegate?.photoSelectViewControllerSelected(image)
-            thumbnailImageView.image = image
+            plantImageButton.setBackgroundImage(image, for: .normal)
             
         }
     }

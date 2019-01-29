@@ -23,6 +23,10 @@ class SplashScreenViewController: UIViewController {
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBOutlet weak var secondMaskView: UIView!
     @IBOutlet weak var firstMaskView: UIView!
     @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!

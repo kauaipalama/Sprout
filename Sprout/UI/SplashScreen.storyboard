@@ -12,20 +12,20 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="Oaj-Nq-mhg">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xba-77-IwN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-9i-RZl">
-                                <rect key="frame" x="139" y="267.5" width="97" height="97"/>
+                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qlY-9i-RZl" secondAttribute="height" multiplier="1:1" id="7RY-J0-o4x"/>
                                     <constraint firstAttribute="height" constant="97" id="qiT-TF-2L6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPROUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3u-OW-m4Q">
-                                <rect key="frame" x="139" y="364.5" width="97" height="32.5"/>
+                                <rect key="frame" x="139" y="356.5" width="97" height="32.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32.666666666666686" id="vAQ-77-P5J"/>
                                 </constraints>
@@ -34,14 +34,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kze-kM-94s" userLabel="firstMask">
-                                <rect key="frame" x="139.5" y="364.5" width="80" height="32.5"/>
+                                <rect key="frame" x="139.5" y="356.5" width="80" height="32.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="yty-IS-8XN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o66-Tp-dng" userLabel="secondMask">
-                                <rect key="frame" x="219.5" y="364.5" width="16.5" height="33"/>
+                                <rect key="frame" x="219.5" y="356.5" width="16.5" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="XPe-3w-dOX"/>
@@ -54,10 +54,10 @@
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="centerX" secondItem="i06-jE-cZ9" secondAttribute="centerX" id="9Uq-62-ElZ"/>
                             <constraint firstItem="kze-kM-94s" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" constant="-16.600000000000001" id="AER-7E-S46"/>
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" id="Pon-Q0-gM1"/>
-                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerY" secondItem="i06-jE-cZ9" secondAttribute="centerY" multiplier="0.92" id="WUK-KV-P5P"/>
+                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerY" secondItem="Xba-77-IwN" secondAttribute="centerY" multiplier="0.92" constant="1" id="WUK-KV-P5P"/>
                             <constraint firstItem="o66-Tp-dng" firstAttribute="trailing" secondItem="W3u-OW-m4Q" secondAttribute="trailing" id="aJY-ln-Pl9"/>
                             <constraint firstItem="kze-kM-94s" firstAttribute="top" secondItem="W3u-OW-m4Q" secondAttribute="top" id="de5-sc-4Vf"/>
-                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="top" secondItem="qlY-9i-RZl" secondAttribute="bottom" constant="-5.6843418860808015e-14" id="kOP-oO-MQC"/>
+                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="top" secondItem="qlY-9i-RZl" secondAttribute="bottom" id="kOP-oO-MQC"/>
                             <constraint firstItem="o66-Tp-dng" firstAttribute="leading" secondItem="kze-kM-94s" secondAttribute="trailing" id="mo5-Xt-caT"/>
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="leading" secondItem="qlY-9i-RZl" secondAttribute="leading" id="nz6-zP-iKR"/>
                             <constraint firstItem="kze-kM-94s" firstAttribute="bottom" secondItem="W3u-OW-m4Q" secondAttribute="bottom" id="t2o-hg-x3l"/>
@@ -71,7 +71,7 @@
                         <outlet property="secondMaskHeightConstraint" destination="XPe-3w-dOX" id="xGH-W2-zkp"/>
                         <outlet property="secondMaskView" destination="o66-Tp-dng" id="saa-ps-PYW"/>
                         <outlet property="sproutLabel" destination="W3u-OW-m4Q" id="Q1A-6G-szM"/>
-                        <segue destination="Ga9-LW-A3F" kind="presentation" identifier="toNavigationStack" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="JX2-Nj-GhO"/>
+                        <segue destination="Ga9-LW-A3F" kind="presentation" identifier="toNavigationStack" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="JX2-Nj-GhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lv-M8-f8J" userLabel="First Responder" sceneMemberID="firstResponder"/>

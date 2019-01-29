@@ -28,6 +28,10 @@ class PlantRecordViewController: UIViewController {
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     // MARK: - Views
     
     func setupViews() {

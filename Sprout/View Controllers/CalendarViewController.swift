@@ -35,6 +35,10 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     // MARK: - Calendar Setup
     
     func setCalendar() {

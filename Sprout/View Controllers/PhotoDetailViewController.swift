@@ -23,6 +23,10 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     // MARK: - Views
     
     func setupViews() {

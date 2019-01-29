@@ -30,6 +30,10 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     
     func setupInitialView() {
         self.view.sendSubviewToBack(blurView)
@@ -143,6 +147,22 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if shownIndexes.contains(indexPath) == false {
+            shownIndexes.append(indexPath)
+            cell.transform = CGAffineTransform(translationX: -(cell.frame.width / 10), y: 0)
+             cell.alpha = 0
+            
+            UIView.animate(withDuration: 0.5, delay: TimeInterval(2 * indexPath.row) / 15, options: .curveEaseInOut, animations: {
+                cell.transform = CGAffineTransform(translationX: 0, y: 0)
+                cell.alpha = 1
+            }) { (_) in
+                print("Row: \(indexPath.row) animated")
+                
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = deleteAction(at: indexPath)
         let edit = editAction(at: indexPath)
@@ -207,4 +227,5 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     var menuIsOpen: Bool = false
+    var shownIndexes: [IndexPath] = []
 }

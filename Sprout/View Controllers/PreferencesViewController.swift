@@ -19,6 +19,10 @@ class PreferencesViewController: UIViewController {
         return SproutTheme.current.preferredStatusBarStyle
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return false
+    }
+    
     func setupViews() {
         view.backgroundColor = SproutTheme.current.backgroundColor
         

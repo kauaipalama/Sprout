@@ -41,6 +41,7 @@ class PlantRecordViewController: UIViewController {
         volume.textColor = SproutTheme.current.textColor
         conductivity.textColor = SproutTheme.current.textColor
         ph.textColor = SproutTheme.current.textColor
+        notesLabel.textColor = SproutTheme.current.textColor
         plantHealth.textColor = SproutTheme.current.textColor
         plantHealthBackslash.textColor = SproutTheme.current.textColor
 
@@ -145,6 +146,7 @@ class PlantRecordViewController: UIViewController {
     @IBOutlet weak var plantHealthNotes: UITextView!
     @IBOutlet weak var plantHealth: UILabel!
     @IBOutlet weak var plantHealthBackslash: UILabel!
+    @IBOutlet weak var notesLabel: UILabel!
     
     // MARK: - Property
     

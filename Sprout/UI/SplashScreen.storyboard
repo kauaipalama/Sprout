@@ -12,7 +12,7 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="Oaj-Nq-mhg">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xba-77-IwN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -68,10 +68,11 @@
                     <connections>
                         <outlet property="firstMaskView" destination="kze-kM-94s" id="Mpk-LW-Sws"/>
                         <outlet property="firstMaskWidthConstraint" destination="yty-IS-8XN" id="qgE-7d-oHc"/>
+                        <outlet property="logoImageView" destination="qlY-9i-RZl" id="NOq-j5-RlS"/>
                         <outlet property="secondMaskHeightConstraint" destination="XPe-3w-dOX" id="xGH-W2-zkp"/>
                         <outlet property="secondMaskView" destination="o66-Tp-dng" id="saa-ps-PYW"/>
                         <outlet property="sproutLabel" destination="W3u-OW-m4Q" id="Q1A-6G-szM"/>
-                        <segue destination="Ga9-LW-A3F" kind="presentation" identifier="toNavigationStack" modalPresentationStyle="currentContext" modalTransitionStyle="crossDissolve" id="JX2-Nj-GhO"/>
+                        <segue destination="Ga9-LW-A3F" kind="presentation" identifier="toNavigationStack" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="JX2-Nj-GhO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3lv-M8-f8J" userLabel="First Responder" sceneMemberID="firstResponder"/>

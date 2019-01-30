@@ -32,6 +32,7 @@ class SplashScreenViewController: UIViewController {
     @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var firstMaskWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var sproutLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
     
     func animateGraphic() {
         firstMaskWidthConstraint.constant = 0
@@ -51,7 +52,12 @@ class SplashScreenViewController: UIViewController {
                     self.view.backgroundColor = SproutTheme.current.backgroundColor
                 }, completion: { (_) in
                     RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.0))
-                    self.popToNavigationStack()
+                    UIView.transition(with: self.sproutLabel, duration: 1, options: .transitionCrossDissolve, animations: {
+                        self.sproutLabel.textColor = .clear
+                        self.logoImageView.alpha = 0
+                    }, completion: { (_) in
+                        self.popToNavigationStack()
+                    })
                 })
             })
         }

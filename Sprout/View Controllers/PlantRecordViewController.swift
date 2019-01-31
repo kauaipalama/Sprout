@@ -35,8 +35,6 @@ class PlantRecordViewController: UIViewController {
     // MARK: - Views
     
     func setupViews() {
-        //Make the date "pretty"
-//        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
         view.backgroundColor = SproutTheme.current.backgroundColor
         volume.textColor = SproutTheme.current.textColor
         conductivity.textColor = SproutTheme.current.textColor
@@ -89,8 +87,18 @@ class PlantRecordViewController: UIViewController {
         ph.text = plantRecord.phString
         conductivity.text = plantRecord.conductivityString
         volume.text = volumeStringIsNA ? "Volume: \(plantRecord.volumeString)" : plantRecord.volumeString
-        water_FeedNotes.text = waterNotes ?? "N/A"
-        plantHealthNotes.text = healthNotes ?? "N/A"
+        
+        if waterNotes == "" || waterNotes == nil {
+            water_FeedNotes.text = "N/A"
+        } else {
+            water_FeedNotes.text = waterNotes
+        }
+        
+        if healthNotes == "" || healthNotes == nil {
+            plantHealthNotes.text = "N/A"
+        } else {
+            plantHealthNotes.text = healthNotes
+        }
         
         setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
     }

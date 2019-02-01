@@ -95,7 +95,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
 
     }
     
-    //DELETE NOT WORKING
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             let plantTypeToDelete = PlantTypeController.shared.plantTypes[indexPath.row]

@@ -86,6 +86,10 @@ class WelcomeScreenViewController: UIViewController {
         }
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!

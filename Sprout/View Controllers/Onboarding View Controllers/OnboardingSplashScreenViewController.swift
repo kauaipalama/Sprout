@@ -12,7 +12,7 @@ class OnboardingSplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 2))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
         animateLogoImageView()
     }
     

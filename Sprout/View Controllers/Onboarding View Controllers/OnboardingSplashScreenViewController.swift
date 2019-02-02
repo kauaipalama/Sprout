@@ -12,10 +12,33 @@ class OnboardingSplashScreenViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 2))
+        animateLogoImageView()
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    @IBOutlet weak var logoImageView: UIImageView!
+    
+    func animateLogoImageView() {
+        
+        UIView.transition(with: self.view, duration: 1.5, options: .transitionCrossDissolve, animations: {
+            self.view.backgroundColor = SproutTheme.current.backgroundColor
+        }) { (_) in
+            UIView.animate(withDuration: 1, animations: {
+                self.logoImageView.alpha = 0
+            }) { (_) in
+                self.popToOnboardingWelcome()
+            }
+        }
+    }
+    
+    func popToOnboardingWelcome() {
+        print("POP! hehe")
+        self.performSegue(withIdentifier: "toOnboardingWelcome", sender: nil)
+    }
 
     /*
     // MARK: - Navigation

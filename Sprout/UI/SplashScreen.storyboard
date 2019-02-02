@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ewa-Ky-dbw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TGR-M3-4Jm">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -86,6 +86,46 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CSb-GG-fif" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="227" y="-1739"/>
+        </scene>
+        <!--Onboarding Splash Screen View Controller-->
+        <scene sceneID="pN3-y8-Iaf">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="TGR-M3-4Jm" customClass="OnboardingSplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8m-lK-nZx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-8a-enu">
+                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mTt-8a-enu" secondAttribute="height" multiplier="1:1" id="eiz-z8-AbH"/>
+                                    <constraint firstAttribute="height" constant="97" id="rH3-cO-Qot"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerX" secondItem="3VC-Gf-bU5" secondAttribute="centerX" id="Gzl-I3-dsO"/>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" multiplier="0.92" constant="1" id="TPA-sE-xcl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3VC-Gf-bU5"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoImageView" destination="mTt-8a-enu" id="otC-49-Ssb"/>
+                        <segue destination="hT5-L8-I07" kind="presentation" identifier="toOnboardingWelcome" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8Lt-0Y-Pv0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KA4-v4-4ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542" y="-2650"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="U2y-gK-o08">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="hT5-L8-I07" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouO-6s-pXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="-2762"/>
         </scene>
     </scenes>
     <resources>

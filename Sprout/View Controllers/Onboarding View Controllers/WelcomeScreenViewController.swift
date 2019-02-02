@@ -39,7 +39,7 @@ class WelcomeScreenViewController: UIViewController {
         self.borderView.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         if SproutPreferencesController.shared.darkModeBool == true {
             self.borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            self.welcomeLabel.textColor = .black
+            self.welcomeLabel.textColor = SproutTheme.current.textColor
 
         } else {
             self.borderView.backgroundColor = SproutTheme.current.backgroundColor
@@ -54,7 +54,7 @@ class WelcomeScreenViewController: UIViewController {
         
         UIView.animate(withDuration: 0.75) {
             self.view.layoutIfNeeded()
-            self.borderView.alpha = 1
+            self.view.backgroundColor = SproutTheme.current.backgroundColor
         }
         
         UIView.transition(with: self.welcomeLabel, duration: 0.75, options: .transitionCrossDissolve, animations: {

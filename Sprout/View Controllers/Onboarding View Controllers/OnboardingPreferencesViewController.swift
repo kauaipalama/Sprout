@@ -15,24 +15,23 @@ class OnboardingPreferencesViewController: UIViewController {
         setupViews()
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return SproutTheme.current.preferredStatusBarStyle
-    }
-    
     override var prefersStatusBarHidden: Bool {
-        return false
+        return true
     }
     
     func setupViews() {
+        borderView.alpha = 0
+        
         if SproutPreferencesController.shared.darkModeBool == true {
             borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            conductivitySegControl.tintColor = .black
-            volumeSegControl.tintColor = .black
-            themeSegControl.tintColor = .black
-            unitsLabel.textColor = .black
-            conductivityLabel.textColor = .black
-            volumeLabel.textColor = .black
-            themeLabel.textColor = .black
+            borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
+            conductivitySegControl.tintColor = SproutTheme.current.textColor
+            volumeSegControl.tintColor = SproutTheme.current.textColor
+            themeSegControl.tintColor = SproutTheme.current.textColor
+            unitsLabel.textColor = SproutTheme.current.textColor
+            conductivityLabel.textColor = SproutTheme.current.textColor
+            volumeLabel.textColor = SproutTheme.current.textColor
+            themeLabel.textColor = SproutTheme.current.textColor
         } else {
             borderView.backgroundColor = SproutTheme.current.backgroundColor
             themeSegControl.tintColor = SproutTheme.current.textColor
@@ -62,6 +61,7 @@ class OnboardingPreferencesViewController: UIViewController {
         self.nextButton.tintColor = .white
         self.nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         self.nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
+        
         
         
         switch SproutPreferencesController.shared.conductivityUnitString {
@@ -140,13 +140,13 @@ class OnboardingPreferencesViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
         if SproutPreferencesController.shared.darkModeBool == true {
             borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            conductivitySegControl.tintColor = .black
-            volumeSegControl.tintColor = .black
-            themeSegControl.tintColor = .black
-            unitsLabel.textColor = .black
-            conductivityLabel.textColor = .black
-            volumeLabel.textColor = .black
-            themeLabel.textColor = .black
+            conductivitySegControl.tintColor = SproutTheme.current.textColor
+            volumeSegControl.tintColor = SproutTheme.current.textColor
+            themeSegControl.tintColor = SproutTheme.current.textColor
+            unitsLabel.textColor = SproutTheme.current.textColor
+            conductivityLabel.textColor = SproutTheme.current.textColor
+            volumeLabel.textColor = SproutTheme.current.textColor
+            themeLabel.textColor = SproutTheme.current.textColor
         } else {
             borderView.backgroundColor = SproutTheme.current.backgroundColor
             themeSegControl.tintColor = SproutTheme.current.textColor

@@ -47,7 +47,7 @@ class Onboarding1ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 5))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
         self.borderViewCenterY.constant = -(self.view.frame.maxX) / 10
                 UIView.animate(withDuration: 0.75, animations: {
                     self.view.layoutIfNeeded()

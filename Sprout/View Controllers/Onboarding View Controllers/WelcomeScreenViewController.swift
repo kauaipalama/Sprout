@@ -10,6 +10,8 @@ import UIKit
 
 class WelcomeScreenViewController: UIViewController {
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -28,36 +30,39 @@ class WelcomeScreenViewController: UIViewController {
         return true
     }
     
+    // MARK: - Views
+    
     func setNavigationControllerColors() {
         navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
     }
     
     func setupNextButton() {
-        self.nextButton.layer.cornerRadius = 8
-        self.nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.nextButton.layer.shadowOpacity = 0.75
-        self.nextButton.layer.borderWidth = 2
-        self.nextButton.isEnabled = false
-        self.nextButton.alpha = 0
-        self.nextButton.backgroundColor = SproutTheme.current.tintedTextColor
-        self.nextButton.tintColor = .white
+        nextButton.layer.cornerRadius = 8
+        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        nextButton.layer.shadowOpacity = 0.75
+        nextButton.layer.borderWidth = 2
+        nextButton.isEnabled = false
+        nextButton.alpha = 0
+        nextButton.backgroundColor = SproutTheme.current.tintedTextColor
+        nextButton.tintColor = .white
         if SproutPreferencesController.shared.darkModeBool == true {
-            self.nextButton.layer.shadowColor = UIColor.clear.cgColor
+            nextButton.layer.shadowColor = UIColor.clear.cgColor
         } else {
-            self.nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+            nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         }
-        self.nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
+        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
     }
     
     func setupViews() {
         //Will remove borderView from storyboard later
-        self.borderView.alpha = 0
-        self.welcomeLabel.text = ""
-        self.borderViewCenterY.constant = 0
+        borderView.alpha = 0
+        welcomeLabel.text = ""
+        //Will need new constraint to animate up
+        borderViewCenterY.constant = 0
         
-        self.view.backgroundColor = SproutTheme.current.backgroundColor
-        self.welcomeLabel.textColor = SproutTheme.current.textColor
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        welcomeLabel.textColor = SproutTheme.current.textColor
         
         
         setupNextButton()
@@ -98,6 +103,8 @@ class WelcomeScreenViewController: UIViewController {
             })
         }
     }
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var welcomeLabel: UILabel!

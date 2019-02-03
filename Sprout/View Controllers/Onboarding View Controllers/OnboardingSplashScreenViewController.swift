@@ -9,10 +9,11 @@
 import UIKit
 
 class OnboardingSplashScreenViewController: UIViewController {
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
         animateLogoImageView()
     }
     
@@ -20,9 +21,10 @@ class OnboardingSplashScreenViewController: UIViewController {
         return true
     }
     
-    @IBOutlet weak var logoImageView: UIImageView!
+    // MARK: - Views
     
     func animateLogoImageView() {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
         
         UIView.transition(with: self.view, duration: 1.5, options: .transitionCrossDissolve, animations: {
             self.view.backgroundColor = SproutTheme.current.backgroundColor
@@ -35,19 +37,14 @@ class OnboardingSplashScreenViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
+    
     func popToOnboardingWelcome() {
         print("POP! hehe")
         self.performSegue(withIdentifier: "toOnboardingWelcome", sender: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var logoImageView: UIImageView!
 }

@@ -258,13 +258,13 @@
 			isa = PBXGroup;
 			children = (
 				B4DACB0D220407850058299A /* OnboardingSplashScreenViewController.swift */,
-				B4DACB0B2203ED3B0058299A /* OnboardingPreferencesViewController.swift */,
 				B4DACAF422028F480058299A /* WelcomeScreenViewController.swift */,
-				B4DACAF822028F830058299A /* PermissionsViewController.swift */,
-				B4DACAFA2202900D0058299A /* FarewellViewController.swift */,
+				B4DACB0B2203ED3B0058299A /* OnboardingPreferencesViewController.swift */,
 				B4DACB052203A6490058299A /* Onboarding1ViewController.swift */,
 				B4DACB072203A6570058299A /* Onboarding2ViewController.swift */,
+				B4DACAF822028F830058299A /* PermissionsViewController.swift */,
 				B4DACB092203A65F0058299A /* Onboarding3ViewController.swift */,
+				B4DACAFA2202900D0058299A /* FarewellViewController.swift */,
 			);
 			path = "Onboarding View Controllers";
 			sourceTree = "<group>";

@@ -77,7 +77,7 @@
                                     <segue destination="dvX-jU-4sF" kind="show" id="scb-40-oBP"/>
                                 </connections>
                             </button>
-                            <view alpha="0.30000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iM-yt-1pG">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iM-yt-1pG">
                                 <rect key="frame" x="41.5" y="132.5" width="292.5" height="402"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -94,15 +94,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tqi-Ft-kfA"/>
                     </view>
+                    <connections>
+                        <outlet property="borderView" destination="7iM-yt-1pG" id="nci-ie-c3U"/>
+                        <outlet property="borderViewCenterY" destination="RbR-Z0-6Un" id="oQh-Up-1Hl"/>
+                        <outlet property="nextButton" destination="0M8-8w-0Fl" id="Ahi-8g-aIK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wK7-Vx-kog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1808.8" y="-412.44377811094455"/>
         </scene>
-        <!--View Controller-->
+        <!--Onboarding3 View Controller-->
         <scene sceneID="8da-ag-TZ9">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Ly6-n0-aFD" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Ly6-n0-aFD" customClass="Onboarding3ViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5vs-v8-nIE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,10 +122,10 @@
             </objects>
             <point key="canvasLocation" x="3476" y="-412.44377811094455"/>
         </scene>
-        <!--Onboarding3 View Controller-->
+        <!--Permissions View Controller-->
         <scene sceneID="sVr-Dl-qWH">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="dvX-jU-4sF" customClass="Onboarding3ViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="dvX-jU-4sF" customClass="PermissionsViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UaV-xV-Mkp">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

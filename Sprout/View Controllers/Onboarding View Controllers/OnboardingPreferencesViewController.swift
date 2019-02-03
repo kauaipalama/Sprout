@@ -10,6 +10,8 @@ import UIKit
 
 class OnboardingPreferencesViewController: UIViewController {
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -19,51 +21,44 @@ class OnboardingPreferencesViewController: UIViewController {
         return true
     }
     
+    // MARK: - Views
+    
     func setupViews() {
+        //Will remove borderView from storyboard later
         borderView.alpha = 0
-        
-        if SproutPreferencesController.shared.darkModeBool == true {
-            borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            conductivitySegControl.tintColor = SproutTheme.current.textColor
-            volumeSegControl.tintColor = SproutTheme.current.textColor
-            themeSegControl.tintColor = SproutTheme.current.textColor
-            unitsLabel.textColor = SproutTheme.current.textColor
-            conductivityLabel.textColor = SproutTheme.current.textColor
-            volumeLabel.textColor = SproutTheme.current.textColor
-            themeLabel.textColor = SproutTheme.current.textColor
-        } else {
-            borderView.backgroundColor = SproutTheme.current.backgroundColor
-            themeSegControl.tintColor = SproutTheme.current.textColor
-            conductivitySegControl.tintColor = SproutTheme.current.textColor
-            volumeSegControl.tintColor = SproutTheme.current.textColor
-            unitsLabel.textColor = SproutTheme.current.textColor
-            conductivityLabel.textColor = SproutTheme.current.textColor
-            volumeLabel.textColor = SproutTheme.current.textColor
-            themeLabel.textColor = SproutTheme.current.textColor
-        }
-        
+        setThemeColors()
+        setupNextButton()
+        setupSegmentedControls()
+    }
+    
+    func setThemeColors() {
         view.backgroundColor = SproutTheme.current.backgroundColor
-        
-        self.borderView.layer.borderWidth = 4
-        self.borderView.layer.cornerRadius = 8
-        self.borderView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.borderView.layer.shadowOpacity = 0.75
-        self.borderView.layer.borderColor = SproutTheme.current.accentColor.cgColor
-        self.borderView.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-
-        
-        self.nextButton.layer.cornerRadius = 8
-        self.nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        self.nextButton.layer.shadowOpacity = 0.75
-        self.nextButton.layer.borderWidth = 2
-        self.nextButton.backgroundColor = SproutTheme.current.tintedTextColor
-        self.nextButton.tintColor = .white
-        self.nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-        self.nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
-        
-        
-        
+        conductivitySegControl.tintColor = SproutTheme.current.textColor
+        volumeSegControl.tintColor = SproutTheme.current.textColor
+        themeSegControl.tintColor = SproutTheme.current.textColor
+        unitsLabel.textColor = SproutTheme.current.textColor
+        conductivityLabel.textColor = SproutTheme.current.textColor
+        volumeLabel.textColor = SproutTheme.current.textColor
+        themeLabel.textColor = SproutTheme.current.textColor
+    }
+    
+    func setNavigationControllerColors() {
+        navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
+    }
+    
+    func setupNextButton() {
+        nextButton.layer.cornerRadius = 8
+        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        nextButton.layer.shadowOpacity = 0.75
+        nextButton.layer.borderWidth = 2
+        nextButton.backgroundColor = SproutTheme.current.tintedTextColor
+        nextButton.tintColor = .white
+        nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
+    }
+    
+    func setupSegmentedControls() {
         switch SproutPreferencesController.shared.conductivityUnitString {
         case "EC":
             conductivitySegControl.selectedSegmentIndex = 0
@@ -90,15 +85,7 @@ class OnboardingPreferencesViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var unitsLabel: UILabel!
-    @IBOutlet weak var conductivityLabel: UILabel!
-    @IBOutlet weak var volumeLabel: UILabel!
-    @IBOutlet weak var themeLabel: UILabel!
-    @IBOutlet weak var conductivitySegControl: UISegmentedControl!
-    @IBOutlet weak var volumeSegControl: UISegmentedControl!
-    @IBOutlet weak var themeSegControl: UISegmentedControl!
-    @IBOutlet weak var borderView: UIView!
-    @IBOutlet weak var nextButton: UIButton!
+    // MARK: - Actions
     
     @IBAction func conductivitySegControlTapped(_ sender: Any) {
         let index = conductivitySegControl.selectedSegmentIndex
@@ -135,31 +122,21 @@ class OnboardingPreferencesViewController: UIViewController {
         default:
             SproutPreferencesController.shared.darkModeBool = false
         }
-        view.backgroundColor = SproutTheme.current.backgroundColor
-        navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
-        if SproutPreferencesController.shared.darkModeBool == true {
-            borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-            conductivitySegControl.tintColor = SproutTheme.current.textColor
-            volumeSegControl.tintColor = SproutTheme.current.textColor
-            themeSegControl.tintColor = SproutTheme.current.textColor
-            unitsLabel.textColor = SproutTheme.current.textColor
-            conductivityLabel.textColor = SproutTheme.current.textColor
-            volumeLabel.textColor = SproutTheme.current.textColor
-            themeLabel.textColor = SproutTheme.current.textColor
-        } else {
-            borderView.backgroundColor = SproutTheme.current.backgroundColor
-            themeSegControl.tintColor = SproutTheme.current.textColor
-            conductivitySegControl.tintColor = SproutTheme.current.textColor
-            volumeSegControl.tintColor = SproutTheme.current.textColor
-            unitsLabel.textColor = SproutTheme.current.textColor
-            conductivityLabel.textColor = SproutTheme.current.textColor
-            volumeLabel.textColor = SproutTheme.current.textColor
-            themeLabel.textColor = SproutTheme.current.textColor
-        }
-        nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-        self.borderView.layer.borderColor = SproutTheme.current.accentColor.cgColor
-        self.borderView.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        setNavigationControllerColors()
+        setThemeColors()
+        setupNextButton()
         setNeedsStatusBarAppearanceUpdate()
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var unitsLabel: UILabel!
+    @IBOutlet weak var conductivityLabel: UILabel!
+    @IBOutlet weak var volumeLabel: UILabel!
+    @IBOutlet weak var themeLabel: UILabel!
+    @IBOutlet weak var conductivitySegControl: UISegmentedControl!
+    @IBOutlet weak var volumeSegControl: UISegmentedControl!
+    @IBOutlet weak var themeSegControl: UISegmentedControl!
+    @IBOutlet weak var borderView: UIView!
+    @IBOutlet weak var nextButton: UIButton!
 }

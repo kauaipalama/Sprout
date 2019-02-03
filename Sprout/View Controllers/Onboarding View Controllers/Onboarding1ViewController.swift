@@ -21,7 +21,7 @@ class Onboarding1ViewController: UIViewController {
         self.nextButton.layer.cornerRadius = 8
         self.nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.nextButton.layer.shadowOpacity = 0.75
-        self.nextButton.layer.borderWidth = 4
+        self.nextButton.layer.borderWidth = 2
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +55,10 @@ class Onboarding1ViewController: UIViewController {
                 }) { (_) in
                     self.nextButton.isEnabled = true
                 }
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
     }
     
     @IBOutlet weak var borderView: UIView!

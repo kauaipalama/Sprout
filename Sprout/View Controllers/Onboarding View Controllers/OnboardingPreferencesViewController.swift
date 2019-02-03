@@ -56,7 +56,7 @@ class OnboardingPreferencesViewController: UIViewController {
         self.nextButton.layer.cornerRadius = 8
         self.nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         self.nextButton.layer.shadowOpacity = 0.75
-        self.nextButton.layer.borderWidth = 4
+        self.nextButton.layer.borderWidth = 2
         self.nextButton.backgroundColor = SproutTheme.current.tintedTextColor
         self.nextButton.tintColor = .white
         self.nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor

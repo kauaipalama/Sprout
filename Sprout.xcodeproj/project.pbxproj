@@ -30,6 +30,7 @@
 		B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6422089A4B000489F23 /* PlantHealthViewController.swift */; };
 		B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6442089A67900489F23 /* PlantRecordViewController.swift */; };
 		B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6462089A70500489F23 /* PhotoDetailViewController.swift */; };
+		B4591055220D1B63007C869A /* UIImage+Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4591054220D1B63007C869A /* UIImage+Gif.swift */; };
 		B4600881209BAC560053FF82 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4600880209BAC560053FF82 /* ShiftableViewController.swift */; };
 		B492A2A121F5AD9900698DFA /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492A2A021F5AD9900698DFA /* SplashScreenViewController.swift */; };
 		B4A6FE4D209A4BF800FB2351 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */; };
@@ -77,6 +78,7 @@
 		B456D6422089A4B000489F23 /* PlantHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantHealthViewController.swift; sourceTree = "<group>"; };
 		B456D6442089A67900489F23 /* PlantRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordViewController.swift; sourceTree = "<group>"; };
 		B456D6462089A70500489F23 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		B4591054220D1B63007C869A /* UIImage+Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Gif.swift"; sourceTree = "<group>"; };
 		B4600880209BAC560053FF82 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
 		B492A2A021F5AD9900698DFA /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */,
 				B4600880209BAC560053FF82 /* ShiftableViewController.swift */,
 				B4E3F5BE21F2866300F359F2 /* DynamicStringLabelTextField.swift */,
+				B4591054220D1B63007C869A /* UIImage+Gif.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				B4517546219CBF3F000AD0DB /* DarkTheme.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,
 				B4DACAF522028F480058299A /* WelcomeScreenViewController.swift in Sources */,
+				B4591055220D1B63007C869A /* UIImage+Gif.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
 				B4AF061C2197C83700CF0ECF /* SproutPreferencesController.swift in Sources */,
 				B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */,

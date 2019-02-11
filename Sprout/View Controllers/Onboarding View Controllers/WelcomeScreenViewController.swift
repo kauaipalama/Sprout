@@ -70,11 +70,7 @@ class WelcomeScreenViewController: UIViewController {
     }
     
     func animateViews() {
-        UIView.animate(withDuration: 0.75) {
-            self.view.layoutIfNeeded()
-            self.view.backgroundColor = SproutTheme.current.backgroundColor
-        }
-        
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
         UIView.transition(with: self.welcomeLabel, duration: 0.75, options: .transitionCrossDissolve, animations: {
             self.welcomeLabel.text = "Welcome to Sprout"
         }) { (_) in

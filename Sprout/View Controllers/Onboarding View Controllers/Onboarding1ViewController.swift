@@ -11,7 +11,7 @@ import UIKit
 class Onboarding1ViewController: UIViewController {
     
     // MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -19,11 +19,16 @@ class Onboarding1ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
+        sceneLabel.textColor = SproutTheme.current.textColor
+        
+        sceneImageView.loadGif(asset: "Onboarding Scene 1")
+        scenePlaceholderImage.image = UIImage(named: "Onboarding Scene 1 Placeholder")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        animateViews()
+        sceneImageView.startAnimating()
+        scenePlaceholderImage.alpha = 0
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -35,7 +40,6 @@ class Onboarding1ViewController: UIViewController {
     func setupViews() {
         self.view.backgroundColor = SproutTheme.current.backgroundColor
         setNavigationControllerColors()
-        setupBorderView()
         setupNextButton()
     }
     
@@ -63,8 +67,6 @@ class Onboarding1ViewController: UIViewController {
     }
     
     func setupNextButton() {
-        nextButton.isEnabled = false
-        nextButton.alpha = 0
         nextButton.backgroundColor = SproutTheme.current.tintedTextColor
         nextButton.tintColor = .white
         nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
@@ -75,20 +77,12 @@ class Onboarding1ViewController: UIViewController {
         nextButton.layer.borderWidth = 2
     }
     
-    func animateViews() {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
-        self.borderViewCenterY.constant = -(self.view.frame.maxX) / 10
-        UIView.animate(withDuration: 0.75, animations: {
-            self.view.layoutIfNeeded()
-            self.nextButton.alpha = 1
-        }) { (_) in
-            self.nextButton.isEnabled = true
-        }
-    }
-    
     // MARK: - Outlets
     
+    @IBOutlet weak var scenePlaceholderImage: UIImageView!
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var borderViewCenterY: NSLayoutConstraint!
+    @IBOutlet weak var sceneImageView: UIImageView!
+    @IBOutlet weak var sceneLabel: UILabel!
 }

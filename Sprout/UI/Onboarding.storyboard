@@ -18,19 +18,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eE2-AN-ld5">
-                                <rect key="frame" x="133" y="72" width="109" height="30"/>
+                                <rect key="frame" x="172.5" y="72" width="30" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="kh1-Kb-lyn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                <state key="normal" title="Skip Onboarding"/>
+                                <state key="normal" title="Skip"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="35G-rG-Ijp">
-                                <rect key="frame" x="0.0" y="118" width="375" height="427"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="435"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wyq-7b-oJg">
-                                <rect key="frame" x="0.0" y="118" width="375" height="427"/>
+                                <rect key="frame" x="0.0" y="110" width="375" height="435"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add a Plant..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="We8-iP-ENl">
                                 <rect key="frame" x="0.0" y="553" width="375" height="25"/>
@@ -59,10 +59,10 @@
                         <constraints>
                             <constraint firstItem="eE2-AN-ld5" firstAttribute="centerX" secondItem="O0F-wV-cI8" secondAttribute="centerX" id="2bm-Q4-a8J"/>
                             <constraint firstItem="ds3-fN-Nul" firstAttribute="top" secondItem="We8-iP-ENl" secondAttribute="bottom" constant="16" id="6DF-YR-JlW"/>
-                            <constraint firstItem="35G-rG-Ijp" firstAttribute="top" secondItem="eE2-AN-ld5" secondAttribute="bottom" constant="16" id="C96-rf-G1v"/>
+                            <constraint firstItem="35G-rG-Ijp" firstAttribute="top" secondItem="eE2-AN-ld5" secondAttribute="bottom" constant="8" id="C96-rf-G1v"/>
                             <constraint firstItem="We8-iP-ENl" firstAttribute="leading" secondItem="wyq-7b-oJg" secondAttribute="leading" id="Ejt-M4-cYC"/>
                             <constraint firstItem="O0F-wV-cI8" firstAttribute="bottom" secondItem="35G-rG-Ijp" secondAttribute="bottom" constant="122" id="GtB-yW-xtA"/>
-                            <constraint firstItem="wyq-7b-oJg" firstAttribute="top" secondItem="eE2-AN-ld5" secondAttribute="bottom" constant="16" id="LSA-EH-Zri"/>
+                            <constraint firstItem="wyq-7b-oJg" firstAttribute="top" secondItem="eE2-AN-ld5" secondAttribute="bottom" constant="8" id="LSA-EH-Zri"/>
                             <constraint firstItem="eE2-AN-ld5" firstAttribute="top" secondItem="O0F-wV-cI8" secondAttribute="top" constant="8" id="bag-CU-ItG"/>
                             <constraint firstItem="ds3-fN-Nul" firstAttribute="centerX" secondItem="O0F-wV-cI8" secondAttribute="centerX" id="bwq-AI-aXw"/>
                             <constraint firstItem="ds3-fN-Nul" firstAttribute="width" secondItem="G3C-dp-I1h" secondAttribute="width" multiplier="0.6" id="eUH-Eo-AYW"/>

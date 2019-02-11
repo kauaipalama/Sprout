@@ -12,23 +12,14 @@ class Onboarding1ViewController: UIViewController {
     
     // MARK: - Life Cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViews()
-        sceneLabel.textColor = SproutTheme.current.textColor
-        
-        sceneImageView.loadGif(asset: "Onboarding Scene 1")
-        scenePlaceholderImage.image = UIImage(named: "Onboarding Scene 1 Placeholder")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        sceneImageView.startAnimating()
-        scenePlaceholderImage.alpha = 0
+        animateScene()
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -41,6 +32,7 @@ class Onboarding1ViewController: UIViewController {
         self.view.backgroundColor = SproutTheme.current.backgroundColor
         setNavigationControllerColors()
         setupNextButton()
+        setupScene()
     }
     
     func setNavigationControllerColors() {
@@ -75,6 +67,17 @@ class Onboarding1ViewController: UIViewController {
         nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         nextButton.layer.shadowOpacity = 0.75
         nextButton.layer.borderWidth = 2
+    }
+    
+    func setupScene() {
+        sceneLabel.textColor = SproutTheme.current.textColor
+        sceneImageView.loadGif(asset: "Onboarding Scene 1")
+        scenePlaceholderImage.image = UIImage(named: "Onboarding Scene 1 Placeholder")
+    }
+    
+    func animateScene() {
+        sceneImageView.startAnimating()
+        scenePlaceholderImage.alpha = 0
     }
     
     // MARK: - Outlets

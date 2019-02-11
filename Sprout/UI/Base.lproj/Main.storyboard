@@ -271,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kuv-pF-a1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="-2148"/>
+            <point key="canvasLocation" x="881" y="-1649"/>
         </scene>
         <!--About-->
         <scene sceneID="RCF-Et-kU6">
@@ -286,7 +286,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FsG-hp-aMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="935" y="-2831"/>
+            <point key="canvasLocation" x="881" y="-2332"/>
         </scene>
         <!--Plant Type Detail View Controller-->
         <scene sceneID="66H-PK-YiI">
@@ -688,7 +688,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4m-rI-vCv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1966.6666666666667" y="-1753.5326086956522"/>
+            <point key="canvasLocation" x="1967" y="-1649"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c9w-9G-JyT">

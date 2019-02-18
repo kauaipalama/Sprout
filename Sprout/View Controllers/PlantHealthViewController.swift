@@ -8,6 +8,8 @@
 //TODO:
 //For dark theme use a off white yellowish type of color for the textViews
 
+//CHECK  ME
+
 import UIKit
 
 protocol PlantHealthDetailControllerDelegate: class {
@@ -306,6 +308,8 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
+    
+        //need condtion to check if user authorized access
         
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self

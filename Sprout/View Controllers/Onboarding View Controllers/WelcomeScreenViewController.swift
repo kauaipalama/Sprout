@@ -14,6 +14,7 @@ class WelcomeScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(self.view.frame.origin.y)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -24,13 +25,14 @@ class WelcomeScreenViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         animateViews()
+        print(self.view.frame.origin.y)
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-    // MARK: - Views
+    //MARK: - Views
     
     func setNavigationControllerColors() {
         navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
@@ -56,14 +58,12 @@ class WelcomeScreenViewController: UIViewController {
     
     func setupViews() {
         //Will remove borderView from storyboard later
-        borderView.alpha = 0
         welcomeLabel.text = ""
         //Will need new constraint to animate up
-        borderViewCenterY.constant = 0
-        
         view.backgroundColor = SproutTheme.current.backgroundColor
         welcomeLabel.textColor = SproutTheme.current.textColor
-        
+        skipButton.alpha = 0
+        skipButton.isEnabled = false
         
         setupNextButton()
         setNavigationControllerColors()
@@ -79,21 +79,15 @@ class WelcomeScreenViewController: UIViewController {
                 self.welcomeLabel.text = ""
             }, completion: { (_) in
                 UIView.transition(with: self.welcomeLabel, duration: 0.75, options: .transitionCrossDissolve, animations: {
-                    self.welcomeLabel.text = "Before you\nget started\nlets set some\npreferences"
+                    self.welcomeLabel.text = "Simple, lightweight\ncrop management."
                 }, completion: { (_) in
-                    RunLoop.current.run(until: Date(timeIntervalSinceNow: 2))
-                    self.borderViewCenterY.constant = -(self.view.frame.maxX) / 10
-                    UIView.animate(withDuration: 0.75, animations: {
+                    UIView.animate(withDuration: 0.25, animations: {
                         self.view.layoutIfNeeded()
-                        print("Animating constraint up")
+                        self.nextButton.alpha = 1
+                        self.skipButton.alpha = 1
                     }, completion: { (_) in
-                        UIView.animate(withDuration: 0.25, animations: {
-                            //When do I actually call this? Why?
-                            self.view.layoutIfNeeded()
-                            self.nextButton.alpha = 1
-                        }, completion: { (_) in
-                            self.nextButton.isEnabled = true
-                        })
+                        self.nextButton.isEnabled = true
+                        self.skipButton.isEnabled = true
                     })
                 })
             })
@@ -102,8 +96,11 @@ class WelcomeScreenViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var borderView: UIView!
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        
+    }
+    
+    @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var borderViewCenterY: NSLayoutConstraint!
 }

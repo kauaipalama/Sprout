@@ -135,6 +135,9 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        //If rows == 0, have a label visibile otherwise make it clear ;)
+        
         return PlantTypeController.shared.plantTypes.count
     }
     

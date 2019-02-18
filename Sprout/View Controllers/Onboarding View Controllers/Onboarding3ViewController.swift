@@ -1,5 +1,5 @@
 //
-//  Onboarding3ViewController.swift
+//  Onboarding1ViewController.swift
 //  Sprout
 //
 //  Created by Kainoa Palama on 1/31/19.
@@ -9,26 +9,72 @@
 import UIKit
 
 class Onboarding3ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    
+    // MARK: - Life Cycle
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animateScene()
     }
     
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Views
+    
+    func setupViews() {
+        self.view.backgroundColor = SproutTheme.current.backgroundColor
+        setNavigationControllerColors()
+        setupNextButton()
+        setupScene()
     }
-    */
+    
+    func setNavigationControllerColors() {
+        navigationController?.navigationBar.barTintColor = SproutTheme.current.backgroundColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
+    }
+    
+    func setupNextButton() {
+        nextButton.backgroundColor = SproutTheme.current.tintedTextColor
+        nextButton.tintColor = .white
+        nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
+        nextButton.layer.cornerRadius = 8
+        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
+        nextButton.layer.shadowOpacity = 0.75
+        nextButton.layer.borderWidth = 2
+        
+        if SproutPreferencesController.shared.darkModeBool == true {
+            nextButton.layer.shadowColor = UIColor.clear.cgColor
+        } else {
+            nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        }
+    }
+    
+    func setupScene() {
+        sceneLabel.textColor = SproutTheme.current.textColor
+        sceneImageView.layer.shadowColor = UIColor.black.cgColor
+        sceneImageView.layer.shadowOpacity = 0.5
+        sceneImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
+    }
+    
+    func animateScene() {
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.85))
+        UIView.transition(with: self.sceneImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.view.layoutIfNeeded()
+            self.sceneImageView.image = #imageLiteral(resourceName: "plantHealth")
+        }, completion: nil)
+    }
+    
+    // MARK: - Outlets
 
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var sceneImageView: UIImageView!
+    @IBOutlet weak var sceneLabel: UILabel!
 }

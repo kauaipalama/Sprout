@@ -96,7 +96,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-8a-enu">
-                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
+                                <rect key="frame" x="139" y="286" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mTt-8a-enu" secondAttribute="height" multiplier="1:1" id="eiz-z8-AbH"/>
                                     <constraint firstAttribute="height" constant="97" id="rH3-cO-Qot"/>
@@ -106,7 +106,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mTt-8a-enu" firstAttribute="centerX" secondItem="3VC-Gf-bU5" secondAttribute="centerX" id="Gzl-I3-dsO"/>
-                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" multiplier="0.92" constant="1" id="TPA-sE-xcl"/>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" constant="1" id="TPA-sE-xcl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3VC-Gf-bU5"/>
                     </view>

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-sc-jG6">
-                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="H0C-sc-jG6" secondAttribute="height" multiplier="1:1" id="D1Z-2L-sRr"/>
                                     <constraint firstAttribute="height" constant="97" id="eFC-7i-Bra"/>
@@ -27,7 +27,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="H0C-sc-jG6" firstAttribute="centerY" secondItem="iKH-rS-WMc" secondAttribute="centerY" multiplier="0.92" constant="1" id="TlY-67-1Ze"/>
+                            <constraint firstItem="H0C-sc-jG6" firstAttribute="centerY" secondItem="iKH-rS-WMc" secondAttribute="centerY" id="TlY-67-1Ze"/>
                             <constraint firstItem="H0C-sc-jG6" firstAttribute="centerX" secondItem="Peb-lG-44t" secondAttribute="centerX" id="aJh-vY-0o3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Peb-lG-44t"/>

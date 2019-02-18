@@ -18,7 +18,7 @@ class Onboarding1ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         animateScene()
     }
     
@@ -40,24 +40,6 @@ class Onboarding1ViewController: UIViewController {
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: SproutTheme.current.textColor]
     }
     
-    func setupBorderView() {
-        borderView.layer.borderWidth = 4
-        borderView.layer.cornerRadius = 8
-        borderView.layer.shadowOffset = CGSize(width: 2, height: 2)
-        borderView.layer.shadowOpacity = 0.75
-        
-        borderViewCenterY.constant = 0
-        
-        borderView.layer.borderColor = SproutTheme.current.accentColor.cgColor
-        borderView.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-        
-        if SproutPreferencesController.shared.darkModeBool == true {
-            borderView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
-        } else {
-            borderView.backgroundColor = SproutTheme.current.backgroundColor
-        }
-    }
-    
     func setupNextButton() {
         nextButton.backgroundColor = SproutTheme.current.tintedTextColor
         nextButton.tintColor = .white
@@ -67,25 +49,28 @@ class Onboarding1ViewController: UIViewController {
         nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
         nextButton.layer.shadowOpacity = 0.75
         nextButton.layer.borderWidth = 2
+        
+        if SproutPreferencesController.shared.darkModeBool == true {
+            nextButton.layer.shadowColor = UIColor.clear.cgColor
+        } else {
+            nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        }
     }
     
     func setupScene() {
         sceneLabel.textColor = SproutTheme.current.textColor
-        sceneImageView.loadGif(asset: "Onboarding Scene 1")
-        scenePlaceholderImage.image = UIImage(named: "Onboarding Scene 1 Placeholder")
+        sceneImageView.layer.shadowColor = UIColor.black.cgColor
+        sceneImageView.layer.shadowOpacity = 0.5
+        sceneImageView.layer.shadowOffset = CGSize(width: 1, height: 1)
     }
     
     func animateScene() {
-        sceneImageView.startAnimating()
-        scenePlaceholderImage.alpha = 0
+
     }
     
     // MARK: - Outlets
     
-    @IBOutlet weak var scenePlaceholderImage: UIImageView!
-    @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var nextButton: UIButton!
-    @IBOutlet weak var borderViewCenterY: NSLayoutConstraint!
     @IBOutlet weak var sceneImageView: UIImageView!
     @IBOutlet weak var sceneLabel: UILabel!
 }

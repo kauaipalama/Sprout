@@ -9,6 +9,8 @@
 //TODO:
 //For dark theme use a off white yellowish type of color for the textViews
 
+//CHECK ME
+
 import UIKit
 
 class Water_FeedViewController: ShiftableViewController {
@@ -239,6 +241,9 @@ class Water_FeedViewController: ShiftableViewController {
             present(alert, animated:  true, completion: nil)
         }
         
+        
+        //Take constants which represent "temp" strings, outside the scope of this function.
+        //BUG: Cannot update water_feedVC
         guard let phString = tempPhString,
             let ph = Float(phString),
             let conductivityString = tempConductivityString,

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 class OnboardingPreferencesViewController: UIViewController {
     
@@ -25,7 +26,6 @@ class OnboardingPreferencesViewController: UIViewController {
     
     func setupViews() {
         //Will remove borderView from storyboard later
-        borderView.alpha = 0
         setThemeColors()
         setupNextButton()
         setupSegmentedControls()
@@ -36,7 +36,6 @@ class OnboardingPreferencesViewController: UIViewController {
         conductivitySegControl.tintColor = SproutTheme.current.textColor
         volumeSegControl.tintColor = SproutTheme.current.textColor
         themeSegControl.tintColor = SproutTheme.current.textColor
-        unitsLabel.textColor = SproutTheme.current.textColor
         conductivityLabel.textColor = SproutTheme.current.textColor
         volumeLabel.textColor = SproutTheme.current.textColor
         themeLabel.textColor = SproutTheme.current.textColor
@@ -56,6 +55,12 @@ class OnboardingPreferencesViewController: UIViewController {
         nextButton.tintColor = .white
         nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
+        
+        if SproutPreferencesController.shared.darkModeBool == true {
+            nextButton.layer.shadowColor = UIColor.clear.cgColor
+        } else {
+            nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
+        }
     }
     
     func setupSegmentedControls() {
@@ -130,13 +135,11 @@ class OnboardingPreferencesViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var unitsLabel: UILabel!
     @IBOutlet weak var conductivityLabel: UILabel!
     @IBOutlet weak var volumeLabel: UILabel!
     @IBOutlet weak var themeLabel: UILabel!
     @IBOutlet weak var conductivitySegControl: UISegmentedControl!
     @IBOutlet weak var volumeSegControl: UISegmentedControl!
     @IBOutlet weak var themeSegControl: UISegmentedControl!
-    @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var nextButton: UIButton!
 }

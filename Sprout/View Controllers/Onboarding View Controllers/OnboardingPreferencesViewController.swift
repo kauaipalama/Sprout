@@ -48,19 +48,20 @@ class OnboardingPreferencesViewController: UIViewController {
     
     func setupNextButton() {
         nextButton.layer.cornerRadius = 8
-        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        nextButton.layer.shadowOpacity = 0.75
-        nextButton.layer.borderWidth = 2
         nextButton.backgroundColor = SproutTheme.current.tintedTextColor
         nextButton.tintColor = .white
         nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
         
         if SproutPreferencesController.shared.darkModeBool == true {
             nextButton.layer.shadowColor = UIColor.clear.cgColor
         } else {
             nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         }
+        
+        guard let segmentFont = UIFont(name: "HelveticaNeue", size: 16) else {return}
+        conductivitySegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)
+        volumeSegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)
+        themeSegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)
     }
     
     func setupSegmentedControls() {

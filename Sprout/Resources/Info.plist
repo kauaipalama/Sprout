@@ -21,9 +21,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Sprout will use your Camera to capture an image as part of a Plant Record. Images captured with the Camera will never be shared without your permission.</string>
+	<string> Sprout will use your Camera to capture an image as part of a Plant Record.  Images captured with the Camera will never be shared nor will they be copied to your Photo Library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Sprout will use your Photos as part of a Plant Record. Photos will not be shared without your permission.</string>
+	<string> Sprout will use an image from your Photo Library as part of a Plant Record.  Images selected from your Photo Library will never be shared.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

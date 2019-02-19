@@ -36,11 +36,7 @@ class FarewellViewController: UIViewController {
         doneButton.backgroundColor = SproutTheme.current.tintedTextColor
         doneButton.tintColor = .white
         doneButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-        doneButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
         doneButton.layer.cornerRadius = 8
-        doneButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        doneButton.layer.shadowOpacity = 0.75
-        doneButton.layer.borderWidth = 2
         if SproutPreferencesController.shared.darkModeBool == true {
             doneButton.layer.shadowColor = UIColor.clear.cgColor
         } else {

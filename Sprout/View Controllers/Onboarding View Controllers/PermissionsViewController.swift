@@ -41,11 +41,7 @@ class PermissionsViewController: UIViewController {
             button.backgroundColor = SproutTheme.current.tintedTextColor
             button.tintColor = .white
             button.layer.shadowColor = SproutTheme.current.accentColor.cgColor
-            button.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
             button.layer.cornerRadius = 8
-            button.layer.shadowOffset = CGSize(width: 2, height: 2)
-            button.layer.shadowOpacity = 0.75
-            button.layer.borderWidth = 2
             if SproutPreferencesController.shared.darkModeBool == true {
                 button.layer.shadowColor = UIColor.clear.cgColor
             } else {

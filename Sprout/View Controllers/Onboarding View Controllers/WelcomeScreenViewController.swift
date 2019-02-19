@@ -41,9 +41,6 @@ class WelcomeScreenViewController: UIViewController {
     
     func setupNextButton() {
         nextButton.layer.cornerRadius = 8
-        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        nextButton.layer.shadowOpacity = 0.75
-        nextButton.layer.borderWidth = 2
         nextButton.isEnabled = false
         nextButton.alpha = 0
         nextButton.backgroundColor = SproutTheme.current.tintedTextColor
@@ -53,7 +50,6 @@ class WelcomeScreenViewController: UIViewController {
         } else {
             nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         }
-        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
     }
     
     func setupViews() {
@@ -84,10 +80,14 @@ class WelcomeScreenViewController: UIViewController {
                     UIView.animate(withDuration: 0.25, animations: {
                         self.view.layoutIfNeeded()
                         self.nextButton.alpha = 1
-                        self.skipButton.alpha = 1
                     }, completion: { (_) in
                         self.nextButton.isEnabled = true
-                        self.skipButton.isEnabled = true
+                        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.75))
+                        UIView.animate(withDuration: 0.25, animations: {
+                            self.skipButton.alpha = 1
+                        }, completion: { (_) in
+                            self.skipButton.isEnabled = true
+                        })
                     })
                 })
             })

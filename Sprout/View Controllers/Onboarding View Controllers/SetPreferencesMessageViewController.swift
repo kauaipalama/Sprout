@@ -31,9 +31,6 @@ class SetPreferencesMessageViewController: UIViewController {
     
     func setupNextButton() {
         nextButton.layer.cornerRadius = 8
-        nextButton.layer.shadowOffset = CGSize(width: 2, height: 2)
-        nextButton.layer.shadowOpacity = 0.75
-        nextButton.layer.borderWidth = 2
         nextButton.backgroundColor = SproutTheme.current.tintedTextColor
         nextButton.tintColor = .white
         
@@ -42,7 +39,6 @@ class SetPreferencesMessageViewController: UIViewController {
         } else {
             nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         }
-        nextButton.layer.borderColor = UIColor(red: 87.0/255.0, green: 123.0/255.0, blue: 180.0/255.0, alpha: 1.0).cgColor
     }
     
     func setupViews() {

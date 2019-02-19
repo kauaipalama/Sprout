@@ -58,7 +58,7 @@ class OnboardingPreferencesViewController: UIViewController {
             nextButton.layer.shadowColor = SproutTheme.current.accentColor.cgColor
         }
         
-        guard let segmentFont = UIFont(name: "HelveticaNeue", size: 16) else {return}
+        guard let segmentFont = UIFont(name: "HelveticaNeue", size: 14) else {return}
         conductivitySegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)
         volumeSegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)
         themeSegControl.setTitleTextAttributes([NSAttributedString.Key.font: segmentFont], for: .normal)

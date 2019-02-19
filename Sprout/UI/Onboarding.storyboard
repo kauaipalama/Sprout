@@ -464,14 +464,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Gbr-tV-dFG">
-                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="97" id="rTI-DR-8p0"/>
                                     <constraint firstAttribute="width" secondItem="Gbr-tV-dFG" secondAttribute="height" multiplier="1:1" id="x8N-Jq-5bW"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPROUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mua-fa-8NV">
-                                <rect key="frame" x="139" y="356.5" width="97" height="32.5"/>
+                                <rect key="frame" x="139" y="382" width="97" height="32.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32.666666666666686" id="3nT-TF-6CL"/>
                                 </constraints>
@@ -480,14 +480,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="54v-6X-g9P" userLabel="firstMask">
-                                <rect key="frame" x="139.5" y="356.5" width="80" height="32.5"/>
+                                <rect key="frame" x="139.5" y="382" width="80" height="32.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fUe-jn-g21"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfS-LI-U7F" userLabel="secondMask">
-                                <rect key="frame" x="219.5" y="356.5" width="16.5" height="33"/>
+                                <rect key="frame" x="219.5" y="382" width="16.5" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="HVR-rn-3qJ"/>
@@ -498,7 +498,7 @@
                         <constraints>
                             <constraint firstItem="54v-6X-g9P" firstAttribute="bottom" secondItem="Mua-fa-8NV" secondAttribute="bottom" id="ETK-f5-HlO"/>
                             <constraint firstItem="Gbr-tV-dFG" firstAttribute="centerX" secondItem="jEQ-nc-BG7" secondAttribute="centerX" id="My5-zd-wlC"/>
-                            <constraint firstItem="Gbr-tV-dFG" firstAttribute="centerY" secondItem="IYO-aq-voj" secondAttribute="centerY" multiplier="0.92" constant="1" id="PXK-Np-6Yx"/>
+                            <constraint firstItem="Gbr-tV-dFG" firstAttribute="centerY" secondItem="IYO-aq-voj" secondAttribute="centerY" id="PXK-Np-6Yx"/>
                             <constraint firstItem="kfS-LI-U7F" firstAttribute="leading" secondItem="54v-6X-g9P" secondAttribute="trailing" id="Ret-gp-9DO"/>
                             <constraint firstItem="kfS-LI-U7F" firstAttribute="trailing" secondItem="Mua-fa-8NV" secondAttribute="trailing" id="ej0-Gg-Pgu"/>
                             <constraint firstItem="kfS-LI-U7F" firstAttribute="top" secondItem="Mua-fa-8NV" secondAttribute="top" id="iHp-in-zbd"/>
@@ -515,6 +515,7 @@
                         <outlet property="firstMaskView" destination="54v-6X-g9P" id="sud-vb-AgY"/>
                         <outlet property="firstMaskWidthConstraint" destination="fUe-jn-g21" id="bp0-ve-sfE"/>
                         <outlet property="logoImageView" destination="Gbr-tV-dFG" id="4kd-CT-qog"/>
+                        <outlet property="logoImageViewCenterYConstraint" destination="PXK-Np-6Yx" id="Q4O-8J-KJA"/>
                         <outlet property="secondMaskHeightConstraint" destination="HVR-rn-3qJ" id="3w7-lU-xvk"/>
                         <outlet property="secondMaskView" destination="kfS-LI-U7F" id="uRe-JG-fzQ"/>
                         <outlet property="sproutLabel" destination="Mua-fa-8NV" id="oQK-WL-TNI"/>
@@ -523,7 +524,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI0-Vg-xUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5210" y="-413"/>
+            <point key="canvasLocation" x="5202" y="-412"/>
         </scene>
         <!--Main-->
         <scene sceneID="9dA-0f-6tA">

@@ -77,12 +77,13 @@ class WelcomeScreenViewController: UIViewController {
                 UIView.transition(with: self.welcomeLabel, duration: 0.75, options: .transitionCrossDissolve, animations: {
                     self.welcomeLabel.text = "Simple, lightweight\ncrop management."
                 }, completion: { (_) in
+                    RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
                     UIView.animate(withDuration: 0.25, animations: {
                         self.view.layoutIfNeeded()
                         self.nextButton.alpha = 1
                     }, completion: { (_) in
                         self.nextButton.isEnabled = true
-                        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.75))
+                        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.25))
                         UIView.animate(withDuration: 0.25, animations: {
                             self.skipButton.alpha = 1
                         }, completion: { (_) in

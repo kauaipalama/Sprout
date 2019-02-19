@@ -50,11 +50,11 @@ class FarewellViewController: UIViewController {
             self.doneButton.alpha = 0
             self.navigationController?.navigationBar.alpha = 0
         }) { (_) in
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.75))
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
             UIView.transition(with: self.logoImageView, duration: 0.75, options: .curveEaseIn, animations: {
                 self.logoImageView.alpha = 1
             }) { (_) in
-                RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.5))
+                RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
                 self.performSegue(withIdentifier: "toTouchdownVC", sender: nil)
             }
         }

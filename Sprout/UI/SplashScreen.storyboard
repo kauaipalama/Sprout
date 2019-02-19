@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TGR-M3-4Jm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ewa-Ky-dbw">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-9i-RZl">
-                                <rect key="frame" x="139" y="259.5" width="97" height="97"/>
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="qlY-9i-RZl" secondAttribute="height" multiplier="1:1" id="7RY-J0-o4x"/>
                                     <constraint firstAttribute="height" constant="97" id="qiT-TF-2L6"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPROUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3u-OW-m4Q">
-                                <rect key="frame" x="139" y="356.5" width="97" height="32.5"/>
+                                <rect key="frame" x="139" y="382" width="97" height="32.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32.666666666666686" id="vAQ-77-P5J"/>
                                 </constraints>
@@ -34,14 +34,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kze-kM-94s" userLabel="firstMask">
-                                <rect key="frame" x="139.5" y="356.5" width="80" height="32.5"/>
+                                <rect key="frame" x="139.5" y="382" width="80" height="32.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="yty-IS-8XN"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o66-Tp-dng" userLabel="secondMask">
-                                <rect key="frame" x="219.5" y="356.5" width="16.5" height="33"/>
+                                <rect key="frame" x="219.5" y="382" width="16.5" height="33"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="33" id="XPe-3w-dOX"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="centerX" secondItem="i06-jE-cZ9" secondAttribute="centerX" id="9Uq-62-ElZ"/>
                             <constraint firstItem="kze-kM-94s" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" constant="-16.600000000000001" id="AER-7E-S46"/>
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" id="Pon-Q0-gM1"/>
-                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerY" secondItem="Xba-77-IwN" secondAttribute="centerY" multiplier="0.92" constant="1" id="WUK-KV-P5P"/>
+                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerY" secondItem="Xba-77-IwN" secondAttribute="centerY" id="WUK-KV-P5P"/>
                             <constraint firstItem="o66-Tp-dng" firstAttribute="trailing" secondItem="W3u-OW-m4Q" secondAttribute="trailing" id="aJY-ln-Pl9"/>
                             <constraint firstItem="kze-kM-94s" firstAttribute="top" secondItem="W3u-OW-m4Q" secondAttribute="top" id="de5-sc-4Vf"/>
                             <constraint firstItem="W3u-OW-m4Q" firstAttribute="top" secondItem="qlY-9i-RZl" secondAttribute="bottom" id="kOP-oO-MQC"/>
@@ -69,6 +69,7 @@
                         <outlet property="firstMaskView" destination="kze-kM-94s" id="Mpk-LW-Sws"/>
                         <outlet property="firstMaskWidthConstraint" destination="yty-IS-8XN" id="qgE-7d-oHc"/>
                         <outlet property="logoImageView" destination="qlY-9i-RZl" id="NOq-j5-RlS"/>
+                        <outlet property="logoImageViewCenterYConstraint" destination="uYF-1V-nhM" id="k56-k5-qfB"/>
                         <outlet property="secondMaskHeightConstraint" destination="XPe-3w-dOX" id="xGH-W2-zkp"/>
                         <outlet property="secondMaskView" destination="o66-Tp-dng" id="saa-ps-PYW"/>
                         <outlet property="sproutLabel" destination="W3u-OW-m4Q" id="Q1A-6G-szM"/>
@@ -96,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-8a-enu">
-                                <rect key="frame" x="139" y="286" width="97" height="97"/>
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="mTt-8a-enu" secondAttribute="height" multiplier="1:1" id="eiz-z8-AbH"/>
                                     <constraint firstAttribute="height" constant="97" id="rH3-cO-Qot"/>
@@ -106,7 +107,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mTt-8a-enu" firstAttribute="centerX" secondItem="3VC-Gf-bU5" secondAttribute="centerX" id="Gzl-I3-dsO"/>
-                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" constant="1" id="TPA-sE-xcl"/>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" id="TPA-sE-xcl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3VC-Gf-bU5"/>
                     </view>

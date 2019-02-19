@@ -24,11 +24,12 @@ class OnboardingSplashScreenViewController: UIViewController {
     // MARK: - Views
     
     func animateLogoImageView() {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
         
         UIView.transition(with: self.view, duration: 1.5, options: .transitionCrossDissolve, animations: {
             self.view.backgroundColor = SproutTheme.current.backgroundColor
         }) { (_) in
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1))
             UIView.animate(withDuration: 1, animations: {
                 self.logoImageView.alpha = 0
             }) { (_) in

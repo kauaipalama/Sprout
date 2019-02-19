@@ -44,6 +44,7 @@ class OnboardingTouchdownViewController: UIViewController {
     
     func animateGraphic() {
         let newCenterYConstraint = NSLayoutConstraint(item: logoImageView, attribute: .centerY, relatedBy: .equal, toItem: self.view.superview, attribute: .centerY, multiplier: 0.92, constant: 0)
+        
         UIView.animate(withDuration: 0.75, delay: 0.5, options: .curveEaseInOut, animations: {
             self.logoImageViewCenterYConstraint.isActive = false
             newCenterYConstraint.isActive = true

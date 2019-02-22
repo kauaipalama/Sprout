@@ -36,13 +36,13 @@ class Water_FeedViewController: ShiftableViewController {
         clearPlaceholderText()
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(true)
-//        if phTextField.isEditing == true || conductivityTextField.isEditing == true || volumeTextField.isEditing == true {
-//            self.navigationItem.rightBarButtonItem?.isEnabled = false
-//            self.navigationItem.rightBarButtonItem?.tintColor = .clear
+//        override func viewDidAppear(_ animated: Bool) {
+//            super.viewDidAppear(true)
+//            if phTextField.isEditing == true || conductivityTextField.isEditing == true || volumeTextField.isEditing == true {
+//                self.navigationItem.rightBarButtonItem?.isEnabled = false
+//                self.navigationItem.rightBarButtonItem?.tintColor = .clear
+//            }
 //        }
-//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return SproutTheme.current.preferredStatusBarStyle
@@ -108,6 +108,10 @@ class Water_FeedViewController: ShiftableViewController {
             phTextField.text = day.plantRecord?.phString
             volumeTextField.text = day.plantRecord?.volumeString
             water_FeedNotesTextView.text = day.plantRecord?.water_feedNotes
+            
+            conductivity = day.plantRecord?.conductivity
+            ph = day.plantRecord?.ph
+            volume = day.plantRecord?.volume
         }
     }
     
@@ -119,20 +123,24 @@ class Water_FeedViewController: ShiftableViewController {
     
     override func textFieldDidBeginEditing(_ textField: UITextField) {
         print("did begin editing")
+        //        textField.text = ""
         if textField == conductivityTextField && textField.text == "" {
             textFieldPrefix = "\(SproutPreferencesController.shared.conductivityUnitString): "
             textField.text = textFieldPrefix
-            textFieldPrefix = nil
+            //            textFieldPrefix = nil
         } else if textField == phTextField && textField.text == "" {
             textFieldPrefix = "PH: "
             textField.text = textFieldPrefix
-            textFieldPrefix = nil
-        } else if textField == volumeTextField && textField.text == "" {
+            //            textFieldPrefix = nil
+        } else if textField == volumeTextField {
+            //FIXES BUG where textFieldPrefix will not pop up. And there is no textFieldBeingEditied where I could set the textfield.text if the text was empty. Crude fix by clearing the text when user enters field.
+            textField.text = ""
             textFieldPrefix = "\(SproutPreferencesController.shared.volumeUnitString): "
             textField.text = textFieldPrefix
-            textFieldPrefix = nil
+            //            textFieldPrefix = nil
         }
     }
+    
     
     func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
         print("did end editing")
@@ -148,19 +156,14 @@ class Water_FeedViewController: ShiftableViewController {
         if textField == phTextField {
             //Force Unwrapped. Fix later
             tempPhString = "\(phTextField.text!.dropFirst(4))"
-            print("\(tempPhString)")
         } else if textField == conductivityTextField {
             //Force Unwrapped. Fix later
             tempConductivityString = "\(conductivityTextField.text!.dropFirst(SproutPreferencesController.shared.conductivityUnitString.count + 2))"
-            print("\(tempConductivityString)")
         } else if textField == volumeTextField {
             //Force Unwrapped. Fix later
             tempVolumeString = "\(volumeTextField.text!.dropFirst(SproutPreferencesController.shared.volumeUnitString.count + 2))"
-            print("\(tempVolumeString)")
         }
     }
-    
-    
     
     @objc func doneButtonTapped() {
         conductivityTextField.resignFirstResponder()
@@ -235,6 +238,9 @@ class Water_FeedViewController: ShiftableViewController {
     // MARK: - Actions
     
     @IBAction func saveButtonTapped(_ sender: Any) {
+        conductivityTextField.resignFirstResponder()
+        volumeTextField.resignFirstResponder()
+        phTextField.resignFirstResponder()
         if conductivityTextField.text == "" || conductivityTextField.text == "N/A"||phTextField.text == "" || phTextField.text == "N/A" || volumeTextField.text == "" || volumeTextField.text == "N/A" {
             let alert = UIAlertController(title: "Before you go", message: "-Enter Conductivity \n-Enter pH \n-Enter Volume \n\nOptional: \n-Take Notes", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
@@ -244,6 +250,7 @@ class Water_FeedViewController: ShiftableViewController {
         
         //Take constants which represent "temp" strings, outside the scope of this function.
         //BUG: Cannot update water_feedVC
+        //Going to let it pass for now. Bug is very hard to replicate.
         guard let phString = tempPhString,
             let ph = Float(phString),
             let conductivityString = tempConductivityString,
@@ -270,6 +277,9 @@ class Water_FeedViewController: ShiftableViewController {
     var plantType: PlantType?
     var keyboardToolbar = UIToolbar()
     var day: Day?
+    var conductivity: Float?
+    var ph: Float?
+    var volume: Float?
     var textFieldPrefix: String?
     var tempConductivityString: String?
     var tempPhString: String?

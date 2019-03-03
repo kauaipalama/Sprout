@@ -11,6 +11,7 @@
 //CHECK  ME
 
 import UIKit
+import Photos
 
 protocol PlantHealthDetailControllerDelegate: class {
     func photoSelectViewControllerSelected(_ image: UIImage)
@@ -308,30 +309,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
-    
-        //need condtion to check if user authorized access
-        
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        let alert = UIAlertController(title: "Select Photo Location", message: nil, preferredStyle: .actionSheet)
-        
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            alert.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (_) -> Void in
-                imagePicker.sourceType = .photoLibrary
-                self.present(imagePicker, animated: true, completion: nil)
-            }))
-        }
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (_) -> Void in
-                imagePicker.sourceType = .camera
-                self.present(imagePicker, animated: true, completion: nil)
-            }))
-        }
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        present(alert, animated: true, completion: nil)
+        AttachmentHelper.shared.presentAttachmentActionSheet(vc: self)
     }
     
     // MARK: - Navigation

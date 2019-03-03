@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Photos
+import AVFoundation
 
 class OnboardingPreferencesViewController: UIViewController {
     

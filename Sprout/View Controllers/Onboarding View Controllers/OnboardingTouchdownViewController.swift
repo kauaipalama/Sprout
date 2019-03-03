@@ -51,7 +51,7 @@ class OnboardingTouchdownViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) { (_) in
             self.firstMaskWidthConstraint.constant = 0
-            UIView.animate(withDuration: 1.4, delay: 1, options: .curveLinear, animations: {
+            UIView.animate(withDuration: 1.4, delay: 0, options: .curveLinear, animations: {
                 self.view.layoutIfNeeded()
                 self.firstMaskView.alpha = 0
                 print("1")

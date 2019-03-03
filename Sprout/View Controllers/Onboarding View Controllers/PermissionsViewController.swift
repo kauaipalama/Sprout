@@ -55,17 +55,15 @@ class PermissionsViewController: UIViewController {
         messageLabel.textColor = SproutTheme.current.textColor
     }
     @IBAction func permissionsButtonTapped(_ sender: Any) {
-        //System ask for permission
-        //Camera
-        AVCaptureDevice.requestAccess(for: AVMediaType.video) { (_) in
-            //Do Something
-            PHPhotoLibrary.requestAuthorization { (_) in
-                //Do Somthing
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "toFarewellVC", sender: nil)
-                }
-            }
-        }
+        
+        let alert = UIAlertController(title: "Camera / Photo Library", message: "\nSprout will use your Camera to capture an image as part of a Plant Record.\n\nYou may also choose to use an image from your Photo Library as part of a Plant Record.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Do Not Allow", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: "toFarewellVC", sender: nil)
+        }))
+        alert.addAction(UIAlertAction(title: "Allow", style: .default, handler: { (_) in
+            self.performSegue(withIdentifier: "toFarewellVC", sender: nil)
+        }))
+        present(alert, animated: true, completion: nil)
     }
     
     // MARK: - Outlets

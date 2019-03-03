@@ -15,6 +15,7 @@
 		B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2282087AB8A00423A70 /* CoreDataStack.swift */; };
 		B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */; };
 		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
+		B422CA832221048D002FD3DD /* AttachmentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422CA822221048D002FD3DD /* AttachmentHelper.swift */; };
 		B429C18921FEBC000096450F /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B429C18821FEBC000096450F /* SplashScreen.storyboard */; };
 		B446E1A52190FA85007F4C71 /* SproutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A42190FA85007F4C71 /* SproutTheme.swift */; };
 		B446E1A72193C4D4007F4C71 /* PlantTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */; };
@@ -65,6 +66,7 @@
 		B40EA2282087AB8A00423A70 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeController.swift; sourceTree = "<group>"; };
 		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
+		B422CA822221048D002FD3DD /* AttachmentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHelper.swift; sourceTree = "<group>"; };
 		B429C18821FEBC000096450F /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
 		B446E1A42190FA85007F4C71 /* SproutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutTheme.swift; sourceTree = "<group>"; };
 		B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeViewController.swift; sourceTree = "<group>"; };
@@ -246,6 +248,7 @@
 				B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */,
 				B4600880209BAC560053FF82 /* ShiftableViewController.swift */,
 				B4E3F5BE21F2866300F359F2 /* DynamicStringLabelTextField.swift */,
+				B422CA822221048D002FD3DD /* AttachmentHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 				B4DACAF522028F480058299A /* WelcomeScreenViewController.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
 				B4AF061C2197C83700CF0ECF /* SproutPreferencesController.swift in Sources */,
+				B422CA832221048D002FD3DD /* AttachmentHelper.swift in Sources */,
 				B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */,
 				B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */,
 				B4517544219CBDE8000AD0DB /* Theme.swift in Sources */,

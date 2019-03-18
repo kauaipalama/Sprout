@@ -49,8 +49,10 @@ class AttachmentHelper: NSObject, UIImagePickerControllerDelegate, UINavigationC
             print("Ask for permission")
             AVCaptureDevice.requestAccess(for: .video) { (allowed) in
                 if allowed == true {
+                    //Ask for photoLibrary
                     self.presentImagePicker(attachmentType: AttachmentType.camera)
                 } else if allowed == false {
+                    //Ask for photoLibrary
                     return
                 }
             }
@@ -71,8 +73,10 @@ class AttachmentHelper: NSObject, UIImagePickerControllerDelegate, UINavigationC
         case .notDetermined:
             PHPhotoLibrary.requestAuthorization { (status) in
                 if status == PHAuthorizationStatus.authorized {
+                    //Ask for camera
                     self.presentImagePicker(attachmentType: AttachmentType.photoLibrary)
                 } else if status == PHAuthorizationStatus.denied {
+                    //Ask for camera
                     return
                 }
             }
@@ -122,11 +126,37 @@ class AttachmentHelper: NSObject, UIImagePickerControllerDelegate, UINavigationC
         currentVC?.present(alert, animated: true, completion: nil)
     }
     
+    // MARK: - Delegatation
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
+        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
+            self.imagePicked?(image)
+        } else {
+            print("Error converting UIImagePickerControllerInfo to image")
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
     enum AttachmentType {
         case camera
         case photoLibrary
     }
     
     var currentVC: UIViewController?
+    var imagePicked: ((UIImage) -> Void)?
     
+    // Helper function inserted by Swift 4.2 migrator.
+    fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    }
+    
+    // Helper function inserted by Swift 4.2 migrator.
+    fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+        return input.rawValue
+    }
 }
+

@@ -13,11 +13,7 @@
 import UIKit
 import Photos
 
-protocol PlantHealthDetailControllerDelegate: class {
-    func photoSelectViewControllerSelected(_ image: UIImage)
-}
-
-class PlantHealthViewController: ShiftableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class PlantHealthViewController: ShiftableViewController {
     
     // MARK: - Life Cycle
     
@@ -77,6 +73,9 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         plantHealthNotesTextView.layer.cornerRadius = 6
         
         plantHealthBar.layer.cornerRadius = 6
+        
+        plantImageButton.imageView?.contentMode = .scaleAspectFill
+        plantImageButton.layer.cornerRadius = 6
     }
     
     func updateViews() {
@@ -91,7 +90,7 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
             guard let imageData = day.plantRecord?.plantImage else {return}
             self.imageData = imageData
             plantPhoto = UIImage(data: imageData)
-            plantImageButton.setBackgroundImage(plantPhoto, for: .normal)
+            plantImageButton.setImage(plantPhoto, for: .normal)
             guard let plantRecord = day.plantRecord else {return}
             setPlantHealthButtons(plantHealth: Int(plantRecord.plantHealth))
             
@@ -310,6 +309,11 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     @IBAction func cameraButtonTapped(_ sender: Any) {
         AttachmentHelper.shared.presentAttachmentActionSheet(vc: self)
+        AttachmentHelper.shared.imagePicked = { (image) in
+            self.plantPhoto = image
+            self.imageData = image.jpegData(compressionQuality: 0.9)
+            self.plantImageButton.setImage(image, for: .normal)
+        }
     }
     
     // MARK: - Navigation
@@ -322,27 +326,8 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
         }
     }
     
-    // MARK: - Delegatation
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        // Local variable inserted by Swift 4.2 migrator.
-        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-        if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
-            
-            self.imageData = image.jpegData(compressionQuality: 0.9)
-            self.plantPhoto = image
-            delegate?.photoSelectViewControllerSelected(image)
-            plantImageButton.setBackgroundImage(image, for: .normal)
-            
-        }
-    }
-    
     // MARK: - Properties
-    
-    weak var delegate: PlantHealthDetailControllerDelegate?
+
     var plantType: PlantType?
     var plantHealth: Int16? = 0
     var imageData: Data?
@@ -353,14 +338,4 @@ class PlantHealthViewController: ShiftableViewController, UIImagePickerControlle
     
     var keyboardToolbar = UIToolbar()
     
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
-    return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
-}
-
-// Helper function inserted by Swift 4.2 migrator.
-fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
-    return input.rawValue
 }

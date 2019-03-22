@@ -40,22 +40,24 @@ class PlantRecordViewController: UIViewController {
         plantTypeLabel.textColor = SproutTheme.current.textColor
         dateLabel.textColor = SproutTheme.current.textColor
         
-        volume.textColor = SproutTheme.current.textColor
         volume.layer.cornerRadius = 6
-        conductivity.textColor = SproutTheme.current.textColor
+        volume.backgroundColor = SproutTheme.current.nutrientsButtonColor
         conductivity.layer.cornerRadius = 6
-        ph.textColor = SproutTheme.current.textColor
+        conductivity.backgroundColor = SproutTheme.current.nutrientsButtonColor
         ph.layer.cornerRadius = 6
+        ph.backgroundColor = SproutTheme.current.nutrientsButtonColor
         notesLabel.textColor = SproutTheme.current.textColor
         notesLabel.layer.cornerRadius = 6
         plantHealth.layer.cornerRadius = 6
-        plantHealth.textColor = SproutTheme.current.textColor
+        plantHealth.backgroundColor = SproutTheme.current.plantHealthButtonColor
         plantHealthBackslash.textColor = SproutTheme.current.textColor
         
 
         
         water_FeedNotes.layer.cornerRadius = 6
+        water_FeedNotes.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         plantHealthNotes.layer.cornerRadius = 6
+        plantHealthNotes.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         plantTypeLabel.layer.cornerRadius = 6
         plantImageButton.imageView?.contentMode = .scaleAspectFill
         plantImageButton.layer.cornerRadius = 6

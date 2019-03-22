@@ -237,7 +237,18 @@ extension String {
         return formatter
     }()
     
+    static var prettyDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+//        formatter.dateStyle = .full
+        return formatter
+    }()
+    
     var date: Date? {
         return String.dateFormatter.date(from: self)
+    }
+    
+    var prettyDate: Date? {
+        return String.prettyDateFormatter.date(from: self)
     }
 }

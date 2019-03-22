@@ -20,8 +20,8 @@ class PlantRecordViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
         setupViews()
+        updateViews()
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -36,17 +36,30 @@ class PlantRecordViewController: UIViewController {
     
     func setupViews() {
         view.backgroundColor = SproutTheme.current.backgroundColor
+        
+        plantTypeLabel.textColor = SproutTheme.current.textColor
+        dateLabel.textColor = SproutTheme.current.textColor
+        
         volume.textColor = SproutTheme.current.textColor
+        volume.layer.cornerRadius = 6
         conductivity.textColor = SproutTheme.current.textColor
+        conductivity.layer.cornerRadius = 6
         ph.textColor = SproutTheme.current.textColor
+        ph.layer.cornerRadius = 6
         notesLabel.textColor = SproutTheme.current.textColor
+        notesLabel.layer.cornerRadius = 6
+        plantHealth.layer.cornerRadius = 6
         plantHealth.textColor = SproutTheme.current.textColor
         plantHealthBackslash.textColor = SproutTheme.current.textColor
+        
 
         
-        plantImage.layer.cornerRadius = 6
         water_FeedNotes.layer.cornerRadius = 6
         plantHealthNotes.layer.cornerRadius = 6
+        plantTypeLabel.layer.cornerRadius = 6
+        plantImageButton.imageView?.contentMode = .scaleAspectFill
+        plantImageButton.layer.cornerRadius = 6
+        dateLabel.layer.cornerRadius = 6
         
         plantHealthFirstButton.layer.cornerRadius = 4
         plantHealthSecondButton.layer.cornerRadius = 4
@@ -72,6 +85,8 @@ class PlantRecordViewController: UIViewController {
         
         let image = UIImage(data: plantImageData ?? defaultImageData)
         
+        plantPhoto = image
+        
         let waterNotes = day.plantRecord?.water_feedNotes
         let healthNotes = day.plantRecord?.plantHealthNotes
         
@@ -83,7 +98,9 @@ class PlantRecordViewController: UIViewController {
             volumeStringIsNA = false
         }
         
-        plantImage.image = image
+        plantImageButton.setImage(image, for: .normal)
+        plantTypeLabel.text = day.plantType?.type
+        dateLabel.text = String.prettyDateFormatter.string(from: day.date!)
         ph.text = plantRecord.phString
         conductivity.text = plantRecord.conductivityString
         volume.text = volumeStringIsNA ? "Volume: \(plantRecord.volumeString)" : plantRecord.volumeString
@@ -134,7 +151,6 @@ class PlantRecordViewController: UIViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toPhotoDetail" {
-            guard let plantPhoto = plantImage.image else {return}
             let photoDetailVC = segue.destination as? PhotoDetailViewController
             photoDetailVC?.plantPhoto = plantPhoto
         }
@@ -142,8 +158,11 @@ class PlantRecordViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var plantImage: UIImageView!
+    @IBOutlet weak var plantImageButton: UIButton!
     @IBOutlet weak var ph: UILabel!
+    
+    @IBOutlet weak var plantTypeLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
     
     //Change naming conventions. So it does not match data model.
     @IBOutlet weak var conductivity: UILabel!
@@ -159,4 +178,5 @@ class PlantRecordViewController: UIViewController {
     // MARK: - Property
     
     var day: Day?
+    var plantPhoto: UIImage?
 }

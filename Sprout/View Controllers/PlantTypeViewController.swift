@@ -51,7 +51,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         menuView.layer.shadowRadius = 6
         menuView.backgroundColor = SproutTheme.current.backgroundColor
         
-        menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
         menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
         menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
         
@@ -70,7 +69,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
             self.view.layoutIfNeeded()
             self.view.insertSubview(self.blurView, at: 1)
             self.blurView.effect = SproutTheme.current.blurEffect
-            self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
             self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
             self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
         }
@@ -86,7 +84,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
             self.blurView.effect = nil
-            self.menuAboutButton.titleLabel?.textColor = SproutTheme.current.textColor
             self.menuPreferencesButton.titleLabel?.textColor = SproutTheme.current.textColor
             self.menuHelpButton.titleLabel?.textColor = SproutTheme.current.textColor
         }) { (_) in
@@ -191,7 +188,6 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
     @IBOutlet weak var menuView: UIView!
     @IBOutlet weak var menuViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var menuAboutButton: UIButton!
     @IBOutlet weak var menuPreferencesButton: UIButton!
     @IBOutlet weak var menuHelpButton: UIButton!
     

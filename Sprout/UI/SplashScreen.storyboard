@@ -12,7 +12,7 @@
         <!--Splash Screen View Controller-->
         <scene sceneID="Oaj-Nq-mhg">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="splashScreen" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Xba-77-IwN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,7 +91,7 @@
         <!--Onboarding Splash Screen View Controller-->
         <scene sceneID="pN3-y8-Iaf">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="TGR-M3-4Jm" customClass="OnboardingSplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="onboardingSplashScreen" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="TGR-M3-4Jm" customClass="OnboardingSplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X8m-lK-nZx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

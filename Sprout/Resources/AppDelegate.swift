@@ -22,9 +22,10 @@ extension UIButton {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    
-    
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        self.window = UIWindow.init(frame: UIScreen.main.bounds)
+        RootNavigationManager.shared.setInitialViewController(window: self.window)
         
         UINavigationBar.appearance().layer.backgroundColor = UIColor.clear.cgColor
         UINavigationBar.appearance().shadowImage = UIImage()

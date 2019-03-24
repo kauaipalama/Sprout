@@ -45,6 +45,7 @@ class FarewellViewController: UIViewController {
     }
     
     @IBAction func doneButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
         UIView.animate(withDuration: 0.75, animations: {
             self.messageLabel.alpha = 0
             self.doneButton.alpha = 0

@@ -6,8 +6,6 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
-//ONBOARDING NEEDED. Will show flow of how to use the app.
-
 import UIKit
 import CoreData
 

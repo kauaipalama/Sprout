@@ -41,7 +41,7 @@
                                 <state key="normal" title="Skip"/>
                                 <connections>
                                     <action selector="skipButtonTapped:" destination="5YE-tD-3BG" eventType="touchUpInside" id="bhT-sy-tqM"/>
-                                    <segue destination="3nB-ww-hWb" kind="show" id="Pb3-cZ-f7j"/>
+                                    <segue destination="3IR-3l-DyL" kind="show" id="vGf-D1-Kc5"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -66,7 +66,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qg9-lm-6pt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-706" y="-412"/>
+            <point key="canvasLocation" x="-780" y="-1629"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dqa-yd-us2">
@@ -84,7 +84,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dak-pN-P3L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1342" y="-412"/>
+            <point key="canvasLocation" x="-1436" y="-1626"/>
         </scene>
         <!--Onboarding Preferences View Controller-->
         <scene sceneID="5YK-xB-iBP">
@@ -206,6 +206,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="uDX-ga-dr9"/>
                     </view>
+                    <navigationItem key="navigationItem" id="MxB-X8-gmI">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="1Xc-5i-ZRc">
+                            <connections>
+                                <action selector="skipButtonTapped:" destination="28H-Xs-zuW" id="bfI-Dy-MmF"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="l0Z-Io-rS7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="conductivityLabel" destination="8n5-bA-ff4" id="sKO-mv-9yy"/>
                         <outlet property="conductivitySegControl" destination="pZp-4x-7iO" id="qyT-CR-CQM"/>
@@ -218,7 +226,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cRb-DY-d0k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3142" y="-413"/>
+            <point key="canvasLocation" x="3148" y="-1630"/>
         </scene>
         <!--Onboarding2 View Controller-->
         <scene sceneID="IoS-Pz-xDl">
@@ -272,7 +280,8 @@
                     <navigationItem key="navigationItem" id="Hye-K8-qqC">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="ju7-km-As4">
                             <connections>
-                                <segue destination="3nB-ww-hWb" kind="show" id="KjL-da-kwu"/>
+                                <action selector="skipButtonTapped:" destination="qYX-IP-eGL" id="7Km-lT-LKh"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="Fyg-ba-kMm"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -284,7 +293,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zbP-mk-sxC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="575" y="-413"/>
+            <point key="canvasLocation" x="544" y="-1626"/>
         </scene>
         <!--Permissions View Controller-->
         <scene sceneID="cmS-HM-SJl">
@@ -340,6 +349,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ZFh-LX-1yN"/>
                     </view>
+                    <navigationItem key="navigationItem" id="aqG-R9-KGa">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="ad1-Hg-Mbq">
+                            <connections>
+                                <action selector="skipButtonTapped:" destination="hIw-F3-sz6" id="Jfx-SI-kC1"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="fla-IS-kK2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="T3H-rR-XAh" id="hbs-6D-LiB"/>
                         <outletCollection property="permissionsButtons" destination="Dzb-Uf-nlQ" collectionClass="NSMutableArray" id="Glg-St-hEg"/>
@@ -349,7 +366,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oy0-1Z-j4Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3802" y="-413"/>
+            <point key="canvasLocation" x="3797" y="-1626"/>
         </scene>
         <!--Farewell View Controller-->
         <scene sceneID="TPT-MF-1L7">
@@ -407,7 +424,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ztm-JI-GtR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4476" y="-413"/>
+            <point key="canvasLocation" x="3450" y="-415"/>
         </scene>
         <!--Set Preferences Message View Controller-->
         <scene sceneID="ynS-d0-9Ay">
@@ -446,6 +463,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qHa-f6-e90"/>
                     </view>
+                    <navigationItem key="navigationItem" id="huH-RJ-ACi">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="i1i-WD-5vE">
+                            <connections>
+                                <action selector="skipButtonTapped:" destination="3nB-ww-hWb" id="Z69-65-z0Q"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="JLQ-v9-4dQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="messageLabel" destination="Sbo-BN-sLr" id="vZK-Ss-Wft"/>
                         <outlet property="nextButton" destination="r0R-7E-wh5" id="3ZP-IS-G2F"/>
@@ -453,7 +478,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ar8-sW-z2L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2498" y="-413"/>
+            <point key="canvasLocation" x="2498" y="-1630"/>
         </scene>
         <!--Onboarding Touchdown View Controller-->
         <scene sceneID="YcB-mT-Sjg">
@@ -524,7 +549,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cI0-Vg-xUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5202" y="-412"/>
+            <point key="canvasLocation" x="4103" y="-414"/>
         </scene>
         <!--Main-->
         <scene sceneID="9dA-0f-6tA">
@@ -532,7 +557,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="N3l-Kh-7Sd" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="esO-a1-hmU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5798" y="-413"/>
+            <point key="canvasLocation" x="4569" y="-415"/>
         </scene>
         <!--Onboarding3 View Controller-->
         <scene sceneID="m8K-rf-Z93">
@@ -586,7 +611,8 @@
                     <navigationItem key="navigationItem" id="y5z-by-B7r">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="JgS-p0-IeS">
                             <connections>
-                                <segue destination="3nB-ww-hWb" kind="show" id="TaI-ZC-aVn"/>
+                                <action selector="skipButtonTapped:" destination="clZ-u9-S5X" id="WeI-rU-9t2"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="70j-mw-ZKk"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -598,7 +624,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B8U-iE-XUL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1215" y="-413"/>
+            <point key="canvasLocation" x="1198" y="-1626"/>
         </scene>
         <!--Onboarding4 View Controller-->
         <scene sceneID="EHQ-5h-81i">
@@ -630,7 +656,7 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="20"/>
                                 <state key="normal" title="That's it!"/>
                                 <connections>
-                                    <segue destination="3nB-ww-hWb" kind="show" id="x9z-7y-Y1g"/>
+                                    <segue destination="3nB-ww-hWb" kind="show" id="QJ2-pk-qwA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -649,7 +675,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pq0-P0-SIf"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YQK-KY-xwg"/>
+                    <navigationItem key="navigationItem" id="pXT-06-fEm">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="0ek-8g-AYG">
+                            <connections>
+                                <action selector="skipButtonTapped:" destination="Byg-EK-Mvy" id="sUm-b1-zVK"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="FC7-JU-9z9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="eCv-HI-NoZ" id="jKQ-1H-ZT8"/>
                         <outlet property="sceneImageView" destination="qzw-Ss-tDd" id="1fd-SY-GeV"/>
@@ -658,7 +691,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jc-Hh-avp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1863" y="-413"/>
+            <point key="canvasLocation" x="1847" y="-1626"/>
         </scene>
         <!--Onboarding1 View Controller-->
         <scene sceneID="Ycb-bb-VVH">
@@ -712,7 +745,8 @@
                     <navigationItem key="navigationItem" id="5hM-5A-eYD">
                         <barButtonItem key="rightBarButtonItem" title="Skip" id="gNG-Cj-kPq">
                             <connections>
-                                <segue destination="3nB-ww-hWb" kind="show" id="AmG-gQ-eNi"/>
+                                <action selector="skipButtonTapped:" destination="8ZT-GF-Zrq" id="dvl-ao-m8i"/>
+                                <segue destination="3IR-3l-DyL" kind="show" id="4fm-nx-813"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -724,7 +758,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kum-zY-JwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-62" y="-413"/>
+            <point key="canvasLocation" x="-120" y="-1629"/>
         </scene>
     </scenes>
     <resources>
@@ -733,6 +767,6 @@
         <image name="tableview" width="750" height="1300"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="x9z-7y-Y1g"/>
+        <segue reference="fla-IS-kK2"/>
     </inferredMetricsTieBreakers>
 </document>

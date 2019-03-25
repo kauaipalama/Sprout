@@ -63,6 +63,9 @@ class Onboarding1ViewController: UIViewController {
     func animateScene() {
 
     }
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
+    }
     
     // MARK: - Outlets
     

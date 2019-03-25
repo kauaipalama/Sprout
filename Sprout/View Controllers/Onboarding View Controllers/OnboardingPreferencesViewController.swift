@@ -134,6 +134,10 @@ class OnboardingPreferencesViewController: UIViewController {
         setNeedsStatusBarAppearanceUpdate()
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var conductivityLabel: UILabel!

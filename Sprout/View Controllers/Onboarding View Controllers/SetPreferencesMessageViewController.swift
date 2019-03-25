@@ -49,6 +49,10 @@ class SetPreferencesMessageViewController: UIViewController {
         setNavigationControllerColors()
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var messageLabel: UILabel!

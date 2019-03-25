@@ -74,6 +74,10 @@ class Onboarding4ViewController: UIViewController {
         }
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var nextButton: UIButton!

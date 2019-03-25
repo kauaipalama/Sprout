@@ -66,6 +66,11 @@ class PermissionsViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func skipButtonTapped(_ sender: Any) {
+        RootNavigationManager.shared.setLaunchStatus()
+    }
+    
+    
     // MARK: - Outlets
     
     

@@ -61,7 +61,12 @@ class Onboarding1ViewController: UIViewController {
     }
     
     func animateScene() {
-
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.2))
+        UIView.transition(with: self.sceneImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            self.view.layoutIfNeeded()
+            self.sceneImageView.image = #imageLiteral(resourceName: "tableviewFull")
+        }, completion: nil)
+        //Add completion and set button enabled to true here to avoid "double stacking"
     }
     @IBAction func skipButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()

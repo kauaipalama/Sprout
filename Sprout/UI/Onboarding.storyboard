@@ -236,7 +236,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail" translatesAutoresizingMaskIntoConstraints="NO" id="Ix3-Qe-Fe3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail1" translatesAutoresizingMaskIntoConstraints="NO" id="Ix3-Qe-Fe3">
                                 <rect key="frame" x="0.0" y="105" width="320" height="315"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Water/Nutrients..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="FS4-ZM-jd4">
@@ -567,7 +567,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-ns-6Th">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail2" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-ns-6Th">
                                 <rect key="frame" x="0.0" y="105" width="320" height="315"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Set Plant Health..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Jdo-F4-fPF">
@@ -634,7 +634,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail" translatesAutoresizingMaskIntoConstraints="NO" id="qzw-Ss-tDd">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="plantTypeDetail3" translatesAutoresizingMaskIntoConstraints="NO" id="qzw-Ss-tDd">
                                 <rect key="frame" x="0.0" y="105" width="320" height="315"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Plant Records..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SSD-bT-iVG">
@@ -763,10 +763,12 @@
     </scenes>
     <resources>
         <image name="LaunchScreen" width="1536" height="1536"/>
-        <image name="plantTypeDetail" width="750" height="1300"/>
-        <image name="tableview" width="750" height="1300"/>
+        <image name="plantTypeDetail1" width="750" height="1300"/>
+        <image name="plantTypeDetail2" width="750" height="1300"/>
+        <image name="plantTypeDetail3" width="750" height="1300"/>
+        <image name="tableview" width="375" height="650"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fla-IS-kK2"/>
+        <segue reference="4fm-nx-813"/>
     </inferredMetricsTieBreakers>
 </document>

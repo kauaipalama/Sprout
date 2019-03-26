@@ -61,12 +61,12 @@ class Onboarding4ViewController: UIViewController {
     }
     
     func animateScene() {
-        RunLoop.current.run(until: Date(timeIntervalSinceNow: 0.5))
+        RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.1))
         UIView.transition(with: self.sceneImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
             self.view.layoutIfNeeded()
             self.sceneImageView.image = #imageLiteral(resourceName: "calendar")
         }) { (_) in
-            RunLoop.current.run(until: Date(timeIntervalSinceNow: 1.25))
+            RunLoop.current.run(until: Date(timeIntervalSinceNow: 2.2))
             UIView.transition(with: self.sceneImageView, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 self.view.layoutIfNeeded()
                 self.sceneImageView.image = #imageLiteral(resourceName: "plantRecord")

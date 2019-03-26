@@ -74,6 +74,8 @@ class Onboarding4ViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    
     @IBAction func skipButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()
     }

@@ -21,7 +21,6 @@ class PlantHealthViewController: ShiftableViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
-        plantHealthNotesTextView.delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
@@ -29,11 +28,6 @@ class PlantHealthViewController: ShiftableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         clearPlaceholderText()
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (_) in
-            self.createGradientLayer()
-            self.plantHealthBar.addSubview(self.poorHealthLabel)
-            self.plantHealthBar.addSubview(self.excellantHealthLabel)
-        }
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -71,11 +65,18 @@ class PlantHealthViewController: ShiftableViewController {
         plantHealthNotesTextView.layer.borderColor = SproutTheme.current.accentColor.cgColor
         plantHealthNotesTextView.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         plantHealthNotesTextView.layer.cornerRadius = 6
-        
+        plantHealthNotesTextView.delegate = self
+
         plantHealthBar.layer.cornerRadius = 6
         
         plantImageButton.imageView?.contentMode = .scaleAspectFill
         plantImageButton.layer.cornerRadius = 6
+        
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (_) in
+            self.createGradientLayer()
+            self.plantHealthBar.addSubview(self.poorHealthLabel)
+            self.plantHealthBar.addSubview(self.excellantHealthLabel)
+        }
     }
     
     func updateViews() {
@@ -154,15 +155,7 @@ class PlantHealthViewController: ShiftableViewController {
         }
     }
     
-    func clearPlaceholderText() {
-        if !plantHealthNotesTextView.text.isEmpty {
-            plantHealthNotesTextView.placeholder = ""
-        }
-    }
-    
-    @objc func doneButtonTapped() {
-        plantHealthNotesTextView.resignFirstResponder()
-    }
+    // MARK: - Notification Center
     
     @objc func keyboardWillChangeFrame(notification: Notification) {
         print("Keyboard did change frame")
@@ -172,8 +165,6 @@ class PlantHealthViewController: ShiftableViewController {
         if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
             keyboardAnimationDuration = animationDuration
         }
-        
-        
         
         if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
             keyboardRect.height != 0 {
@@ -186,18 +177,6 @@ class PlantHealthViewController: ShiftableViewController {
             UIView.animate(withDuration: keyboardAnimationDuration) {
                 self.view.layoutIfNeeded()
                 print(self.view.frame.height)
-                //*Just add specifics
-                //5th 1024
-                //6th
-                //Air
-                //Air 2
-                //Pro 9.7
-                //Pro 10.5
-                //Pro 11
-                //Pro 12.9
-                //Pro 12.9.2
-                //Pro 12.9.3
-                
                 if self.view.frame.height <= 763 {
                     //iPhone8 Plus
                     self.plantHealthBarTopConstraint.constant = keyboardSize.height / 2.525
@@ -223,22 +202,16 @@ class PlantHealthViewController: ShiftableViewController {
         }
     }
     
-    // MARK: - Outlets
+    // MARK: - Helper Methods
     
-    @IBOutlet weak var oneButton: UIButton!
-    @IBOutlet weak var twoButton: UIButton!
-    @IBOutlet weak var threeButton: UIButton!
-    @IBOutlet weak var fourButton: UIButton!
-    @IBOutlet weak var fiveButton: UIButton!
-    @IBOutlet weak var plantHealthNotesTextView: PlaceholderTextView!
-    @IBOutlet weak var plantHealthBar: UIView!
-    @IBOutlet weak var poorHealthLabel: UILabel!
-    @IBOutlet weak var excellantHealthLabel: UILabel!
-    @IBOutlet weak var plantHealthBarTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var plantImageButton: UIButton!
-    @IBOutlet weak var plantImageButtonHeightConstraint: NSLayoutConstraint!
+    func clearPlaceholderText() {
+        if !plantHealthNotesTextView.text.isEmpty {
+            plantHealthNotesTextView.placeholder = ""
+        }
+    }
     
     // MARK: - Actions
+    
     
     @IBAction func saveButtonTapped(_ sender: Any) {
         if plantHealth == nil {
@@ -316,6 +289,10 @@ class PlantHealthViewController: ShiftableViewController {
         }
     }
     
+    @objc func doneButtonTapped() {
+        plantHealthNotesTextView.resignFirstResponder()
+    }
+    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -325,6 +302,21 @@ class PlantHealthViewController: ShiftableViewController {
             photoDetailVC?.plantPhoto = plantPhoto
         }
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var oneButton: UIButton!
+    @IBOutlet weak var twoButton: UIButton!
+    @IBOutlet weak var threeButton: UIButton!
+    @IBOutlet weak var fourButton: UIButton!
+    @IBOutlet weak var fiveButton: UIButton!
+    @IBOutlet weak var plantHealthNotesTextView: PlaceholderTextView!
+    @IBOutlet weak var plantHealthBar: UIView!
+    @IBOutlet weak var poorHealthLabel: UILabel!
+    @IBOutlet weak var excellantHealthLabel: UILabel!
+    @IBOutlet weak var plantHealthBarTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var plantImageButton: UIButton!
+    @IBOutlet weak var plantImageButtonHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
 

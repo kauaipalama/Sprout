@@ -40,17 +40,17 @@ class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
         //        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
     }
     
-    // MARK: - Outlets
-    
-    @IBOutlet weak var plantPhotoDetail: UIImageView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    
     // MARK: - Delegate Functions
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
         return plantPhotoDetail
     }
     
+    // MARK: - Outlets
+    
+    @IBOutlet weak var plantPhotoDetail: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+
     // MARK: - Property
     
     var plantPhoto: UIImage?

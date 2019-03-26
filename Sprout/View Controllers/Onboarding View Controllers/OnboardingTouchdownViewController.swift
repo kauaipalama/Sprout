@@ -10,6 +10,8 @@ import UIKit
 
 class OnboardingTouchdownViewController: UIViewController {
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -27,13 +29,7 @@ class OnboardingTouchdownViewController: UIViewController {
         return true
     }
     
-    @IBOutlet weak var secondMaskView: UIView!
-    @IBOutlet weak var firstMaskView: UIView!
-    @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var firstMaskWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var sproutLabel: UILabel!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var logoImageViewCenterYConstraint: NSLayoutConstraint!
+    // MARK: Views
     
     func setupViews() {
         firstMaskView.backgroundColor = SproutTheme.current.backgroundColor
@@ -79,11 +75,24 @@ class OnboardingTouchdownViewController: UIViewController {
         }
     }
     
+    // MARK: - Navigation
     
     func popToNavigationStack() {
         print("POP! hehe")
         self.performSegue(withIdentifier: "toNavigationStack", sender: nil)
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var secondMaskView: UIView!
+    @IBOutlet weak var firstMaskView: UIView!
+    @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var firstMaskWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sproutLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageViewCenterYConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
     
     var darkModeIsEnabled: Bool = SproutPreferencesController.shared.darkModeBool
     

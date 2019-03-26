@@ -10,6 +10,8 @@ import UIKit
 
 class FarewellViewController: UIViewController {
     
+    // MARK - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -18,6 +20,8 @@ class FarewellViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    // MARK: - Views
     
     func setupViews() {
         setNavigationControllerColors()
@@ -44,6 +48,8 @@ class FarewellViewController: UIViewController {
         }
     }
     
+    // MARK: - Actions
+    
     @IBAction func doneButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()
         UIView.animate(withDuration: 0.75, animations: {
@@ -60,6 +66,8 @@ class FarewellViewController: UIViewController {
             }
         }
     }
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var messageLabel: UILabel!

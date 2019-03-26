@@ -949,10 +949,10 @@
     <resources>
         <image name="icons8-menu-24" width="54" height="54"/>
         <image name="plantTypeDetail" width="750" height="1300"/>
-        <image name="tableview" width="750" height="1300"/>
+        <image name="tableview" width="375" height="650"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Ves-9e-qUQ"/>
+        <segue reference="79c-9Q-X19"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.40000000000000002" green="0.62352941176470589" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

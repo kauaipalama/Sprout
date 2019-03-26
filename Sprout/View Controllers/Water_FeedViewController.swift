@@ -21,14 +21,8 @@ class Water_FeedViewController: ShiftableViewController {
         super.viewDidLoad()
         setupViews()
         updateViews()
-        
-        if day?.plantRecord?.conductivity == nil && day?.plantRecord?.ph == nil && day?.plantRecord?.volume == nil {
-            self.navigationItem.rightBarButtonItem?.isEnabled = false
-            self.navigationItem.rightBarButtonItem?.tintColor = .clear
-        }
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,13 +107,14 @@ class Water_FeedViewController: ShiftableViewController {
             ph = day.plantRecord?.ph
             volume = day.plantRecord?.volume
         }
-    }
-    
-    func clearPlaceholderText() {
-        if !water_FeedNotesTextView.text.isEmpty {
-            water_FeedNotesTextView.placeholder = ""
+        
+        if day?.plantRecord?.conductivity == nil && day?.plantRecord?.ph == nil && day?.plantRecord?.volume == nil {
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
+            self.navigationItem.rightBarButtonItem?.tintColor = .clear
         }
     }
+    
+    // MARK: - TextField Delegate Methods
     
     override func textFieldDidBeginEditing(_ textField: UITextField) {
         print("did begin editing")
@@ -165,12 +160,7 @@ class Water_FeedViewController: ShiftableViewController {
         }
     }
     
-    @objc func doneButtonTapped() {
-        conductivityTextField.resignFirstResponder()
-        phTextField.resignFirstResponder()
-        volumeTextField.resignFirstResponder()
-        water_FeedNotesTextView.resignFirstResponder()
-    }
+    // MARK: - Notification Center
     
     @objc func keyboardWillChangeFrame(notification: Notification) {
         print("Keyboard did change frame")
@@ -180,8 +170,6 @@ class Water_FeedViewController: ShiftableViewController {
         if let animationDuration = notification.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double {
             keyboardAnimationDuration = animationDuration
         }
-        
-        
         
         if let keyboardRect = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect,
             keyboardRect.height != 0 {
@@ -225,15 +213,13 @@ class Water_FeedViewController: ShiftableViewController {
         }
     }
     
-    // MARK: - Outlets
+    // MARK: - Helper Methods
     
-    @IBOutlet weak var conductivityTextField: UITextField!
-    @IBOutlet weak var phTextField: UITextField!
-    @IBOutlet weak var volumeTextField: UITextField!
-    @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
-    @IBOutlet weak var water_FeedNotesTextViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var water_FeedNotesTextViewBottomConstraint: NSLayoutConstraint!
-    
+    func clearPlaceholderText() {
+        if !water_FeedNotesTextView.text.isEmpty {
+            water_FeedNotesTextView.placeholder = ""
+        }
+    }
     
     // MARK: - Actions
     
@@ -246,8 +232,6 @@ class Water_FeedViewController: ShiftableViewController {
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             present(alert, animated:  true, completion: nil)
         }
-        
-        
         //Take constants which represent "temp" strings, outside the scope of this function.
         //BUG: Cannot update water_feedVC
         //Going to let it pass for now. Bug is very hard to replicate.
@@ -271,6 +255,21 @@ class Water_FeedViewController: ShiftableViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func doneButtonTapped() {
+        conductivityTextField.resignFirstResponder()
+        phTextField.resignFirstResponder()
+        volumeTextField.resignFirstResponder()
+        water_FeedNotesTextView.resignFirstResponder()
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var conductivityTextField: UITextField!
+    @IBOutlet weak var phTextField: UITextField!
+    @IBOutlet weak var volumeTextField: UITextField!
+    @IBOutlet weak var water_FeedNotesTextView: PlaceholderTextView!
+    @IBOutlet weak var water_FeedNotesTextViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var water_FeedNotesTextViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     
@@ -284,7 +283,4 @@ class Water_FeedViewController: ShiftableViewController {
     var tempConductivityString: String?
     var tempPhString: String?
     var tempVolumeString: String?
-    
-    // MARK: - Notification Center
-    
 }

@@ -54,6 +54,9 @@ class PermissionsViewController: UIViewController {
     func setupMessage() {
         messageLabel.textColor = SproutTheme.current.textColor
     }
+    
+    // MARK: - Actions
+    
     @IBAction func permissionsButtonTapped(_ sender: Any) {
         
         let alert = UIAlertController(title: "Camera / Photo Library", message: "\nSprout will use your Camera to capture an image as part of a Plant Record.\n\nYou may also choose to use an image from your Photo Library as part of a Plant Record.", preferredStyle: .alert)

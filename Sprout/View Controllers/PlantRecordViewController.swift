@@ -52,8 +52,6 @@ class PlantRecordViewController: UIViewController {
         plantHealth.backgroundColor = SproutTheme.current.plantHealthButtonColor
         plantHealthBackslash.textColor = SproutTheme.current.textColor
         
-
-        
         water_FeedNotes.layer.cornerRadius = 6
         water_FeedNotes.backgroundColor = SproutTheme.current.textFieldBackgroundColor
         plantHealthNotes.layer.cornerRadius = 6

@@ -95,11 +95,13 @@ class WelcomeScreenViewController: UIViewController {
         }
     }
     
-    // MARK: - Outlets
+    // MARK: - Actions
     
     @IBAction func skipButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()
     }
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var welcomeLabel: UILabel!

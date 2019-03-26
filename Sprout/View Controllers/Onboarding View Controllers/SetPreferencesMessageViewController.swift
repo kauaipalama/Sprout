@@ -49,6 +49,8 @@ class SetPreferencesMessageViewController: UIViewController {
         setNavigationControllerColors()
     }
     
+    // MARK: - Actions
+    
     @IBAction func skipButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()
     }

@@ -68,6 +68,9 @@ class Onboarding1ViewController: UIViewController {
         }, completion: nil)
         //Add completion and set button enabled to true here to avoid "double stacking"
     }
+    
+    // MARK: - Actions
+    
     @IBAction func skipButtonTapped(_ sender: Any) {
         RootNavigationManager.shared.setLaunchStatus()
     }

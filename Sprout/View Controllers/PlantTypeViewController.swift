@@ -14,6 +14,8 @@ import UIKit
 
 class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
+    // MARK: - Life Cycle
+    
     override func viewWillAppear(_ animated: Bool) {
         setupFinalView()
         tableview.reloadData()
@@ -34,6 +36,7 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         return false
     }
     
+    // MARK: - Views
     
     func setupInitialView() {
         self.view.sendSubviewToBack(blurView)
@@ -92,6 +95,8 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
 
     }
     
+    // MARK: - Tableview Cell Actions
+    
     func deleteAction(at indexPath: IndexPath) -> UIContextualAction {
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, completion) in
             let plantTypeToDelete = PlantTypeController.shared.plantTypes[indexPath.row]
@@ -130,6 +135,8 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         }
         return action
     }
+    
+    // MARK: - Tableview Delegate Methods
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -173,23 +180,7 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPlantTypeDetailVC",
-            let indexPath = tableview.indexPathForSelectedRow {
-            let plantType = PlantTypeController.shared.plantTypes[indexPath.row]
-            let plantTypeDetailVC = segue.destination as? PlantTypeDetailViewController
-            plantTypeDetailVC?.plantType = plantType
-        }
-    }
-    
-    @IBOutlet weak var tableview: UITableView!
-    @IBOutlet weak var menuView: UIView!
-    @IBOutlet weak var menuViewTopConstraint: NSLayoutConstraint!
-    @IBOutlet weak var blurView: UIVisualEffectView!
-    @IBOutlet weak var menuPreferencesButton: UIButton!
-    @IBOutlet weak var menuHelpButton: UIButton!
+    // MARK: - Actions
     
     @IBAction func menuButtonTapped(_ sender: Any) {
         if menuIsOpen == false {
@@ -224,6 +215,28 @@ class PlantTypeViewController: UIViewController, UITableViewDataSource, UITableV
         alert.addAction(save)
         present(alert, animated: true, completion: nil)
     }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPlantTypeDetailVC",
+            let indexPath = tableview.indexPathForSelectedRow {
+            let plantType = PlantTypeController.shared.plantTypes[indexPath.row]
+            let plantTypeDetailVC = segue.destination as? PlantTypeDetailViewController
+            plantTypeDetailVC?.plantType = plantType
+        }
+    }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var tableview: UITableView!
+    @IBOutlet weak var menuView: UIView!
+    @IBOutlet weak var menuViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurView: UIVisualEffectView!
+    @IBOutlet weak var menuPreferencesButton: UIButton!
+    @IBOutlet weak var menuHelpButton: UIButton!
+    
+    // MARK: - Properties
     
     var menuIsOpen: Bool = false
     var shownIndexes: [IndexPath] = []

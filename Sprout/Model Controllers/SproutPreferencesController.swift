@@ -11,12 +11,40 @@ import Foundation
 
 class SproutPreferencesController {
     
-    static let shared = SproutPreferencesController()
+    
+    // MARK: - Initializer
     
     init() {
         loadFromUserDefaults()
     }
     
+    // MARK: - Persistance
+    
+    private func fileURL() -> URL {
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        let fileName = "sprout.json"
+        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
+        return documentsDirectoryURL
+    }
+    
+    func saveToUserDefaults() {
+        defaults.set([conductivityUnitString, volumeUnitString], forKey: "UnitPreferences")
+        defaults.set(darkModeBool, forKey: "ThemePreference")
+    }
+    
+    func loadFromUserDefaults() {
+        let unitPreferences = defaults.object(forKey: "UnitPreferences") as? [String] ?? defaultPreferences
+        let themePreference = defaults.object(forKey: "ThemePreference") as? Bool ?? defaultDarkModeBool
+        self.conductivityUnitString = unitPreferences[0]
+        self.volumeUnitString = unitPreferences[1]
+        self.darkModeBool = themePreference
+    }
+    
+    
+    // MARK: - Properties
+    
+    static let shared = SproutPreferencesController()
+    let defaults = UserDefaults.standard
     let defaultPreferences = ["PPM", "Gallons"]
     let defaultDarkModeBool = false
     
@@ -31,34 +59,10 @@ class SproutPreferencesController {
             saveToUserDefaults()
         }
     }
-
+    
     var darkModeBool: Bool = false {
         didSet {
             saveToUserDefaults()
         }
-    }
-    
-    private func fileURL() -> URL {
-        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let fileName = "sprout.json"
-        let documentsDirectoryURL = urls[0].appendingPathComponent(fileName)
-        return documentsDirectoryURL
-    }
-    
-    let defaults = UserDefaults.standard
-    
-    //Save
-    func saveToUserDefaults() {
-        defaults.set([conductivityUnitString, volumeUnitString], forKey: "UnitPreferences")
-        defaults.set(darkModeBool, forKey: "ThemePreference")
-    }
-    
-    //Load
-    func loadFromUserDefaults() {
-        let unitPreferences = defaults.object(forKey: "UnitPreferences") as? [String] ?? defaultPreferences
-        let themePreference = defaults.object(forKey: "ThemePreference") as? Bool ?? defaultDarkModeBool
-        self.conductivityUnitString = unitPreferences[0]
-        self.volumeUnitString = unitPreferences[1]
-        self.darkModeBool = themePreference
     }
 }

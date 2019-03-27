@@ -10,6 +10,8 @@ import UIKit
 
 class SplashScreenViewController: UIViewController {
     
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -27,13 +29,7 @@ class SplashScreenViewController: UIViewController {
         return true
     }
     
-    @IBOutlet weak var secondMaskView: UIView!
-    @IBOutlet weak var firstMaskView: UIView!
-    @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var firstMaskWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var sproutLabel: UILabel!
-    @IBOutlet weak var logoImageView: UIImageView!
-    @IBOutlet weak var logoImageViewCenterYConstraint: NSLayoutConstraint!
+    // MARK: - Views
     
     func animateGraphic() {
         let newCenterYConstraint = NSLayoutConstraint(item: logoImageView, attribute: .centerY, relatedBy: .equal, toItem: self.view.superview, attribute: .centerY, multiplier: 0.92, constant: 0)
@@ -72,12 +68,24 @@ class SplashScreenViewController: UIViewController {
         }
     }
     
-    
+    // MARK: - Navigation
     
     func popToNavigationStack() {
         print("POP! hehe")
         self.performSegue(withIdentifier: "toNavigationStack", sender: nil)
     }
+    
+    // MARK: - Outlets
+    
+    @IBOutlet weak var secondMaskView: UIView!
+    @IBOutlet weak var firstMaskView: UIView!
+    @IBOutlet weak var secondMaskHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var firstMaskWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sproutLabel: UILabel!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var logoImageViewCenterYConstraint: NSLayoutConstraint!
+    
+    // MARK: - Properties
     
     var darkModeIsEnabled: Bool = SproutPreferencesController.shared.darkModeBool
     

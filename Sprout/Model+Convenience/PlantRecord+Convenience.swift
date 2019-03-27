@@ -25,6 +25,8 @@ extension PlantRecord {
         self.days = days
     }
     
+    // MOVE THIS HELPER FUCTION AND COMPUTED PROPERTIES INTO THEIR OWN FILES. Use a struct possibly.
+    
     // MARK: - Helper Function
     //Helps to convert a float to a "pretty" string. Checks to see if the property is nil, if so, the function returns a not applicable string. Removes the zero at the end of whole numbers by using a Int initializer after checking if float is equal to itself rounded to the nearest whole number. If they are not equal, the statement returns a direct string interpolation of the float property.
     

@@ -5,12 +5,6 @@
 //  Created by Kainoa Palama on 4/19/18.
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
-//When view loads, scroll the textView(s) down and up once.
-//Needs redesign
-//For dark theme use a off white yellowish type of color for the textViews
-
-//Need to switch theme colors for plant health buttons. Make darker buttons correspond with light mode and vice versa
-//Change text of buttons with theme switching
 
 import UIKit
 

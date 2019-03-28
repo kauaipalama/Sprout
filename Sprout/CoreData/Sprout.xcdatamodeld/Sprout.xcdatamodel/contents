@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Day" representedClassName="Day" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="plantRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantRecord" inverseName="days" inverseEntity="PlantRecord" syncable="YES"/>
+        <relationship name="plantType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PlantType" inverseName="days" inverseEntity="PlantType" syncable="YES"/>
+    </entity>
+    <entity name="PlantRecord" representedClassName="PlantRecord" syncable="YES" codeGenerationType="class">
+        <attribute name="conductivity" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="ph" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="plantHealth" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="plantHealthNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="plantImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="volume" optional="YES" attributeType="Float" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="water_feedNotes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="days" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Day" inverseName="plantRecord" inverseEntity="Day" syncable="YES"/>
+    </entity>
+    <entity name="PlantType" representedClassName="PlantType" syncable="YES" codeGenerationType="class">
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="days" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Day" inverseName="plantType" inverseEntity="Day" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Day" positionX="-549" positionY="54" width="128" height="88"/>
+        <element name="PlantRecord" positionX="-342" positionY="-61" width="128" height="165"/>
+        <element name="PlantType" positionX="-792" positionY="54" width="128" height="73"/>
+    </elements>
+</model>

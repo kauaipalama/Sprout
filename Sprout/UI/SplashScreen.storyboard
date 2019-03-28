@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ewa-Ky-dbw">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Splash Screen View Controller-->
+        <scene sceneID="Oaj-Nq-mhg">
+            <objects>
+                <viewController storyboardIdentifier="splashScreen" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="Ewa-Ky-dbw" customClass="SplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xba-77-IwN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="qlY-9i-RZl">
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="qlY-9i-RZl" secondAttribute="height" multiplier="1:1" id="7RY-J0-o4x"/>
+                                    <constraint firstAttribute="height" constant="97" id="qiT-TF-2L6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SPROUT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W3u-OW-m4Q">
+                                <rect key="frame" x="139" y="382" width="97" height="32.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.666666666666686" id="vAQ-77-P5J"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniSvtyTwoOSITCTT-Book" family="Bodoni 72 Oldstyle" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kze-kM-94s" userLabel="firstMask">
+                                <rect key="frame" x="139.5" y="382" width="80" height="32.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="yty-IS-8XN"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o66-Tp-dng" userLabel="secondMask">
+                                <rect key="frame" x="219.5" y="382" width="16.5" height="33"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="33" id="XPe-3w-dOX"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o66-Tp-dng" firstAttribute="top" secondItem="W3u-OW-m4Q" secondAttribute="top" id="1cw-ee-jHr"/>
+                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="centerX" secondItem="i06-jE-cZ9" secondAttribute="centerX" id="9Uq-62-ElZ"/>
+                            <constraint firstItem="kze-kM-94s" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" constant="-16.600000000000001" id="AER-7E-S46"/>
+                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="trailing" secondItem="qlY-9i-RZl" secondAttribute="trailing" id="Pon-Q0-gM1"/>
+                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerY" secondItem="Xba-77-IwN" secondAttribute="centerY" id="WUK-KV-P5P"/>
+                            <constraint firstItem="o66-Tp-dng" firstAttribute="trailing" secondItem="W3u-OW-m4Q" secondAttribute="trailing" id="aJY-ln-Pl9"/>
+                            <constraint firstItem="kze-kM-94s" firstAttribute="top" secondItem="W3u-OW-m4Q" secondAttribute="top" id="de5-sc-4Vf"/>
+                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="top" secondItem="qlY-9i-RZl" secondAttribute="bottom" id="kOP-oO-MQC"/>
+                            <constraint firstItem="o66-Tp-dng" firstAttribute="leading" secondItem="kze-kM-94s" secondAttribute="trailing" id="mo5-Xt-caT"/>
+                            <constraint firstItem="W3u-OW-m4Q" firstAttribute="leading" secondItem="qlY-9i-RZl" secondAttribute="leading" id="nz6-zP-iKR"/>
+                            <constraint firstItem="kze-kM-94s" firstAttribute="bottom" secondItem="W3u-OW-m4Q" secondAttribute="bottom" id="t2o-hg-x3l"/>
+                            <constraint firstItem="qlY-9i-RZl" firstAttribute="centerX" secondItem="i06-jE-cZ9" secondAttribute="centerX" id="uYF-1V-nhM"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="i06-jE-cZ9"/>
+                    </view>
+                    <connections>
+                        <outlet property="firstMaskView" destination="kze-kM-94s" id="Mpk-LW-Sws"/>
+                        <outlet property="firstMaskWidthConstraint" destination="yty-IS-8XN" id="qgE-7d-oHc"/>
+                        <outlet property="logoImageView" destination="qlY-9i-RZl" id="NOq-j5-RlS"/>
+                        <outlet property="logoImageViewCenterYConstraint" destination="uYF-1V-nhM" id="k56-k5-qfB"/>
+                        <outlet property="secondMaskHeightConstraint" destination="XPe-3w-dOX" id="xGH-W2-zkp"/>
+                        <outlet property="secondMaskView" destination="o66-Tp-dng" id="saa-ps-PYW"/>
+                        <outlet property="sproutLabel" destination="W3u-OW-m4Q" id="Q1A-6G-szM"/>
+                        <segue destination="Ga9-LW-A3F" kind="presentation" identifier="toNavigationStack" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="JX2-Nj-GhO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3lv-M8-f8J" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="-1754"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="Y9j-Xw-oDB">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Ga9-LW-A3F" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CSb-GG-fif" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="227" y="-1739"/>
+        </scene>
+        <!--Onboarding Splash Screen View Controller-->
+        <scene sceneID="pN3-y8-Iaf">
+            <objects>
+                <viewController storyboardIdentifier="onboardingSplashScreen" extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overFullScreen" id="TGR-M3-4Jm" customClass="OnboardingSplashScreenViewController" customModule="Sprout" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X8m-lK-nZx">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="mTt-8a-enu">
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="mTt-8a-enu" secondAttribute="height" multiplier="1:1" id="eiz-z8-AbH"/>
+                                    <constraint firstAttribute="height" constant="97" id="rH3-cO-Qot"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerX" secondItem="3VC-Gf-bU5" secondAttribute="centerX" id="Gzl-I3-dsO"/>
+                            <constraint firstItem="mTt-8a-enu" firstAttribute="centerY" secondItem="X8m-lK-nZx" secondAttribute="centerY" id="TPA-sE-xcl"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="3VC-Gf-bU5"/>
+                    </view>
+                    <connections>
+                        <outlet property="logoImageView" destination="mTt-8a-enu" id="otC-49-Ssb"/>
+                        <segue destination="hT5-L8-I07" kind="presentation" identifier="toOnboardingWelcome" animates="NO" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="8Lt-0Y-Pv0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KA4-v4-4ea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-542" y="-2650"/>
+        </scene>
+        <!--Onboarding-->
+        <scene sceneID="U2y-gK-o08">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Onboarding" id="hT5-L8-I07" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ouO-6s-pXo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="684" y="-2762"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchScreen" width="1536" height="1536"/>
+    </resources>
+</document>

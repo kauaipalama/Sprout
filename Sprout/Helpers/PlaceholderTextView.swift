@@ -29,6 +29,7 @@ class PlaceholderTextView: UITextView {
     @IBInspectable
     var placeHolderColor: UIColor =  UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0){
         didSet{
+            placeHolderColor = SproutTheme.current.accentColor
             updateView()
         }
     }
@@ -36,7 +37,7 @@ class PlaceholderTextView: UITextView {
     
     
     @IBInspectable
-    var placeholderFont: UIFont = UIFont(name: "HelveticaNeue", size: 18)!{
+    var placeholderFont: UIFont = UIFont(name: "HelveticaNeue", size: 22)!{
         didSet{
             updateView()
         }
@@ -74,13 +75,13 @@ class PlaceholderTextView: UITextView {
     
     deinit{
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidBeginEditing,
+                                                  name: UITextView.textDidBeginEditingNotification,
                                                   object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidChange,
+                                                  name: UITextView.textDidChangeNotification,
                                                   object: nil)
         NotificationCenter.default.removeObserver(self,
-                                                  name: NSNotification.Name.UITextViewTextDidEndEditing,
+                                                  name: UITextView.textDidEndEditingNotification,
                                                   object: nil)
     }
     
@@ -108,15 +109,15 @@ class PlaceholderTextView: UITextView {
     fileprivate func observeTextViewChanges() {
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidBeginEditing),
-                                               name: NSNotification.Name.UITextViewTextDidBeginEditing,
+                                               name: UITextView.textDidBeginEditingNotification,
                                                object: self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidChange),
-                                               name: NSNotification.Name.UITextViewTextDidChange,
+                                               name: UITextView.textDidChangeNotification,
                                                object: self)
         NotificationCenter.default.addObserver(self,
                                                selector: #selector(textDidEndEditing),
-                                               name: NSNotification.Name.UITextViewTextDidEndEditing,
+                                               name: UITextView.textDidEndEditingNotification,
                                                object: self)
     }
     

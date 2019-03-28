@@ -21,17 +21,19 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>We will use your Camera to take pictures for Plant Records</string>
+	<string> Sprout will use your Camera to capture an image as part of a Plant Record.  Images captured with the Camera will never be shared nor will they be copied to your Photo Library.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>We will use your Photos to display images for Plant Records</string>
+	<string> Sprout will use an image from your Photo Library as part of a Plant Record.  Images selected from your Photo Library will never be shared.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>SplashScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarHidden</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -43,5 +45,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<true/>
 </dict>
 </plist>

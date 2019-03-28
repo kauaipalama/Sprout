@@ -48,6 +48,7 @@ class PlantTypeController {
     func delete(plantType: PlantType){
         let moc = plantType.managedObjectContext
         moc?.delete(plantType)
+        saveToPersistantStore()
     }
     
     // MARK: - Persistence

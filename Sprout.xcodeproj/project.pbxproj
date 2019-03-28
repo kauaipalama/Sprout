@@ -15,21 +15,46 @@
 		B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA2282087AB8A00423A70 /* CoreDataStack.swift */; };
 		B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */; };
 		B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40EA22F2087B80700423A70 /* PlantRecordController.swift */; };
-		B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */; };
+		B422CA832221048D002FD3DD /* AttachmentHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B422CA822221048D002FD3DD /* AttachmentHelper.swift */; };
+		B429C18921FEBC000096450F /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B429C18821FEBC000096450F /* SplashScreen.storyboard */; };
+		B446E1A52190FA85007F4C71 /* SproutTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A42190FA85007F4C71 /* SproutTheme.swift */; };
+		B446E1A72193C4D4007F4C71 /* PlantTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */; };
+		B446E1A92193D130007F4C71 /* SproutColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1A82193D130007F4C71 /* SproutColors.swift */; };
+		B446E1AB2193D7A8007F4C71 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B446E1AA2193D7A8007F4C71 /* PreferencesViewController.swift */; };
+		B4517544219CBDE8000AD0DB /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517543219CBDE8000AD0DB /* Theme.swift */; };
+		B4517546219CBF3F000AD0DB /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517545219CBF3F000AD0DB /* DarkTheme.swift */; };
+		B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4517547219CBF56000AD0DB /* LightTheme.swift */; };
+		B451754B21A4CDC6000AD0DB /* UINavigationControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B451754A21A4CDC6000AD0DB /* UINavigationControllerExtension.swift */; };
 		B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */; };
 		B456D6412089A4A200489F23 /* Water_FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6402089A4A200489F23 /* Water_FeedViewController.swift */; };
 		B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6422089A4B000489F23 /* PlantHealthViewController.swift */; };
 		B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6442089A67900489F23 /* PlantRecordViewController.swift */; };
 		B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B456D6462089A70500489F23 /* PhotoDetailViewController.swift */; };
 		B4600881209BAC560053FF82 /* ShiftableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4600880209BAC560053FF82 /* ShiftableViewController.swift */; };
+		B46D7292221A04890030D133 /* OnboardingTouchdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B46D7291221A04890030D133 /* OnboardingTouchdownViewController.swift */; };
+		B48033242246F3A900F688C8 /* RootNavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B48033232246F3A900F688C8 /* RootNavigationManager.swift */; };
+		B492A2A121F5AD9900698DFA /* SplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B492A2A021F5AD9900698DFA /* SplashScreenViewController.swift */; };
 		B4A6FE4D209A4BF800FB2351 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */; };
 		B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AA20472084F2A000707DF6 /* AppDelegate.swift */; };
 		B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA204B2084F2A000707DF6 /* Main.storyboard */; };
 		B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4AA204E2084F2A000707DF6 /* Sprout.xcdatamodeld */; };
 		B4AA20522084F2A400707DF6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4AA20512084F2A400707DF6 /* Assets.xcassets */; };
 		B4AA20552084F2A400707DF6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */; };
+		B4AAEFDD221360D10047B04B /* SetPreferencesMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AAEFDC221360D10047B04B /* SetPreferencesMessageViewController.swift */; };
+		B4AAEFDF221387520047B04B /* Onboarding4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AAEFDE221387520047B04B /* Onboarding4ViewController.swift */; };
+		B4AF061C2197C83700CF0ECF /* SproutPreferencesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4AF061B2197C83700CF0ECF /* SproutPreferencesController.swift */; };
 		B4B99422208FD57F00484298 /* Day+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B99421208FD57F00484298 /* Day+Convenience.swift */; };
 		B4B99426208FD66A00484298 /* DayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B99425208FD66A00484298 /* DayController.swift */; };
+		B4DACAF3220288EE0058299A /* Onboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4DACAF2220288EE0058299A /* Onboarding.storyboard */; };
+		B4DACAF522028F480058299A /* WelcomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACAF422028F480058299A /* WelcomeScreenViewController.swift */; };
+		B4DACAF922028F830058299A /* PermissionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACAF822028F830058299A /* PermissionsViewController.swift */; };
+		B4DACAFB2202900D0058299A /* FarewellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACAFA2202900D0058299A /* FarewellViewController.swift */; };
+		B4DACB062203A6490058299A /* Onboarding1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACB052203A6490058299A /* Onboarding1ViewController.swift */; };
+		B4DACB082203A6570058299A /* Onboarding2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACB072203A6570058299A /* Onboarding2ViewController.swift */; };
+		B4DACB0A2203A65F0058299A /* Onboarding3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACB092203A65F0058299A /* Onboarding3ViewController.swift */; };
+		B4DACB0C2203ED3B0058299A /* OnboardingPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACB0B2203ED3B0058299A /* OnboardingPreferencesViewController.swift */; };
+		B4DACB0E220407850058299A /* OnboardingSplashScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4DACB0D220407850058299A /* OnboardingSplashScreenViewController.swift */; };
+		B4E3F5BF21F2866300F359F2 /* DynamicStringLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E3F5BE21F2866300F359F2 /* DynamicStringLabelTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,13 +66,25 @@
 		B40EA2282087AB8A00423A70 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeController.swift; sourceTree = "<group>"; };
 		B40EA22F2087B80700423A70 /* PlantRecordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordController.swift; sourceTree = "<group>"; };
-		B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeTableViewController.swift; sourceTree = "<group>"; };
+		B422CA822221048D002FD3DD /* AttachmentHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentHelper.swift; sourceTree = "<group>"; };
+		B429C18821FEBC000096450F /* SplashScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SplashScreen.storyboard; sourceTree = "<group>"; };
+		B446E1A42190FA85007F4C71 /* SproutTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutTheme.swift; sourceTree = "<group>"; };
+		B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeViewController.swift; sourceTree = "<group>"; };
+		B446E1A82193D130007F4C71 /* SproutColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutColors.swift; sourceTree = "<group>"; };
+		B446E1AA2193D7A8007F4C71 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		B4517543219CBDE8000AD0DB /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		B4517545219CBF3F000AD0DB /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
+		B4517547219CBF56000AD0DB /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		B451754A21A4CDC6000AD0DB /* UINavigationControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UINavigationControllerExtension.swift; sourceTree = "<group>"; };
 		B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantTypeDetailViewController.swift; sourceTree = "<group>"; };
 		B456D6402089A4A200489F23 /* Water_FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Water_FeedViewController.swift; sourceTree = "<group>"; };
 		B456D6422089A4B000489F23 /* PlantHealthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantHealthViewController.swift; sourceTree = "<group>"; };
 		B456D6442089A67900489F23 /* PlantRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantRecordViewController.swift; sourceTree = "<group>"; };
 		B456D6462089A70500489F23 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		B4600880209BAC560053FF82 /* ShiftableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiftableViewController.swift; sourceTree = "<group>"; };
+		B46D7291221A04890030D133 /* OnboardingTouchdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTouchdownViewController.swift; sourceTree = "<group>"; };
+		B48033232246F3A900F688C8 /* RootNavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootNavigationManager.swift; sourceTree = "<group>"; };
+		B492A2A021F5AD9900698DFA /* SplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenViewController.swift; sourceTree = "<group>"; };
 		B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		B4AA20442084F2A000707DF6 /* Sprout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sprout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4AA20472084F2A000707DF6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -56,8 +93,21 @@
 		B4AA20512084F2A400707DF6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B4AA20542084F2A400707DF6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B4AA20562084F2A400707DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4AAEFDC221360D10047B04B /* SetPreferencesMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPreferencesMessageViewController.swift; sourceTree = "<group>"; };
+		B4AAEFDE221387520047B04B /* Onboarding4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding4ViewController.swift; sourceTree = "<group>"; };
+		B4AF061B2197C83700CF0ECF /* SproutPreferencesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SproutPreferencesController.swift; sourceTree = "<group>"; };
 		B4B99421208FD57F00484298 /* Day+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Day+Convenience.swift"; sourceTree = "<group>"; };
 		B4B99425208FD66A00484298 /* DayController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayController.swift; sourceTree = "<group>"; };
+		B4DACAF2220288EE0058299A /* Onboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Onboarding.storyboard; sourceTree = "<group>"; };
+		B4DACAF422028F480058299A /* WelcomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeScreenViewController.swift; sourceTree = "<group>"; };
+		B4DACAF822028F830058299A /* PermissionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsViewController.swift; sourceTree = "<group>"; };
+		B4DACAFA2202900D0058299A /* FarewellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FarewellViewController.swift; sourceTree = "<group>"; };
+		B4DACB052203A6490058299A /* Onboarding1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding1ViewController.swift; sourceTree = "<group>"; };
+		B4DACB072203A6570058299A /* Onboarding2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding2ViewController.swift; sourceTree = "<group>"; };
+		B4DACB092203A65F0058299A /* Onboarding3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding3ViewController.swift; sourceTree = "<group>"; };
+		B4DACB0B2203ED3B0058299A /* OnboardingPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPreferencesViewController.swift; sourceTree = "<group>"; };
+		B4DACB0D220407850058299A /* OnboardingSplashScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSplashScreenViewController.swift; sourceTree = "<group>"; };
+		B4E3F5BE21F2866300F359F2 /* DynamicStringLabelTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStringLabelTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,13 +132,16 @@
 		B40EA21D2086A94400423A70 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				B456D63C2088290000489F23 /* PlantTypeTableViewController.swift */,
+				B492A2A021F5AD9900698DFA /* SplashScreenViewController.swift */,
+				B446E1A62193C4D4007F4C71 /* PlantTypeViewController.swift */,
+				B446E1AA2193D7A8007F4C71 /* PreferencesViewController.swift */,
 				B456D63E20890DA400489F23 /* PlantTypeDetailViewController.swift */,
 				B456D6402089A4A200489F23 /* Water_FeedViewController.swift */,
 				B456D6422089A4B000489F23 /* PlantHealthViewController.swift */,
 				B456D6462089A70500489F23 /* PhotoDetailViewController.swift */,
 				B40EA2202086A96500423A70 /* CalendarViewController.swift */,
 				B456D6442089A67900489F23 /* PlantRecordViewController.swift */,
+				B4DACAFC220290150058299A /* Onboarding View Controllers */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -99,8 +152,29 @@
 				B40EA22B2087B7DA00423A70 /* PlantTypeController.swift */,
 				B4B99425208FD66A00484298 /* DayController.swift */,
 				B40EA22F2087B80700423A70 /* PlantRecordController.swift */,
+				B4AF061B2197C83700CF0ECF /* SproutPreferencesController.swift */,
 			);
 			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		B4517549219CC8E0000AD0DB /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B446E1A82193D130007F4C71 /* SproutColors.swift */,
+				B4517543219CBDE8000AD0DB /* Theme.swift */,
+				B4517545219CBF3F000AD0DB /* DarkTheme.swift */,
+				B4517547219CBF56000AD0DB /* LightTheme.swift */,
+				B446E1A42190FA85007F4C71 /* SproutTheme.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		B451754C21A4CDCF000AD0DB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B451754A21A4CDC6000AD0DB /* UINavigationControllerExtension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		B4AA203B2084F2A000707DF6 = {
@@ -122,13 +196,15 @@
 		B4AA20462084F2A000707DF6 /* Sprout */ = {
 			isa = PBXGroup;
 			children = (
-				B4AA205C2084F5CE00707DF6 /* CoreData */,
 				B4D5A24E2180E6BC001C6BD4 /* Model+Convenience */,
 				B40EA22A2087B7A200423A70 /* Model Controllers */,
 				B40EA21D2086A94400423A70 /* View Controllers */,
 				B40EA21C2086A93C00423A70 /* Views */,
+				B4517549219CC8E0000AD0DB /* Theme */,
 				B4B9941E208F897400484298 /* Helpers */,
+				B451754C21A4CDCF000AD0DB /* Extensions */,
 				B4AA205E2084F5E900707DF6 /* UI */,
+				B4AA205C2084F5CE00707DF6 /* CoreData */,
 				B4AA205D2084F5E000707DF6 /* Resources */,
 			);
 			path = Sprout;
@@ -148,7 +224,6 @@
 			children = (
 				B4AA20472084F2A000707DF6 /* AppDelegate.swift */,
 				B4AA20512084F2A400707DF6 /* Assets.xcassets */,
-				B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */,
 				B4AA20562084F2A400707DF6 /* Info.plist */,
 			);
 			path = Resources;
@@ -159,6 +234,9 @@
 			children = (
 				B4AA204B2084F2A000707DF6 /* Main.storyboard */,
 				B40EA2222086A99D00423A70 /* Calendar+MasterDetail.storyboard */,
+				B429C18821FEBC000096450F /* SplashScreen.storyboard */,
+				B4AA20532084F2A400707DF6 /* LaunchScreen.storyboard */,
+				B4DACAF2220288EE0058299A /* Onboarding.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -168,6 +246,9 @@
 			children = (
 				B4A6FE4C209A4BF800FB2351 /* PlaceholderTextView.swift */,
 				B4600880209BAC560053FF82 /* ShiftableViewController.swift */,
+				B4E3F5BE21F2866300F359F2 /* DynamicStringLabelTextField.swift */,
+				B422CA822221048D002FD3DD /* AttachmentHelper.swift */,
+				B48033232246F3A900F688C8 /* RootNavigationManager.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -180,6 +261,24 @@
 				B4B99421208FD57F00484298 /* Day+Convenience.swift */,
 			);
 			path = "Model+Convenience";
+			sourceTree = "<group>";
+		};
+		B4DACAFC220290150058299A /* Onboarding View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B4DACB0D220407850058299A /* OnboardingSplashScreenViewController.swift */,
+				B4DACAF422028F480058299A /* WelcomeScreenViewController.swift */,
+				B4DACB052203A6490058299A /* Onboarding1ViewController.swift */,
+				B4DACB072203A6570058299A /* Onboarding2ViewController.swift */,
+				B4DACB092203A65F0058299A /* Onboarding3ViewController.swift */,
+				B4AAEFDE221387520047B04B /* Onboarding4ViewController.swift */,
+				B4AAEFDC221360D10047B04B /* SetPreferencesMessageViewController.swift */,
+				B4DACB0B2203ED3B0058299A /* OnboardingPreferencesViewController.swift */,
+				B4DACAF822028F830058299A /* PermissionsViewController.swift */,
+				B4DACAFA2202900D0058299A /* FarewellViewController.swift */,
+				B46D7291221A04890030D133 /* OnboardingTouchdownViewController.swift */,
+			);
+			path = "Onboarding View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,6 +313,7 @@
 				TargetAttributes = {
 					B4AA20432084F2A000707DF6 = {
 						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -243,6 +343,8 @@
 				B40EA2232086A99D00423A70 /* Calendar+MasterDetail.storyboard in Resources */,
 				B4AA20552084F2A400707DF6 /* LaunchScreen.storyboard in Resources */,
 				B4AA20522084F2A400707DF6 /* Assets.xcassets in Resources */,
+				B4DACAF3220288EE0058299A /* Onboarding.storyboard in Resources */,
+				B429C18921FEBC000096450F /* SplashScreen.storyboard in Resources */,
 				B4AA204D2084F2A000707DF6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,24 +356,47 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4AAEFDF221387520047B04B /* Onboarding4ViewController.swift in Sources */,
+				B46D7292221A04890030D133 /* OnboardingTouchdownViewController.swift in Sources */,
+				B4DACB0E220407850058299A /* OnboardingSplashScreenViewController.swift in Sources */,
 				B40EA2292087AB8A00423A70 /* CoreDataStack.swift in Sources */,
 				B4B99426208FD66A00484298 /* DayController.swift in Sources */,
+				B4DACAFB2202900D0058299A /* FarewellViewController.swift in Sources */,
 				B40EA22C2087B7DA00423A70 /* PlantTypeController.swift in Sources */,
 				B4A6FE4D209A4BF800FB2351 /* PlaceholderTextView.swift in Sources */,
 				B40EA2272087AB2200423A70 /* PlantRecord+Convenience.swift in Sources */,
 				B456D6472089A70500489F23 /* PhotoDetailViewController.swift in Sources */,
+				B451754B21A4CDC6000AD0DB /* UINavigationControllerExtension.swift in Sources */,
+				B48033242246F3A900F688C8 /* RootNavigationManager.swift in Sources */,
+				B4DACB082203A6570058299A /* Onboarding2ViewController.swift in Sources */,
+				B446E1A52190FA85007F4C71 /* SproutTheme.swift in Sources */,
+				B4DACAF922028F830058299A /* PermissionsViewController.swift in Sources */,
+				B492A2A121F5AD9900698DFA /* SplashScreenViewController.swift in Sources */,
+				B4E3F5BF21F2866300F359F2 /* DynamicStringLabelTextField.swift in Sources */,
+				B4AAEFDD221360D10047B04B /* SetPreferencesMessageViewController.swift in Sources */,
 				B40EA2302087B80700423A70 /* PlantRecordController.swift in Sources */,
 				B40EA2212086A96500423A70 /* CalendarViewController.swift in Sources */,
 				B4B99422208FD57F00484298 /* Day+Convenience.swift in Sources */,
+				B446E1AB2193D7A8007F4C71 /* PreferencesViewController.swift in Sources */,
 				B4600881209BAC560053FF82 /* ShiftableViewController.swift in Sources */,
+				B4DACB062203A6490058299A /* Onboarding1ViewController.swift in Sources */,
+				B4DACB0A2203A65F0058299A /* Onboarding3ViewController.swift in Sources */,
+				B446E1A72193C4D4007F4C71 /* PlantTypeViewController.swift in Sources */,
+				B446E1A92193D130007F4C71 /* SproutColors.swift in Sources */,
 				B456D6452089A67900489F23 /* PlantRecordViewController.swift in Sources */,
 				B456D6432089A4B000489F23 /* PlantHealthViewController.swift in Sources */,
 				B40EA21F2086A95A00423A70 /* CalendarCollectionViewCell.swift in Sources */,
+				B4517546219CBF3F000AD0DB /* DarkTheme.swift in Sources */,
 				B4AA20502084F2A000707DF6 /* Sprout.xcdatamodeld in Sources */,
-				B456D63D2088290000489F23 /* PlantTypeTableViewController.swift in Sources */,
+				B4DACAF522028F480058299A /* WelcomeScreenViewController.swift in Sources */,
 				B40EA2252087AB1500423A70 /* PlantType+Convenience.swift in Sources */,
+				B4AF061C2197C83700CF0ECF /* SproutPreferencesController.swift in Sources */,
+				B422CA832221048D002FD3DD /* AttachmentHelper.swift in Sources */,
+				B4517548219CBF56000AD0DB /* LightTheme.swift in Sources */,
 				B456D63F20890DA400489F23 /* PlantTypeDetailViewController.swift in Sources */,
+				B4517544219CBDE8000AD0DB /* Theme.swift in Sources */,
 				B456D6412089A4A200489F23 /* Water_FeedViewController.swift in Sources */,
+				B4DACB0C2203ED3B0058299A /* OnboardingPreferencesViewController.swift in Sources */,
 				B4AA20482084F2A000707DF6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,7 +545,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QXP9H2CH3;
 				INFOPLIST_FILE = "$(SRCROOT)/Sprout/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -428,7 +553,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KainoaPalama.Sprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -441,7 +566,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4QXP9H2CH3;
 				INFOPLIST_FILE = "$(SRCROOT)/Sprout/Resources/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -449,7 +574,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.KainoaPalama.Sprout;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

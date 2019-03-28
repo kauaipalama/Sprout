@@ -6,22 +6,50 @@
 //  Copyright © 2018 Kainoa Palama. All rights reserved.
 //
 
-//Make imageView "zoomable" with scrollview and a delegate
+//Looks good
 
 import UIKit
 
-class PhotoDetailViewController: UIViewController{
+class PhotoDetailViewController: UIViewController, UIScrollViewDelegate{
     
     // MARK: - Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        plantPhotoDetail.image = plantPhoto
+        setupViews()
     }
     
-    // MARK: - Outlet
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
+    // MARK: - Views
+    
+    func setupViews() {
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        
+        plantPhotoDetail.image = plantPhoto
+        plantPhotoDetail.isUserInteractionEnabled = true
+        scrollView.minimumZoomScale = 1.0
+        scrollView.maximumZoomScale = 6.0
+        //Make the date "pretty"
+        //        navigationItem.title = "\(day!.plantType!.type!): \(day!.date!)"
+    }
+    
+    // MARK: - Delegate Functions
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return plantPhotoDetail
+    }
+    
+    // MARK: - Outlets
     
     @IBOutlet weak var plantPhotoDetail: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
 
     // MARK: - Property
     

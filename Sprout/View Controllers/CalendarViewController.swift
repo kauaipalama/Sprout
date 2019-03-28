@@ -8,8 +8,13 @@
 
 //TODO:
 //Leap year function for numberOfDaysInMonth. ADD
+//Notes at the bottom of the calendarView that persist with the coreData model. General notes for the month. Save to coreData and fetch for month.
 //Fix the cells of the collection view from duplicating the image on frames that do not contain plantRecords. Seems to be an indexing issue. Happens when going back and forth between months. FIX (HIDDEN RIGHT NOW)
 //ALSO. Major bug only reproducable when using "old" data. Error: Index out of range. Happens when loading "days" in cellForRowAt
+//REDUCE CODE by following MVC principles. Move properties into a model file and functions into a controller file to increase modularity and readabilty.
+//Add a list view for easier viewing of records
+
+//LOOKS good. Still needs work
 import UIKit
 
 class CalendarViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -20,6 +25,18 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         super.viewDidLoad()
         navigationItem.title = "Grow Log"
         setCalendar()
+        
+        view.backgroundColor = SproutTheme.current.backgroundColor
+        headerView.backgroundColor = SproutTheme.current.backgroundColor
+        monthLabel.textColor = SproutTheme.current.textColor
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return SproutTheme.current.preferredStatusBarStyle
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
     
     // MARK: - Calendar Setup
@@ -55,11 +72,99 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         return day == 7 ? 1 : day
     }
     
+    
+    // MARK: - CollectionViewFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width/7 - 8
+        let height: CGFloat = collectionView.frame.width/7 - 8
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 8.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 8.0
+    }
+    
+    // MARK: - CollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return numberOfDaysInMonth[currentMonthIndex - 1] + firstWeekDayOfMonth - 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
+        
+        cell.backgroundColor = UIColor.clear
+        cell.layer.cornerRadius = 8
+        
+        if indexPath.item < firstWeekDayOfMonth - 1, firstWeekDayOfMonth > 1 {
+            cell.isHidden = true
+        } else {
+            //Here is the MAJOR BUG occurance due to index out of range (day). Possible indexing issue.
+            let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
+            let calcDate = indexPath.row - firstWeekDayOfMonth + 2
+            
+            cell.day = day
+            cell.dateLabel.text = "\(calcDate)"
+            cell.isHidden = false
+            cell.dateLabel.textColor = SproutTheme.current.textColor
+            
+            let plantRecord = cell.day?.plantRecord
+            if plantRecord != nil {
+                cell.dateLabel.textColor = UIColor.darkText
+                switch plantRecord?.plantHealth {
+                case 1:
+                    cell.backgroundColor = SproutTheme.current.health1Color
+                case 2:
+                    cell.backgroundColor = SproutTheme.current.health2Color
+                case 3:
+                    cell.backgroundColor = SproutTheme.current.health3Color
+                case 4:
+                    cell.backgroundColor = SproutTheme.current.health4Color
+                case 5:
+                    cell.backgroundColor = SproutTheme.current.health5Color
+                default:
+                    cell.backgroundColor = UIColor.clear
+                    cell.dateLabel.textColor = SproutTheme.current.textColor
+                }
+            }
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else {return}
+        let plantRecord = cell.day?.plantRecord
+        
+        if plantRecord != nil {
+            performSegue(withIdentifier: "toPlantRecord", sender: cell)
+        }
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toPlantRecord"{
+            guard let cell = sender as? CalendarCollectionViewCell else {return}
+            let day = cell.day
+            guard let destinationVC = segue.destination as? PlantRecordViewController else {return}
+            destinationVC.day = day
+        }
+    }
+    
     // MARK: - Outlets
     
     @IBOutlet weak var calendarCollectionView: UICollectionView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var headerView: UIView!
     
     // MARK: - Actions
     
@@ -97,103 +202,6 @@ class CalendarViewController: UIViewController, UICollectionViewDataSource, UICo
         calendarCollectionView.reloadData()
     }
     
-    // MARK: - CollectionViewFlowLayout
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = collectionView.frame.width/7 - 8
-        let height: CGFloat = 40
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 8.0
-    }
-    
-    // MARK: - CollectionViewDataSource
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfDaysInMonth[currentMonthIndex - 1] + firstWeekDayOfMonth - 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "calendarCell", for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
-        
-        cell.backgroundColor = UIColor.clear
-        cell.layer.cornerRadius = 8
-        
-        if indexPath.item < firstWeekDayOfMonth - 1, firstWeekDayOfMonth > 1 {
-            cell.isHidden = true
-        } else {
-            //Here is the MAJOR BUG occurance due to index out of range (below)
-            let day = currentMonthDays[indexPath.row - (firstWeekDayOfMonth - 1)]
-            
-            cell.day = day
-            let calcDate = indexPath.row - firstWeekDayOfMonth + 2
-            cell.isHidden = false
-            cell.dateLabel.text = "\(calcDate)"
-            if currentMonthIndex < presentMonthIndex && currentYear <= presentYear {
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.black
-            } else if calcDate < todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-                
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor = UIColor.black
-                
-            } else {
-                cell.isUserInteractionEnabled = true
-                cell.dateLabel.textColor=UIColor.black
-            }
-            
-            let plantRecord = cell.day?.plantRecord
-            if plantRecord != nil {
-                switch plantRecord?.plantHealth {
-                case 1:
-                    cell.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
-                case 2:
-                    cell.backgroundColor = #colorLiteral(red: 1, green: 0.5781051517, blue: 0, alpha: 1)
-                case 3:
-                    cell.backgroundColor = #colorLiteral(red: 0.9994240403, green: 0.9855536819, blue: 0, alpha: 1)
-                case 4:
-                    cell.backgroundColor = #colorLiteral(red: 0.8493849635, green: 1, blue: 0, alpha: 1)
-                case 5:
-                    cell.backgroundColor = #colorLiteral(red: 0, green: 0.9275812507, blue: 0.03033527173, alpha: 1)
-                default:
-                     cell.backgroundColor = UIColor.clear
-                }
-            }
-        }
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        guard let cell = collectionView.cellForItem(at: indexPath) as? CalendarCollectionViewCell else {return}
-        let plantRecord = cell.day?.plantRecord
-        
-        if plantRecord != nil && currentMonthIndex <= presentMonthIndex && currentYear <= presentYear {
-            performSegue(withIdentifier: "toPlantRecord", sender: cell)
-        } else if plantRecord != nil && indexPath.item <= todaysDate && currentYear == presentYear && currentMonthIndex == presentMonthIndex {
-            performSegue(withIdentifier: "toPlantRecord", sender: cell)
-        }
-    }
-    
-    // MARK: - Navigation
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == "toPlantRecord"{
-            guard let cell = sender as? CalendarCollectionViewCell else {return}
-            let day = cell.day
-            guard let destinationVC = segue.destination as? PlantRecordViewController else {return}
-            destinationVC.day = day
-        }
-    }
-    
     // MARK: - Properties
     
     var plantType: PlantType?
@@ -229,7 +237,18 @@ extension String {
         return formatter
     }()
     
+    static var prettyDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MMM d, yyyy"
+//        formatter.dateStyle = .full
+        return formatter
+    }()
+    
     var date: Date? {
         return String.dateFormatter.date(from: self)
+    }
+    
+    var prettyDate: Date? {
+        return String.prettyDateFormatter.date(from: self)
     }
 }

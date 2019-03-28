@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6SW-76-0wH">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="472-Fo-eId">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="6SW-76-0wH" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iKH-rS-WMc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="H0C-sc-jG6">
+                                <rect key="frame" x="139" y="285" width="97" height="97"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="H0C-sc-jG6" secondAttribute="height" multiplier="1:1" id="D1Z-2L-sRr"/>
+                                    <constraint firstAttribute="height" constant="97" id="eFC-7i-Bra"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H0C-sc-jG6" firstAttribute="centerY" secondItem="iKH-rS-WMc" secondAttribute="centerY" id="TlY-67-1Ze"/>
+                            <constraint firstItem="H0C-sc-jG6" firstAttribute="centerX" secondItem="Peb-lG-44t" secondAttribute="centerX" id="aJh-vY-0o3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Peb-lG-44t"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="llQ-bX-ikt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-541" y="-1754"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="LaunchScreen" width="1536" height="1536"/>
+    </resources>
+</document>

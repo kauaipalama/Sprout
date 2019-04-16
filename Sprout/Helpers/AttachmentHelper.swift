@@ -27,7 +27,15 @@ class AttachmentHelper: NSObject, UIImagePickerControllerDelegate, UINavigationC
                 self.requestAttachmentAuthorizationStatus(attachmentType: .photoLibrary)
             }))
         }
+        
+        if let popoverController = actionSheet.popoverPresentationController {
+            popoverController.sourceView = vc.view
+            popoverController.sourceRect = CGRect(x: vc.view.bounds.midX, y: vc.view.bounds.midY, width: 0, height: 0)
+            popoverController.permittedArrowDirections = []
+        }
+        
         vc.present(actionSheet, animated: true, completion: nil)
+        
     }
     
     func requestAttachmentAuthorizationStatus(attachmentType: AttachmentType) {
